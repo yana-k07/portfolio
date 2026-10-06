@@ -366,8 +366,8 @@ export const projects = [
           { type: "p", text: "The text input shows the idea: one component with **7 state variants** and properties for the placeholder, prefix, suffix, text, error text and cursor, instead of separate versions for each case." },
           { type: "image", src: quorsoAtomic, caption: "Atomic design in practice: small parts build the text input, one component with 7 states." },
           { type: "h3", text: "4. Patterns" },
-          { type: "p", text: "Finally, I moved on to **patterns**." },
-          { type: "p", text: draft("which patterns (forms, tables, filters…) and how they are used across both interfaces.") },
+          { type: "p", text: "Finally, I moved on to **patterns**: ready-made solutions for recurring tasks, built from QUI components. We created **16 of them**, from small pieces such as an OTP input, a date picker and loading states to larger ones like tables, filters, drawers, modals, navigation, page headers and layouts, and error pages." },
+          { type: "p", text: draft("one pattern in detail (for example the table or the filters) and how it works in both interfaces. A screenshot from Figma would fit here.") },
         ],
       },
       {
