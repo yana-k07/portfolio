@@ -14,6 +14,10 @@ import quorsoPatternHeader from "../assets/quorso/pattern-header.webp";
 import quorsoAtomic from "../assets/quorso/atomic-text-input.webp";
 import quorsoTokensBase from "../assets/quorso/tokens-base.webp";
 import quorsoTokensSemantic from "../assets/quorso/tokens-semantic.webp";
+import coverTradezella from "../assets/covers/tradezella.webp";
+import coverYetlo from "../assets/covers/yetlo.webp";
+import coverOrganizer from "../assets/covers/organizer.webp";
+import coverQuorsoDs from "../assets/covers/quorso-design-system.webp";
 import tradezellaReports from "../assets/tradezella/reports.webp";
 import tradezellaCompareBefore from "../assets/tradezella/compare-before.webp";
 import tradezellaCompareAfter from "../assets/tradezella/compare-after.webp";
@@ -61,6 +65,7 @@ export const projects = [
   {
     slug: "tradezella",
     title: "Tradezella — Redesigning 50+ trading reports",
+    cardCover: coverTradezella, // home page card
     cardTitle: "Tradezella",
     blurb: "A trading journal and analytics platform for traders.",
     summary:
@@ -171,7 +176,7 @@ export const projects = [
       { label: "Platform", value: "iOS, Android, web" },
     ],
     cover: yetloCover, // full mockup, shown on the case page
-    cardCover: yetloCardCover, // zoomed crop, shown on the home page card
+    cardCover: coverYetlo, // zoomed crop, shown on the home page card
     chapters: [
       {
         id: "context",
@@ -243,7 +248,7 @@ export const projects = [
     ],
     cover: organizerHero,
     coverNatural: true, // the hero is wider than 16:10, so show it uncropped on the case page
-    cardCover: organizerPhoneFinal,
+    cardCover: coverOrganizer,
     chapters: [
       {
         id: "context",
@@ -322,6 +327,7 @@ export const projects = [
   {
     slug: "quorso-design-system",
     title: "Quorso — Bringing order to a design system",
+    cardCover: coverQuorsoDs, // home page card
     cardTitle: "Quorso: Design system",
     blurb: "One consistent design system for two interfaces and older screens.",
     summary:

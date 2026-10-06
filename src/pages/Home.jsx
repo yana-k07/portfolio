@@ -27,7 +27,8 @@ function Hero() {
 
 const cardClass =
   "group block h-full rounded-2xl border border-border p-4 transition-colors duration-300";
-const frameClass = "h-40 w-full overflow-hidden rounded-xl bg-muted";
+// Same proportions as the cover images (2880×1888), so nothing gets cropped.
+const frameClass = "aspect-[90/59] w-full overflow-hidden rounded-xl bg-muted";
 const titleClass = "t-small mt-4 font-medium text-foreground";
 const textClass = "t-small mt-2 text-foreground/75";
 
