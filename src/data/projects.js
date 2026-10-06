@@ -10,6 +10,7 @@ import organizerCaOptions from "../assets/organizer/ca-options.webp";
 import organizerCaHint from "../assets/organizer/ca-hint.webp";
 import organizerCaError from "../assets/organizer/ca-error.webp";
 import organizerCaPreview from "../assets/organizer/ca-preview.webp";
+import quorsoAtomic from "../assets/quorso/atomic-text-input.webp";
 import quorsoTokensBase from "../assets/quorso/tokens-base.webp";
 import quorsoTokensSemantic from "../assets/quorso/tokens-semantic.webp";
 import tradezellaReports from "../assets/tradezella/reports.webp";
@@ -354,14 +355,16 @@ export const projects = [
           { type: "h3", text: "1. Component audit" },
           { type: "p", text: "I started with the components. The audit cleaned up what existed so that every screen could use our **QUI system** and stay **consistent** with the rest." },
           { type: "p", text: draft("how you ran the audit and what you found: number of components, duplicates, which screens used which library.") },
+          { type: "p", text: "The audit also covered the **colour palette**, and it showed that many colours were **outdated**. That made tokens the logical next step." },
           { type: "h3", text: "2. Tokens" },
           { type: "p", text: "Next, I introduced **colour tokens** in two layers. A **Base** collection holds 49 primitive colours: a mono scale from 0 to 1000, brand colours, red, amber, green, purple and blue, and a set of data colours." },
           { type: "image", src: quorsoTokensBase, caption: "Base collection: 49 primitive colours, here the mono scale from 0 to 1000." },
           { type: "p", text: "On top of it, 52 **semantic tokens** describe where a colour is used: background, border, button, navigation, text, status and icon. Each one points to a base colour for both the **dark and light** themes, and the names follow one pattern, such as status-error-bold-bg: group, meaning, strength and property." },
           { type: "image", src: quorsoTokensSemantic, caption: "Semantic tokens: each status token points to a base colour in dark and light mode." },
           { type: "h3", text: "3. Structuring components" },
-          { type: "p", text: "Then I **structured the components**." },
-          { type: "p", text: draft("how: naming, variants, properties, how the library is organised.") },
+          { type: "p", text: "Then I **structured the components** following **atomic design**. The smallest parts, such as text, the cursor, icons and prefix and suffix slots, are atoms. They combine into components like the text input, so a change in one place carries through everywhere that part is used." },
+          { type: "p", text: "The text input shows the idea: one component with **7 state variants** and properties for the placeholder, prefix, suffix, text, error text and cursor, instead of separate versions for each case." },
+          { type: "image", src: quorsoAtomic, caption: "Atomic design in practice: small parts build the text input, one component with 7 states." },
           { type: "h3", text: "4. Patterns" },
           { type: "p", text: "Finally, I moved on to **patterns**." },
           { type: "p", text: draft("which patterns (forms, tables, filters…) and how they are used across both interfaces.") },
