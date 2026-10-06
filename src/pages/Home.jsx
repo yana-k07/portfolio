@@ -27,6 +27,9 @@ function Hero() {
 
 const cardClass =
   "group block h-full rounded-2xl border border-border p-4 transition-colors duration-300";
+const zoom =
+  "transition-transform duration-[900ms] ease-[cubic-bezier(0.2,0.7,0.2,1)] group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100";
+
 // Same proportions as the cover images (2880×1888), so nothing gets cropped.
 const frameClass = "aspect-[90/59] w-full overflow-hidden rounded-xl bg-muted";
 const titleClass = "t-small mt-4 font-medium text-foreground";
@@ -39,11 +42,16 @@ function ProjectCard({ p }) {
       <Link to={`/projects/${p.slug}`} className={`${cardClass} hover:border-foreground/25`}>
         <div className={`${frameClass} ${cover ? "" : "grid place-items-center text-muted-foreground"}`}>
           {cover ? (
-            <Img
-              src={cover}
-              alt=""
-              className="size-full object-cover object-top transition-transform duration-[900ms] ease-[cubic-bezier(0.2,0.7,0.2,1)] group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            />
+            <>
+              <Img
+                src={cover}
+                alt=""
+                className={`size-full object-cover object-top ${zoom} ${p.cardCoverDark ? "dark:hidden" : ""}`}
+              />
+              {p.cardCoverDark && (
+                <Img src={p.cardCoverDark} alt="" className={`hidden size-full object-cover object-top ${zoom} dark:block`} />
+              )}
+            </>
           ) : (
             <span className="t-small">Images coming soon</span>
           )}

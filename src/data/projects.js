@@ -1,5 +1,6 @@
 // One entry per case. Cover images live in src/assets (same file names to swap them).
 // `cardCover` is optional: a separate crop for the home page card; without it the card uses `cover`.
+// `cardCoverDark` is optional: the same card image for the dark theme.
 import organizerHero from "../assets/organizer/hero.webp";
 import organizerPhoneBefore from "../assets/organizer/phone-before.webp";
 import organizerPhoneJourney from "../assets/organizer/phone-journey.webp";
@@ -18,6 +19,10 @@ import coverTradezella from "../assets/covers/tradezella.webp";
 import coverYetlo from "../assets/covers/yetlo.webp";
 import coverOrganizer from "../assets/covers/organizer.webp";
 import coverQuorsoDs from "../assets/covers/quorso-design-system.webp";
+import coverTradezellaDark from "../assets/covers/tradezella-dark.webp";
+import coverYetloDark from "../assets/covers/yetlo-dark.webp";
+import coverOrganizerDark from "../assets/covers/organizer-dark.webp";
+import coverQuorsoDsDark from "../assets/covers/quorso-design-system-dark.webp";
 import tradezellaReports from "../assets/tradezella/reports.webp";
 import tradezellaCompareBefore from "../assets/tradezella/compare-before.webp";
 import tradezellaCompareAfter from "../assets/tradezella/compare-after.webp";
@@ -65,7 +70,8 @@ export const projects = [
   {
     slug: "tradezella",
     title: "Tradezella — Redesigning 50+ trading reports",
-    cardCover: coverTradezella, // home page card
+    cardCover: coverTradezella,
+    cardCoverDark: coverTradezellaDark, // used on the home card in the dark theme // home page card
     cardTitle: "Tradezella",
     blurb: "A trading journal and analytics platform for traders.",
     summary:
@@ -176,7 +182,8 @@ export const projects = [
       { label: "Platform", value: "iOS, Android, web" },
     ],
     cover: yetloCover, // full mockup, shown on the case page
-    cardCover: coverYetlo, // zoomed crop, shown on the home page card
+    cardCover: coverYetlo,
+    cardCoverDark: coverYetloDark, // used on the home card in the dark theme // zoomed crop, shown on the home page card
     chapters: [
       {
         id: "context",
@@ -249,6 +256,7 @@ export const projects = [
     cover: organizerHero,
     coverNatural: true, // the hero is wider than 16:10, so show it uncropped on the case page
     cardCover: coverOrganizer,
+    cardCoverDark: coverOrganizerDark, // used on the home card in the dark theme
     chapters: [
       {
         id: "context",
@@ -327,7 +335,8 @@ export const projects = [
   {
     slug: "quorso-design-system",
     title: "Quorso — Bringing order to a design system",
-    cardCover: coverQuorsoDs, // home page card
+    cardCover: coverQuorsoDs,
+    cardCoverDark: coverQuorsoDsDark, // used on the home card in the dark theme // home page card
     cardTitle: "Quorso: Design system",
     blurb: "One consistent design system for two interfaces and older screens.",
     summary:
