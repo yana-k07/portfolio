@@ -10,6 +10,7 @@ import organizerCaOptions from "../assets/organizer/ca-options.webp";
 import organizerCaHint from "../assets/organizer/ca-hint.webp";
 import organizerCaError from "../assets/organizer/ca-error.webp";
 import organizerCaPreview from "../assets/organizer/ca-preview.webp";
+import quorsoPatternHeader from "../assets/quorso/pattern-header.webp";
 import quorsoAtomic from "../assets/quorso/atomic-text-input.webp";
 import quorsoTokensBase from "../assets/quorso/tokens-base.webp";
 import quorsoTokensSemantic from "../assets/quorso/tokens-semantic.webp";
@@ -367,7 +368,8 @@ export const projects = [
           { type: "image", src: quorsoAtomic, caption: "Atomic design in practice: small parts build the text input, one component with 7 states." },
           { type: "h3", text: "4. Patterns" },
           { type: "p", text: "Finally, I moved on to **patterns**: ready-made solutions for recurring tasks, built from QUI components. We created **16 of them**, from small pieces such as an OTP input, a date picker and loading states to larger ones like tables, filters, drawers, modals, navigation, page headers and layouts, and error pages." },
-          { type: "p", text: draft("one pattern in detail (for example the table or the filters) and how it works in both interfaces. A screenshot from Figma would fit here.") },
+          { type: "p", text: "Each pattern comes with **documentation**: its states, when to use each one, and how it should look on the page. The header of the page builder form is one example. It has four states: a **placeholder** with an example name in italics (such as “Untitled survey”), **filled** once the user types a name, **filled with a status** that adds a “Draft” badge for work in progress, and a version with **filters and a quick filter** for pages that need them." },
+          { type: "image", src: quorsoPatternHeader, caption: "Pattern documentation for the page builder form header: each state with a short note on when to use it." },
         ],
       },
       {
