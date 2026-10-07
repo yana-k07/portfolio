@@ -11,11 +11,11 @@
   --muted-foreground: oklch(0.25 0 0);
   --border: oklch(0.922 0 0);
   --radius: 0.75rem;
-  /* Links: a red underline that turns wavy over a warm highlighter on hover. */
-  --link-hover: oklch(0.65 0.15 15);
-  --link-visited: oklch(0.55 0.12 15);
-  --link-highlighter: oklch(0.87 0.03 50);
-  --link-underline: oklch(0.7 0.15 15);
+  /* Links: a quiet neutral underline that turns wavy over a soft highlighter on hover. */
+  --link-hover: currentColor;
+  --link-visited: inherit;
+  --link-highlighter: oklch(0.94 0 0);
+  --link-underline: color-mix(in oklab, currentColor 35%, transparent);
 }
 
 .dark {
@@ -26,10 +26,10 @@
   --muted: oklch(0.255 0.007 65);
   --muted-foreground: oklch(0.82 0.008 65);
   --border: oklch(0.31 0.006 65);
-  --link-hover: oklch(0.75 0.15 15);
-  --link-visited: oklch(0.65 0.12 15);
-  --link-highlighter: oklch(0.35 0.05 50);
-  --link-underline: oklch(0.7 0.15 15);
+  --link-hover: currentColor;
+  --link-visited: inherit;
+  --link-highlighter: oklch(0.3 0.006 65);
+  --link-underline: color-mix(in oklab, currentColor 35%, transparent);
 }
 
 @theme inline {
@@ -118,18 +118,17 @@
     text-decoration-color: var(--link-underline);
   }
   a:visited {
-    color: var(--link-visited);
+    color: inherit;
     text-decoration-color: var(--link-underline);
   }
   /* One focus ring for everything focusable: the foreground colour clears 3:1
-     on both grounds (the old --ring grey at 50% did not). Links keep the
-     site's red. */
+     on both grounds (the old --ring grey at 50% did not). */
   :focus-visible {
     outline: 2px solid var(--foreground);
     outline-offset: 2px;
   }
   a:focus-visible {
-    outline: 2px solid oklch(0.65 0.15 15);
+    outline: 2px solid var(--foreground);
     outline-offset: 2px;
   }
   .link-hover-effect {

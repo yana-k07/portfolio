@@ -23,7 +23,6 @@ const COPY = {
   headline: 'Product designer for the screens people work in all day.',
   intro: [
     'Dashboards, reports, onboarding, roles and permissions. I take a product from research to a working prototype in React, so engineers get something close to the real thing, not a picture of it.',
-    'Now at Quorso in Warsaw. Before that TradeZella, Railsware and Yetlo Finance.',
   ],
 }
 
@@ -121,9 +120,9 @@ export default function Home() {
               Resume
             </a>
           </div>
-          {/* The small facts in mono, the site's texture: where, what, since when. */}
+          {/* The small facts in mono, the site's texture: where and what. */}
           <p className="mt-8 font-mono text-[13px]/5 text-muted-foreground/70">
-            Warsaw, Poland · B2B and fintech · designing since 2021
+            Warsaw, Poland · B2B and fintech
           </p>
         </section>
 

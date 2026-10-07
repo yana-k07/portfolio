@@ -246,13 +246,9 @@ export default function Tradezella() {
   )
 }
 
-/** The wide zone from inside the reading column: escape to the viewport, then centre at 1152px. */
+/** Images and clips stay inside the reading column, the same width as the text. */
 function Breakout({ children }: { children: ReactNode }) {
-  return (
-    <div className="mx-[calc(50%-50vw)]">
-      <div className="mx-auto max-w-6xl px-6">{children}</div>
-    </div>
-  )
+  return <div>{children}</div>
 }
 
 /** The case's third level: 16px semibold, weight carries it over the body. */
