@@ -7,11 +7,13 @@ interface ProjectImageProps {
   width: number
   height: number
   caption?: string
+  /** `sizes` for next/image; pass a wider value when the image sits in the wide zone. */
+  sizes?: string
 }
 
 // A case image with an optional caption. A click opens it full screen through
 // ZoomableMedia (MediaViewer, one slide), the caption riding along.
-export function ProjectImage({ src, alt, width, height, caption }: ProjectImageProps) {
+export function ProjectImage({ src, alt, width, height, caption, sizes = '(max-width: 768px) 100vw, 640px' }: ProjectImageProps) {
   return (
     <figure className="my-2 space-y-2">
       <div className="img-outline overflow-hidden rounded-md">
@@ -25,7 +27,7 @@ export function ProjectImage({ src, alt, width, height, caption }: ProjectImageP
             alt={alt}
             width={width}
             height={height}
-            sizes="(max-width: 768px) 100vw, 640px"
+            sizes={sizes}
             className="w-full"
           />
         </ZoomableMedia>

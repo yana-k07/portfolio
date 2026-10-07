@@ -38,36 +38,25 @@ npm run build
 Всё собрано в `lib/site.ts`:
 
 - `LINKEDIN`: ссылка на профиль. Сейчас стоит заглушка.
-- `RESUME` и `ABOUT`: сейчас ведут на текущий сайт. Если эти страницы переедут сюда, поставь `/resume` и `/about`.
-- Остальные кейсы (Yetlo, Organizer, Quorso) пока открываются на текущем сайте. Когда переделаешь их, впиши `href` у нужной карточки в `app/page.tsx`.
+- `RESUME_PDF`: путь к PDF резюме в `public/`, например `/Kovalova-Yana-CV.pdf`. Кнопка «Download resume» появится, когда путь задан.
+- `YOUTUBE`: ссылка на канал. Кнопка на странице About появится, когда ссылка задана.
+
+## Страницы
+
+| Адрес | Файл | Где текст |
+| --- | --- | --- |
+| `/` | `app/page.tsx` | там же |
+| `/projects/tradezella` | `app/projects/tradezella/page.tsx` | там же |
+| `/projects/yetlo`, `/projects/organizer`, `/projects/quorso-design-system` | `app/projects/[slug]/page.tsx` | `lib/cases.ts` |
+| `/projects/quorso-insights` | `app/projects/quorso-insights/page.tsx` | там же |
+| `/resume` | `app/resume/page.tsx` | `lib/experience.ts` |
+| `/about` | `app/about/page.tsx` | `lib/about.ts` |
+
+Блок с типом `draft` в `lib/cases.ts` показывается пунктирной заметкой, пока его не заменить настоящим текстом.
 
 ## Картинки и видео
 
-Сейчас все обложки, скриншоты и клипы загружаются с текущего превью:
-https://portfolio-chi-three-v3juc2ul5i.vercel.app/assets/
-
-Если это превью удалить, картинки пропадут. Чтобы они жили в проекте:
-
-1. Положи файлы в `public/assets/`.
-2. В `lib/site.ts` замени значение `ASSETS` на `'/assets'`.
-3. В `next.config.mjs` можно удалить блок `remotePatterns`.
-
-Имена файлов, которые использует код:
-
-```
-avatar-DL9M3YyB.jpg
-tradezella-DT9fCBtX.webp            tradezella-dark-BLHwSEIT.webp
-yetlo-CQiTYs6b.webp                 yetlo-dark-DE8PkbM2.webp
-organizer-BslymVfY.webp             organizer-dark-C81BNo2v.webp
-quorso-design-system-CTbVNutu.webp  quorso-design-system-dark-Bq2JFHv7.webp
-compare-before-BvzMZiv3.webp        compare-after-9FT-3rqV.webp
-before-overview-BZBm_ZZ3.webp       before-report-BPTNS120.webp
-metrics-Dd9dYfpG.webm               metrics-poster-DafL8tlo.webp
-compare-summary-DABYRn_V.webm       compare-summary-poster-Cx05ep_g.webp
-mobile-body-BMffF43Y.webp
-```
-
-Это имена после сборки текущего сайта. Можно взять исходники с нормальными именами и поправить имена в коде.
+Все обложки, скриншоты и клипы лежат в `public/assets/`. Картинки перенесённых кейсов разложены по папкам `yetlo/`, `organizer/`, `quorso/`, логотипы компаний в `logos/`.
 
 ## Что изменилось по сравнению с текущим сайтом
 

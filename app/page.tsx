@@ -6,7 +6,7 @@ import { Tile, TileTitle, tileMeta } from '@/components/ui/Tile'
 import { cn } from '@/lib/utils'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
-import { AVATAR, EMAIL, NAME, NAV, RESUME, SITE, asset } from '@/lib/site'
+import { AVATAR, EMAIL, NAME, NAV, RESUME, asset } from '@/lib/site'
 
 // The home page: the claim and two short paragraphs, one action pair, then
 // the projects at the wide zone (1152px) so the covers show the work at a
@@ -31,7 +31,7 @@ type Project = {
   slug: string
   /** The product and, where she states it, the year. */
   meta: string
-  /** The case page; the cases not rebuilt yet open on the current site. */
+  /** The case page; defaults to /projects/<slug>. */
   href?: string
   title: string
   /** One fact in mono under the title: a result or the scope. */
@@ -61,9 +61,9 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'organizer',
-    meta: 'Organizer',
+    meta: 'Organizer · 2023',
     title: 'A data and mobilization platform for nonprofits and campaigns',
-    fact: 'Lists, segments, roles',
+    fact: 'Phone banking and data import',
     cover: asset('organizer-BslymVfY.webp'),
     coverDark: asset('organizer-dark-C81BNo2v.webp'),
   },
@@ -78,7 +78,7 @@ const PROJECTS: Project[] = [
   {
     slug: 'quorso-insights',
     meta: 'Quorso · 2026',
-    title: 'Insights, a reporting feature',
+    title: 'An insights feature',
     fact: 'Available on request',
     locked: true,
   },
@@ -176,7 +176,7 @@ function ProjectCard({ p }: { p: Project }) {
       </div>
       <div className="flex flex-col p-4">
         <span className={tileMeta}>{p.meta}</span>
-        <TileTitle href={p.href ?? `${SITE}/projects/${p.slug}`}>{p.title}</TileTitle>
+        <TileTitle href={p.href ?? `/projects/${p.slug}`}>{p.title}</TileTitle>
         {p.fact && <span className="mt-3 font-mono text-[13px]/5 text-muted-foreground/70">{p.fact}</span>}
       </div>
     </Tile>
