@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { LazyAutoplayVideo } from '@/components/ui/LazyAutoplayVideo'
 import { cn } from '@/lib/utils'
 
 /* A real device mockup around one screen export: the screenshot sits UNDER the
@@ -24,6 +25,7 @@ export function PhoneFrame({
   className,
   long,
   scroll = false,
+  video,
 }: {
   src: string
   alt: string
@@ -33,6 +35,8 @@ export function PhoneFrame({
   long?: { width: number; height: number }
   /** Let a long screen scroll inside the frame instead of showing only its top. */
   scroll?: boolean
+  /** A screen recording to play inside the device instead of the still (`src` stays as its fallback). */
+  video?: { src: string; poster: string }
 }) {
   return (
     <div className={cn('relative', className)} style={{ aspectRatio: FRAME_RATIO }}>
@@ -46,7 +50,9 @@ export function PhoneFrame({
           borderRadius: SCREEN_RADIUS,
         }}
       >
-        {long && scroll ? (
+        {video ? (
+          <LazyAutoplayVideo src={video.src} poster={video.poster} autoplay decorative className="h-full w-full object-cover object-top" />
+        ) : long && scroll ? (
           /* The whole page scrolls inside the device, the way it does on a phone.
              `data-screen-scroll` lets a parent tell this apart from its own scroll. */
           <div

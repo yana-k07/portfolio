@@ -254,24 +254,24 @@ export default function Tradezella() {
 
           <section className="space-y-4">
             <Sub>Mobile</Sub>
-            <p>I rebuilt the hierarchy for small screens in mobile wireframes and tested them in responsive previews.</p>
+            <p>
+              On a phone the report keeps the same order: the chart first, then the summary as a two-column grid of metrics, each with its change against the previous period.
+            </p>
+            <p>
+              The summary is editable right there. The gear turns it into edit mode: tiles can be dragged to reorder or switched to another metric, while Reset, Cancel and Save stay pinned at the bottom however far you scroll. Add new opens a bottom sheet with recently used metrics on top and the rest grouped by category, so a trader never has to scroll a long flat list of metrics.
+            </p>
             <figure className="space-y-2">
-              {/* The capture scrolls inside the device; on the page the wheel
-                  must carry on to the page once the capture ends (PhoneFrame's
-                  overscroll-contain is for the viewer, where nothing should
-                  move behind it), or the phone becomes a trap mid-article. */}
-              <div className="flex justify-center rounded-xl bg-muted px-6 py-10 [&_[data-screen-scroll]]:overscroll-auto">
+              <div className="flex justify-center rounded-xl bg-muted px-6 py-10">
                 <PhoneFrame
-                  src={A('mobile-body-BMffF43Y.webp')}
-                  alt="Mobile Reports: the Performance chart and the Summary rebuilt for a narrow screen"
-                  long={{ width: 780, height: 2654 }}
-                  scroll
+                  src={A('mobile-flow-poster.webp')}
+                  alt="Mobile Reports: the Performance overview, the summary in edit mode, and the Select metric sheet"
+                  video={{ src: A('mobile-flow.webm'), poster: A('mobile-flow-poster.webp') }}
                   sizes="280px"
                   className="w-[280px]"
                 />
               </div>
               <figcaption className="text-[14px]/5 text-muted-foreground/70">
-                Mobile Reports: the Performance chart and the Summary rebuilt for a narrow screen, with the change under each metric. Scroll inside the phone.
+                Editing the summary on mobile: the gear opens edit mode with the actions pinned, Add new opens the metric picker.
               </figcaption>
             </figure>
           </section>
