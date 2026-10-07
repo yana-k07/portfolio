@@ -1,0 +1,238 @@
+@import 'tailwindcss';
+
+/* next-themes toggles `.dark` on <html>, so `dark:` follows the class. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: oklch(0.988 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(0.988 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.25 0 0);
+  --border: oklch(0.922 0 0);
+  --radius: 0.75rem;
+  /* Links: a red underline that turns wavy over a warm highlighter on hover. */
+  --link-hover: oklch(0.65 0.15 15);
+  --link-visited: oklch(0.55 0.12 15);
+  --link-highlighter: oklch(0.87 0.03 50);
+  --link-underline: oklch(0.7 0.15 15);
+}
+
+.dark {
+  /* Warm-tinted neutrals (hue 65, low chroma) and softer text to cut glare. */
+  --background: oklch(0.145 0.006 65);
+  --foreground: oklch(0.87 0.006 65);
+  --card: oklch(0.145 0.006 65);
+  --muted: oklch(0.255 0.007 65);
+  --muted-foreground: oklch(0.82 0.008 65);
+  --border: oklch(0.31 0.006 65);
+  --link-hover: oklch(0.75 0.15 15);
+  --link-visited: oklch(0.65 0.12 15);
+  --link-highlighter: oklch(0.35 0.05 50);
+  --link-underline: oklch(0.7 0.15 15);
+}
+
+@theme inline {
+  /* The reading scale: body 16/26 (text-xs), 18/28 (text-sm). */
+  --text-xs: 1rem;
+  --text-xs--line-height: 1.625rem;
+  --text-sm: 1.125rem;
+  --text-sm--line-height: 1.75rem;
+
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-heading: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), 'SF Mono', 'Monaco', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-link-hover: var(--link-hover);
+  /* 16px cards and media (xl), 12px boxes (lg), 8px small plates (md), 6px chips (sm). */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Motion: `ease` for colour and opacity, `ease-snap` (a strong ease-out) for
+     anything that moves, scales or enters. 150ms by default. */
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: ease;
+  --ease-snap: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    /* Full-bleed sections (the LinkedInPosts strip) are sized in vw, which counts
+       the scrollbar gutter on OSes with classic scrollbars. Reserving the gutter
+       makes vw match the content box, so the maths lands exactly and the page
+       never drifts sideways; the clip on both boxes is the belt-and-braces. */
+    scrollbar-gutter: stable;
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: clip;
+  }
+  /* Hash targets and focused elements clear the sticky bar (60px) and the
+     fixed foot blur (100px); smooth only for those who allow motion. */
+  html {
+    scroll-padding: 5rem 0 7rem;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  a,
+  button,
+  [role='button'] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Headings read the heading token (Geist Sans today, same as the body). */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+  }
+  /* Tailwind v4's preflight resets buttons to `cursor: default`, so every
+     control has to opt back in. Do it once here: anything clickable says so.
+     A `cursor-*` utility still wins, because utilities are a later layer. */
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+  p, li, figcaption, blockquote {
+    text-wrap: pretty;
+  }
+  a {
+    text-decoration-color: var(--link-underline);
+  }
+  a:visited {
+    color: var(--link-visited);
+    text-decoration-color: var(--link-underline);
+  }
+  /* One focus ring for everything focusable: the foreground colour clears 3:1
+     on both grounds (the old --ring grey at 50% did not). Links keep the
+     site's red. */
+  :focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+  }
+  a:focus-visible {
+    outline: 2px solid oklch(0.65 0.15 15);
+    outline-offset: 2px;
+  }
+  .link-hover-effect {
+    text-decoration-color: var(--link-underline);
+    transition: text-decoration-color 0.2s ease, text-decoration-style 0.2s ease, background-color 0.2s ease;
+  }
+  .link-hover-effect:hover {
+    text-decoration-style: wavy;
+    background-color: var(--link-highlighter);
+    text-decoration-color: var(--link-underline);
+  }
+}
+
+/* The bar: transparent at the top of the page, a frosted strip once it has
+   moved (SiteBar toggles .site-header-scrolled with hysteresis). The 1px glint
+   under the hairline gives the blur an edge. */
+.site-header {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    backdrop-filter 200ms ease;
+}
+.site-header-scrolled {
+  -webkit-backdrop-filter: blur(18px) saturate(1.18);
+  backdrop-filter: blur(18px) saturate(1.18);
+  background-color: color-mix(in oklab, var(--background) 76%, transparent);
+  border-color: color-mix(in oklab, var(--foreground) 7%, transparent);
+  box-shadow: 0 1px 0 0 color-mix(in oklab, var(--background) 28%, transparent);
+}
+.dark .site-header-scrolled,
+.site-header-scrolled.dark {
+  background-color: color-mix(in oklab, var(--background) 72%, transparent);
+  border-color: color-mix(in oklab, var(--foreground) 8%, transparent);
+  box-shadow: 0 1px 0 0 color-mix(in oklab, var(--foreground) 2%, transparent);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .site-header-scrolled {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: color-mix(in oklab, var(--background) 96%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: none;
+  }
+}
+
+/* Scroll-reveal: a gentle fade-up + de-blur as content enters the viewport.
+   When JS is on, `.reveal` starts hidden (see the scripting media query below) and
+   the Reveal component ADDS `.reveal-in` once the element scrolls into view, fading
+   it up. With no JS — or reduced-motion — the hide rule never matches, so content is
+   simply visible: never a blank page, never a flash. */
+
+/* Hide reveal targets from the first paint ONLY when JS can reveal them again.
+   Without this they render visible, then snap to opacity:0 the instant `.reveal-in`
+   is added (the keyframe's backwards fill) — a flash on load and while scrolling. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.reveal-in {
+  animation: reveal-up 400ms var(--ease-snap) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-in {
+    animation: none;
+  }
+}
+
+/* Subtle 1px inset ring on images for consistent depth on any background.
+   Pure black in light mode, pure white in dark — never a tinted neutral. */
+.img-outline {
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
+}
+
+.dark .img-outline {
+  outline-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollable areas inside demo UI (BentoCard) scroll without a visible bar. */
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
