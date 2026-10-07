@@ -196,13 +196,49 @@ export default function Tradezella() {
           </Breakout>
 
           <section className="space-y-4">
-            <Sub>Personalization</Sub>
+            <Sub>One template for 50+ reports</Sub>
             <p>
-              A guided onboarding learns what each trader cares about, and a widget system puts the most relevant reports first. Nobody has to guess which of the 50+ reports to open.
+              Every report follows the same page: highlight cards with the key results at the top, two configurable charts, then the summary table. With one structure we could show all the data we had across the 50+ reports, and traders learn to read a report once.
             </p>
+            <p>
+              It also made development faster. Engineering built the template once and applied it to every other report, so each new one was mostly a matter of plugging in its data.
+            </p>
+          </section>
+
+          <Breakout>
+            <ProjectImage
+              src={A('report-template.webp')}
+              alt="The Day and time report: four highlight cards, a line chart of net P&L and trade count, a bar chart of win rate, and the summary table"
+              width={2880}
+              height={1888}
+              caption="The Day and time report, built on the shared template: highlight cards, two charts with their own metrics, the summary."
+            />
+          </Breakout>
+
+          <section className="space-y-4">
+            <Sub>Cross-analysis</Sub>
+            <p>
+              Below the summary of each report sits cross-analysis: a heatmap that crosses the report&apos;s dimension, here the days of the week, with a second one the trader picks. It answers questions a single table cannot, such as which instruments lose money on Mondays.
+            </p>
+            <p>
+              The second dimension is fully customizable: account, playbook, tag, instrument, top or bottom 10 symbols, entry and exit price, entry and exit time. A switch changes what each cell shows, win rate, P&amp;L or number of trades, and the colour scale makes strong and weak spots visible before reading a single number.
+            </p>
+          </section>
+
+          <Breakout>
+            <Clip
+              src={A('cross-analysis.webm')}
+              poster={A('cross-analysis-poster.webp')}
+              width={1280}
+              height={758}
+              caption="Cross-analysis at the bottom of a report: days against instruments, then switched to the bottom 10 symbols. Green for profit, red for loss."
+            />
+          </Breakout>
+
+          <section className="space-y-4">
             <Sub>Making data actionable</Sub>
             <p>
-              Tooltips and insight banners explain each metric in plain words. A comparison layer inside every report shows what changed against another period and why it matters. Cross-analysis compares performance across timeframes, strategies and market conditions.
+              Tooltips and insight banners explain each metric in plain words. A comparison layer inside every report shows what changed against another period and why it matters.
             </p>
           </section>
 
