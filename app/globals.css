@@ -11,11 +11,10 @@
   --muted-foreground: oklch(0.25 0 0);
   --border: oklch(0.922 0 0);
   --radius: 0.75rem;
-  /* Links: a quiet neutral underline that turns wavy over a soft highlighter on hover. */
+  /* Links: no underline at rest; on hover a wavy underline in the text colour over a soft highlighter. */
   --link-hover: currentColor;
   --link-visited: inherit;
   --link-highlighter: oklch(0.94 0 0);
-  --link-underline: color-mix(in oklab, currentColor 35%, transparent);
 }
 
 .dark {
@@ -29,7 +28,6 @@
   --link-hover: currentColor;
   --link-visited: inherit;
   --link-highlighter: oklch(0.3 0.006 65);
-  --link-underline: color-mix(in oklab, currentColor 35%, transparent);
 }
 
 @theme inline {
@@ -115,11 +113,10 @@
     text-wrap: pretty;
   }
   a {
-    text-decoration-color: var(--link-underline);
+    text-decoration: none;
   }
   a:visited {
     color: inherit;
-    text-decoration-color: var(--link-underline);
   }
   /* One focus ring for everything focusable: the foreground colour clears 3:1
      on both grounds (the old --ring grey at 50% did not). */
@@ -132,13 +129,14 @@
     outline-offset: 2px;
   }
   .link-hover-effect {
-    text-decoration-color: var(--link-underline);
-    transition: text-decoration-color 0.2s ease, text-decoration-style 0.2s ease, background-color 0.2s ease;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
   }
   .link-hover-effect:hover {
+    text-decoration-line: underline;
     text-decoration-style: wavy;
+    text-decoration-color: currentColor;
     background-color: var(--link-highlighter);
-    text-decoration-color: var(--link-underline);
   }
 }
 

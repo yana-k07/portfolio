@@ -10,7 +10,7 @@ export function Link({ className, variant = 'default', ...props }: LinkProps) {
   return (
     <NextLink
       className={cn(
-        'link-hover-effect underline underline-offset-2',
+        'link-hover-effect underline-offset-2',
         variant === 'default'
           ? 'text-foreground'
           : 'text-muted-foreground',
