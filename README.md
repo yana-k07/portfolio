@@ -1,29 +1,97 @@
-# Portfolio — Kovalova Yana
+# Yana Kovalova, portfolio concept
 
-React + Vite + Tailwind. Deploys to Vercel from GitHub.
+Новая версия двух страниц портфолио: главная и кейс Tradezella.
+Next.js 16, React 19, Tailwind CSS v4, шрифт Geist. Светлая и тёмная темы.
 
-## Run locally
-```
+## Как запустить
+
+Нужен Node.js 20 или новее.
+
+```bash
 npm install
 npm run dev
 ```
 
-## Where to edit
-- `src/data/site.js` — name, headline, email, social links, CV path
-- `src/data/experience.js` — Resume page: roles, dates, expandable details
-- `src/data/about.js` — About page text and photo list (photos go in `public/images/photos/01.jpg` … `06.jpg`)
-- `src/data/projects.js` — cases: text, chapters, meta cards. Block types (text with **bold**, image + caption, list, stats, quote) are listed at the top of the file
-- `src/assets/` — cover images and your photo (replace files, keep the names)
-- `public/images/` — extra case images referenced by path in projects.js (create the folder when needed)
-- `public/` — put your CV PDF here (name set in site.js)
+Главная откроется на http://localhost:3000, кейс на http://localhost:3000/projects/tradezella.
 
-## Components (shadcn/ui)
-The site uses [shadcn/ui](https://ui.shadcn.com): Button, Card, Badge, Accordion, Dialog and Tooltip live in `src/components/ui/` and are plain files you can edit.
-Colours and radius are the shadcn variables at the top of `src/index.css` (`:root` for light, `.dark` for dark).
-To add more components on your machine: `npx shadcn@latest add <name>` (for example `separator` or `tabs`). `components.json` is already set up.
+Проверка сборки для продакшена:
 
-## Preview as a single file
-`npm run build:preview` writes `dist/index.html`, a self-contained copy you can open anywhere.
+```bash
+npm run build
+```
 
-## Deploy
-Push to GitHub, then in Vercel: Add New → Project → pick the repo. Framework: Vite (auto-detected).
+## Что внутри
+
+| Путь | Что это |
+| --- | --- |
+| `app/page.tsx` | Главная: hero, сетка проектов, карточка с фактами |
+| `app/projects/tradezella/page.tsx` | Кейс Tradezella |
+| `app/projects/tradezella/CompareSlider.tsx` | Слайдер до и после |
+| `app/globals.css` | Цветовые токены обеих тем, шкала текста, радиусы, анимации |
+| `components/site/` | Шапка, подвал, переключатель темы |
+| `components/ui/` | Карточка, заголовок страницы, просмотр медиа на весь экран, рамка телефона, оглавление и другие блоки |
+| `lib/site.ts` | Все ссылки и адреса в одном месте |
+| `public/mockups/iphone-air.png` | Рамка iPhone для мобильных экранов |
+
+## Что поменять перед публикацией
+
+Всё собрано в `lib/site.ts`:
+
+- `LINKEDIN`: ссылка на профиль. Сейчас стоит заглушка.
+- `RESUME` и `ABOUT`: сейчас ведут на текущий сайт. Если эти страницы переедут сюда, поставь `/resume` и `/about`.
+- Остальные кейсы (Yetlo, Organizer, Quorso) пока открываются на текущем сайте. Когда переделаешь их, впиши `href` у нужной карточки в `app/page.tsx`.
+
+## Картинки и видео
+
+Сейчас все обложки, скриншоты и клипы загружаются с текущего превью:
+https://portfolio-chi-three-v3juc2ul5i.vercel.app/assets/
+
+Если это превью удалить, картинки пропадут. Чтобы они жили в проекте:
+
+1. Положи файлы в `public/assets/`.
+2. В `lib/site.ts` замени значение `ASSETS` на `'/assets'`.
+3. В `next.config.mjs` можно удалить блок `remotePatterns`.
+
+Имена файлов, которые использует код:
+
+```
+avatar-DL9M3YyB.jpg
+tradezella-DT9fCBtX.webp            tradezella-dark-BLHwSEIT.webp
+yetlo-CQiTYs6b.webp                 yetlo-dark-DE8PkbM2.webp
+organizer-BslymVfY.webp             organizer-dark-C81BNo2v.webp
+quorso-design-system-CTbVNutu.webp  quorso-design-system-dark-Bq2JFHv7.webp
+compare-before-BvzMZiv3.webp        compare-after-9FT-3rqV.webp
+before-overview-BZBm_ZZ3.webp       before-report-BPTNS120.webp
+metrics-Dd9dYfpG.webm               metrics-poster-DafL8tlo.webp
+compare-summary-DABYRn_V.webm       compare-summary-poster-Cx05ep_g.webp
+mobile-body-BMffF43Y.webp
+```
+
+Это имена после сборки текущего сайта. Можно взять исходники с нормальными именами и поправить имена в коде.
+
+## Что изменилось по сравнению с текущим сайтом
+
+**Главная**
+- Страница стала шире: текст держится около 70 знаков в строке, а обложки проектов занимают 1152px. Превью показывают интерфейс в читаемом размере.
+- В hero есть кнопки Email и Resume. Под ними одна моноширинная строка с фактами.
+- На карточке проекта три уровня: продукт и год, результат как заголовок, одна цифра или факт моноширинным.
+- Последняя ячейка сетки занята карточкой Now, Before, Focus, Tools. Дыры в сетке больше нет.
+- Обложки не прячутся при прокрутке. Заголовок раздела без капса.
+
+**Кейс**
+- Название, лид и полоса с ролью, периодом, релизом и командой идут в начале.
+- Три результата стоят первыми, крупными цифрами.
+- Цифры компании (100K+, 130K, 27K) сведены в одну строку в Context. Они больше не спорят с результатами.
+- Слайдер до и после на всю ширину. Его можно тянуть мышью, кликать в любую точку и двигать стрелками.
+- Каждый скриншот и клип открывается на весь экран по клику.
+- Мобильный экран стоит в рамке телефона и прокручивается внутри неё.
+- Слева на десктопе есть оглавление по разделам.
+- Жирные вставки внутри абзацев убраны.
+
+## Тексты
+
+Тексты переписаны по мотивам оригинала, без изменения смысла. Перед публикацией проверь факты:
+
+- Роль, период и дата релиза в кейсе взяты из резюме и текста кейса.
+- У Organizer на карточке нет года и компании, потому что их не было на сайте.
+- Строка «Warsaw, Poland · B2B and fintech · designing since 2021» собрана из резюме.
