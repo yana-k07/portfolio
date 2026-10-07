@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { BackLink } from '@/components/ui/BackLink'
 import { Bullets, CaseMeta, Num, SectionHeading } from '@/components/ui/CaseBlocks'
-import { InsightBoard, type BoardSection } from '@/components/ui/InsightBoard'
 import { LazyAutoplayVideo } from '@/components/ui/LazyAutoplayVideo'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { PhoneFrame } from '@/components/ui/PhoneFrame'
@@ -31,42 +30,6 @@ const RESULTS = [
   { value: '+15.38%', label: 'Total report views' },
   { value: '+10.56%', label: 'Time in reports, 4m 34s to 5m 03s' },
   { value: '+8.62%', label: 'Views per active user' },
-]
-
-const INSIGHTS: BoardSection[] = [
-  {
-    title: 'New to trading',
-    color: 'yellow',
-    stickies: [
-      { text: 'Opens the Overview, sees dozens of numbers and does not know which one matters' },
-      { text: 'Does not know which of the 50+ reports to open, so stays on the dashboard' },
-      { text: 'Unsure what metrics like profit factor or expectancy actually mean' },
-      { text: 'Wants a simple answer first: am I getting better or not?' },
-      { text: 'Checks results on the phone after a session, where reports are hard to read' },
-      {
-        text: 'Clear hierarchy, plain-language explanations and the right reports surfaced first',
-        color: 'green',
-        tag: 'Takeaway',
-      },
-    ],
-  },
-  {
-    title: 'Experienced traders',
-    note: '~20% of traders',
-    color: 'blue',
-    stickies: [
-      { text: 'Thinks in strategies and setups, not in single trades' },
-      { text: 'Wants to compare this month with the last, or one strategy with another' },
-      { text: 'Exports trades to spreadsheets to build the views the product lacks' },
-      { text: 'Wants to choose which metrics to chart and how each one is drawn' },
-      { text: 'Runs several accounts and needs to see results across all of them' },
-      {
-        text: 'A metric selector, a comparison layer and cross-analysis by timeframe and strategy',
-        color: 'green',
-        tag: 'Takeaway',
-      },
-    ],
-  },
 ]
 
 export default function Tradezella() {
@@ -189,9 +152,12 @@ export default function Tradezella() {
           </section>
 
           <Breakout>
-            <InsightBoard
-              sections={INSIGHTS}
-              caption="Interview synthesis, grouped by trader experience. The green notes are what each group meant for the design."
+            <ProjectImage
+              src={A('research-board.webp')}
+              alt="Interview synthesis board: sticky notes grouped into New to trading and Experienced traders, with a takeaway note in each group"
+              width={3200}
+              height={1240}
+              caption="Interview synthesis, grouped by trader experience. The green notes are what each group meant for the design. Click to read."
             />
           </Breakout>
 
