@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import { BackLink } from '@/components/ui/BackLink'
 import { Bullets, CaseMeta, Num, SectionHeading } from '@/components/ui/CaseBlocks'
+import { InsightBoard, type BoardSection } from '@/components/ui/InsightBoard'
 import { LazyAutoplayVideo } from '@/components/ui/LazyAutoplayVideo'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { PhoneFrame } from '@/components/ui/PhoneFrame'
@@ -30,6 +31,42 @@ const RESULTS = [
   { value: '+15.38%', label: 'Total report views' },
   { value: '+10.56%', label: 'Time in reports, 4m 34s to 5m 03s' },
   { value: '+8.62%', label: 'Views per active user' },
+]
+
+const INSIGHTS: BoardSection[] = [
+  {
+    title: 'New to trading',
+    color: 'yellow',
+    stickies: [
+      { text: 'Opens the Overview, sees dozens of numbers and does not know which one matters' },
+      { text: 'Does not know which of the 50+ reports to open, so stays on the dashboard' },
+      { text: 'Unsure what metrics like profit factor or expectancy actually mean' },
+      { text: 'Wants a simple answer first: am I getting better or not?' },
+      { text: 'Checks results on the phone after a session, where reports are hard to read' },
+      {
+        text: 'Clear hierarchy, plain-language explanations and the right reports surfaced first',
+        color: 'green',
+        tag: 'Takeaway',
+      },
+    ],
+  },
+  {
+    title: 'Experienced traders',
+    note: '~20% of traders',
+    color: 'blue',
+    stickies: [
+      { text: 'Thinks in strategies and setups, not in single trades' },
+      { text: 'Wants to compare this month with the last, or one strategy with another' },
+      { text: 'Exports trades to spreadsheets to build the views the product lacks' },
+      { text: 'Wants to choose which metrics to chart and how each one is drawn' },
+      { text: 'Runs several accounts and needs to see results across all of them' },
+      {
+        text: 'A metric selector, a comparison layer and cross-analysis by timeframe and strategy',
+        color: 'green',
+        tag: 'Takeaway',
+      },
+    ],
+  },
 ]
 
 export default function Tradezella() {
@@ -135,8 +172,8 @@ export default function Tradezella() {
           </Breakout>
 
           <section className="space-y-4">
-            <SectionHeading>Approach</SectionHeading>
-            <Sub>Discovery</Sub>
+            <SectionHeading>Research</SectionHeading>
+            <p>Before touching the layouts, I wanted to know how traders actually read their reports and where they gave up.</p>
             <Bullets
               items={[
                 'Stakeholder interviews to align on KPIs and retention goals',
@@ -146,19 +183,26 @@ export default function Tradezella() {
                 'Quantitative analysis in GA4, the Pages and screens report',
               ]}
             />
-            <p>A few clear themes came out of the interviews:</p>
-            <Bullets
-              items={[
-                'Reports felt either too heavy with data or not actionable enough',
-                'The visual hierarchy was confusing, most of all on mobile',
-                'Performance-focused traders wanted strategy-level outcomes faster, not only trades',
-                'Professional traders, about 20%, needed advanced customization and comparison tools',
-              ]}
-            />
             <p>
-              These conversations changed how we thought about structure, filters, summaries and the feedback loops traders needed. The goal was not to reformat charts. It was to remove friction and surface clarity.
+              I synthesised the interviews on a board and grouped what I heard by experience. Two groups came out with different problems: newer traders were lost in the data, experienced traders could not go deep enough.
             </p>
-            <Sub>Definition</Sub>
+          </section>
+
+          <Breakout>
+            <InsightBoard
+              sections={INSIGHTS}
+              caption="Interview synthesis, grouped by trader experience. The green notes are what each group meant for the design."
+            />
+          </Breakout>
+
+          <section className="space-y-4">
+            <p>
+              The goal was not to reformat charts. It was to remove friction for newer traders and give experienced ones the depth they were missing.
+            </p>
+          </section>
+
+          <section className="space-y-4">
+            <SectionHeading>Approach</SectionHeading>
             <p>
               We worked in weekly sprints, shipping usable builds and refining them on trader feedback. As the only designer I moved between Figma iterations, product discussions and dev-ready handoffs.
             </p>
