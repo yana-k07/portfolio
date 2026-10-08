@@ -11,7 +11,7 @@
   --muted-foreground: oklch(0.25 0 0);
   --border: oklch(0.922 0 0);
   --radius: 0.75rem;
-  /* Links: no underline at rest; on hover a wavy underline in the text colour over a soft highlighter. */
+  /* Links: no underline at rest; a straight underline in the text colour on hover. */
   --link-hover: currentColor;
   --link-visited: inherit;
   --link-highlighter: oklch(0.94 0 0);
@@ -130,13 +130,12 @@
   }
   .link-hover-effect {
     text-decoration: none;
-    transition: background-color 0.2s ease;
   }
   .link-hover-effect:hover {
     text-decoration-line: underline;
-    text-decoration-style: wavy;
+    text-decoration-style: solid;
     text-decoration-color: currentColor;
-    background-color: var(--link-highlighter);
+    text-decoration-thickness: 1px;
   }
 }
 

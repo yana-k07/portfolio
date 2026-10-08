@@ -26,9 +26,15 @@ export const metadata: Metadata = {
     'Redesigning the reports of a trading journal and analytics platform. Report views up 15%, time in reports up 11%.',
 }
 
+const AUDIENCE = [
+  { value: '100K+', label: 'Traders' },
+  { value: '130K', label: 'Instagram followers' },
+  { value: '27K', label: 'Discord members' },
+]
+
 const RESULTS = [
   { value: '+15.38%', label: 'Total report views' },
-  { value: '+10.56%', label: 'Time in reports, 4m 34s to 5m 03s' },
+  { value: '+10.56%', label: 'Time in reports, now 5m 03s' },
   { value: '+8.62%', label: 'Views per active user' },
 ]
 
@@ -91,9 +97,15 @@ export default function Tradezella() {
             <p>
               TradeZella helps traders improve through their own data: a journal, analytics and a library of reports. It serves traders at every level, from beginners learning the basics to professionals running several accounts.
             </p>
-            <p className="font-mono text-[13px]/5 text-muted-foreground/70">
-              100K+ traders on the platform · 130K Instagram followers · 27K in Discord. Public figures from tradezella.com.
-            </p>
+            <dl className="grid grid-cols-3 gap-3 sm:gap-4">
+              {AUDIENCE.map((a) => (
+                <div key={a.label} className="rounded-xl border border-border bg-card p-4 sm:p-5">
+                  <dd className="text-lg font-semibold leading-tight tracking-tight text-foreground tabular-nums">{a.value}</dd>
+                  <dt className="mt-1 text-[14px]/5 text-muted-foreground/70">{a.label}</dt>
+                </div>
+              ))}
+            </dl>
+            <p className="font-mono text-[13px]/5 text-muted-foreground/70">Public figures from tradezella.com.</p>
           </section>
 
           <section className="space-y-4">
@@ -104,9 +116,6 @@ export default function Tradezella() {
             <p>The analytics agreed:</p>
             <Bullets
               items={[
-                <>
-                  Average time on report pages: <Num>4m 34s</Num>
-                </>,
                 <>
                   Return visit rate for reports: <Num>below 30%</Num>
                 </>,
@@ -279,7 +288,7 @@ export default function Tradezella() {
           <section className="space-y-4">
             <SectionHeading>Impact</SectionHeading>
             <p>
-              After Reports 2.0 shipped in Q1 2025, total report views grew by <Num>15.38%</Num>. Traders stayed longer: average engagement time across reports rose <Num>10.56%</Num>, from 4m 34s to 5m 03s. They also opened more reports each, with views per active user up <Num>8.62%</Num>.
+              After Reports 2.0 shipped in Q1 2025, total report views grew by <Num>15.38%</Num>. Traders stayed longer: average engagement time across reports rose <Num>10.56%</Num> and now stands at 5m 03s. They also opened more reports each, with views per active user up <Num>8.62%</Num>.
             </p>
           </section>
         </article>

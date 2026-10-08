@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { outlinePill } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
@@ -19,13 +18,12 @@ export default function Resume() {
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Resume')} mailto={EMAIL} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
-        <PageHeader title="Resume" lede="Product designer with 5+ years of experience in complex B2B products.">
-          {RESUME_PDF && (
-            <a href={RESUME_PDF} target="_blank" rel="noreferrer" className={cn(outlinePill, 'h-9')}>
-              Download resume
-            </a>
-          )}
-        </PageHeader>
+        <h1 className="sr-only">Resume</h1>
+        <div className="mb-8 md:mb-10">
+          <a href={RESUME_PDF} target="_blank" rel="noreferrer" className={cn(outlinePill, 'h-9')}>
+            Download resume
+          </a>
+        </div>
 
         <section aria-labelledby="experience">
           <h2 id="experience" className="text-lg font-semibold leading-snug tracking-tight text-foreground">

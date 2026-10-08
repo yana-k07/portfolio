@@ -6,7 +6,7 @@ import { Tile, TileTitle, tileMeta } from '@/components/ui/Tile'
 import { cn } from '@/lib/utils'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
-import { AVATAR, EMAIL, NAME, NAV, RESUME, asset } from '@/lib/site'
+import { AVATAR, EMAIL, NAME, NAV, asset } from '@/lib/site'
 
 // The home page: the claim and two short paragraphs, one action pair, then
 // the projects at the wide zone (1152px) so the covers show the work at a
@@ -116,9 +116,6 @@ export default function Home() {
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
               <span className="relative">Email me</span>
             </a>
-            <a href={RESUME} className={cn(outlinePill, 'h-9 translate-y-px dark:translate-y-0')}>
-              Resume
-            </a>
           </div>
           {/* The small facts in mono, the site's texture: where and what. */}
           <p className="mt-8 font-mono text-[13px]/5 text-muted-foreground/70">
@@ -204,9 +201,6 @@ function NowCard() {
         <div className="mt-auto flex flex-wrap gap-2 pt-6">
           <a href={EMAIL} className={cn(outlinePill, 'h-9')}>
             Email me
-          </a>
-          <a href={RESUME} className={cn(outlinePill, 'h-9')}>
-            Resume
           </a>
         </div>
       </div>

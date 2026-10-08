@@ -11,8 +11,8 @@ export const EMAIL = `mailto:${EMAIL_ADDRESS}`
 export const LINKEDIN = 'https://www.linkedin.com/'
 export const RESUME = '/resume'
 export const ABOUT = '/about'
-/** TODO: put the PDF in public/ and set its path, e.g. '/Kovalova-Yana-CV.pdf'. The download button appears once this is set. */
-export const RESUME_PDF = ''
+/** TODO: put the PDF in public/ under this name. */
+export const RESUME_PDF = '/Yana-Kovalova-Resume.pdf'
 /** TODO: the channel URL. The YouTube button on About appears once this is set. */
 export const YOUTUBE = ''
 
