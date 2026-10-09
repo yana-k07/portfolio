@@ -134,7 +134,7 @@ function Block({ b }: { b: CaseBlock }) {
           <div className="flex justify-center rounded-xl bg-muted px-6 py-10">
             <PhoneFrame src={b.poster} alt={b.alt} video={{ src: b.src, poster: b.poster }} sizes="280px" className="w-[280px]" />
           </div>
-          <figcaption className="text-[14px]/5 text-muted-foreground/70">{b.caption}</figcaption>
+          {b.caption && <figcaption className="text-[14px]/5 text-muted-foreground/70">{b.caption}</figcaption>}
         </figure>
       )
   }

@@ -116,7 +116,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/send-flows.webp",
             "width": 3000,
             "height": 2903,
-            "caption": "Send flows, from the account page through each sending method to the success screen. Click to enlarge.",
+            "caption": "",
             "alt": "Send flows, from the account page through each sending method to the success screen. Click to enlarge.",
             "wide": true
           },
@@ -133,14 +133,14 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/sepa-flow.webm",
             "poster": "/assets/yetlo/sepa-flow-poster.webp",
             "alt": "A SEPA payment on mobile: recipient details, the amount with its fee, choosing the account, and Hold to confirm",
-            "caption": "A SEPA payment end to end: the recipient's details, the amount with the fee shown up front, switching the account to pay from, then sliding Hold to confirm to send."
+            "caption": ""
           },
           {
             "type": "image",
             "src": "/assets/yetlo/mobile-transfer-annotated.webp",
             "width": 2000,
             "height": 1297,
-            "caption": "Mobile transfer screen: account selector, entering the full amount in one tap, account description, transfer time and exchange rates.",
+            "caption": "",
             "alt": "Mobile transfer screen: account selector, entering the full amount in one tap, account description, transfer time and exchange rates.",
             "wide": true
           },
@@ -149,7 +149,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/mobile-transfer-dark.webp",
             "width": 2000,
             "height": 1297,
-            "caption": "Dark theme: a transfer between currencies, and the error state when the balance is too low.",
+            "caption": "",
             "alt": "Dark theme: a transfer between currencies, and the error state when the balance is too low.",
             "wide": true
           },
@@ -162,7 +162,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/web-transfer-annotated.webp",
             "width": 1800,
             "height": 1311,
-            "caption": "The same module on web, with transfer time and fee shown before confirming.",
+            "caption": "",
             "alt": "The same module on web, with transfer time and fee shown before confirming.",
             "wide": false
           },
@@ -171,7 +171,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/web-home.webp",
             "width": 1300,
             "height": 908,
-            "caption": "Web app home: accounts, cards, balances and transactions.",
+            "caption": "",
             "alt": "Web app home: accounts, cards, balances and transactions.",
             "wide": false
           }
@@ -282,7 +282,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/registration-flow.webp",
             "width": 2000,
             "height": 2966,
-            "caption": "The registration and login flow: personal and company steps, email verification, and the checks for existing users and companies. Click to enlarge.",
+            "caption": "",
             "alt": "User flow for registration and login: company info, personal info, email verification, company details, address and business details, with checks for an existing login and an existing company legal ID",
             "wide": true
           }
@@ -327,7 +327,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/business-registration-company.webp",
             "width": 1640,
             "height": 1100,
-            "caption": "Step one: company information.",
+            "caption": "",
             "alt": "Step one: company information.",
             "wide": true
           },
@@ -336,7 +336,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/business-registration-personal.webp",
             "width": 1640,
             "height": 1100,
-            "caption": "Step two: personal details of the person registering.",
+            "caption": "",
             "alt": "Step two: personal details of the person registering.",
             "wide": true
           }
