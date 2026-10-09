@@ -177,8 +177,27 @@ export const CASES: Case[] = [
             "text": "Challenge"
           },
           {
-            "type": "draft",
-            "text": "Draft: what a company needs to get through to sign up: a multi-step registration with edge cases, and team management with roles and custom permissions."
+            "type": "p",
+            "text": "We started with user and company registration. The main task was to make registration quick for customers while still collecting as much information as we needed. It also had to cover cases such as:"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "The user already exists on the platform",
+              "A company with the same registration number already exists",
+              "The same company has an incomplete registration",
+              "The user started registration but did not confirm the email within 30 days, and the link has expired"
+            ]
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/registration-flow.webp",
+            "width": 2000,
+            "height": 2966,
+            "caption": "The registration and login flow: personal and company steps, email verification, and the checks for existing users and companies. Click to enlarge.",
+            "alt": "User flow for registration and login: company info, personal info, email verification, company details, address and business details, with checks for an existing login and an existing company legal ID",
+            "wide": true
           },
           {
             "type": "h3",
