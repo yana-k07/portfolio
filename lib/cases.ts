@@ -75,7 +75,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/platforms.webp",
             "width": 2400,
             "height": 1421,
-            "caption": "The Transfer screen on iOS in dark theme and on Android in light theme, each with its platform's own system UI and keypad.",
+            "caption": "",
             "alt": "The Yetlo Transfer screen on an iPhone in dark theme and on an Android phone in light theme",
             "wide": true
           }
