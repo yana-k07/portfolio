@@ -48,10 +48,10 @@ export const CASES: Case[] = [
       }
     ],
     "cover": {
-      "src": "/assets/yetlo/cover-v4.webp",
+      "src": "/assets/yetlo/cover-v3.webp",
       "width": 2400,
       "height": 1601,
-      "alt": "Yetlo on two phones over a warm gradient: the home screen in light theme and the Transfer screen in dark theme"
+      "alt": "Yetlo on two phones: the home screen in dark theme behind, the Transfer screen in front"
     },
     "chapters": [
       {
