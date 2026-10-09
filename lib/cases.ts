@@ -48,10 +48,10 @@ export const CASES: Case[] = [
       }
     ],
     "cover": {
-      "src": "/assets/yetlo/cover-v2.webp",
+      "src": "/assets/yetlo/cover-v3.webp",
       "width": 2400,
       "height": 1601,
-      "alt": "Yetlo on two phones: the Transfer screen in front, Verification behind it"
+      "alt": "Yetlo on two phones: the home screen in dark theme behind, the Transfer screen in front"
     },
     "chapters": [
       {
@@ -72,11 +72,11 @@ export const CASES: Case[] = [
           },
           {
             "type": "image",
-            "src": "/assets/yetlo/home-themes.webp",
+            "src": "/assets/yetlo/platforms.webp",
             "width": 2400,
             "height": 1421,
-            "caption": "The home screen in dark and light themes: total balance, accounts by currency and the latest transactions.",
-            "alt": "Yetlo home screen on two phones, in dark and light themes: total balance, EUR and USD account cards and recent transactions",
+            "caption": "The Transfer screen on iOS in dark theme and on Android in light theme, each with its platform's own system UI and keypad.",
+            "alt": "The Yetlo Transfer screen on an iPhone in dark theme and on an Android phone in light theme",
             "wide": true
           }
         ]
