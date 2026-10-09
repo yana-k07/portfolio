@@ -47,8 +47,8 @@ const PROJECTS: Project[] = [
     meta: 'TradeZella · 2025',
     title: 'Redesigning 50+ trading reports',
     fact: '+15% report views · +11% time in reports',
-    cover: asset('tradezella-DT9fCBtX.webp'),
-    coverDark: asset('tradezella-dark-BLHwSEIT.webp'),
+    cover: asset('tradezella-cover-gradient.webp'),
+    coverDark: asset('tradezella-cover-gradient.webp'),
   },
   {
     slug: 'yetlo',

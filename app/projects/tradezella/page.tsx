@@ -216,7 +216,7 @@ export default function Tradezella() {
 
           <Breakout>
             <ProjectImage
-              src={A('report-template.webp')}
+              src={A('report-template-v2.webp')}
               alt="The Day and time report: four highlight cards, a line chart of net P&L and trade count, a bar chart of win rate, and the summary table"
               width={2880}
               height={1888}
