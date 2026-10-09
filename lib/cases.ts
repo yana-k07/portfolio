@@ -82,6 +82,33 @@ export const CASES: Case[] = [
         ]
       },
       {
+        "id": "design-system",
+        "title": "Design system",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "I built Yetlo's design system for iOS, Android and web. Shared foundations (colour, typography, spacing and iconography) and a core component library (buttons in every size and state, inputs with validation and errors, account cards, toasts, progress, selection controls and navigation) keep the product consistent on every surface."
+          },
+          {
+            "type": "p",
+            "text": "Consistency did not mean identical. Components follow Apple's Human Interface Guidelines on iOS and Material Design on Android, from navigation patterns and system controls to touch targets and type, so the app feels native on each platform, while the web reuses the same components in desktop layouts. Light and dark themes are part of the foundations, so every screen ships in both."
+          },
+          {
+            "type": "p",
+            "text": "For the team, the system turned design decisions into reusable parts: new flows were assembled from existing components instead of being drawn from scratch, which kept handoff fast and the three platforms in step."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/design-system.webp",
+            "width": 2400,
+            "height": 1800,
+            "caption": "",
+            "alt": "Yetlo design system components: account cards, text inputs with error states, buttons, icons, toasts, amount fields, progress indicators, toggles, checkboxes and radio buttons",
+            "wide": true
+          }
+        ]
+      },
+      {
         "id": "send-money",
         "title": "Send money",
         "blocks": [
@@ -174,33 +201,6 @@ export const CASES: Case[] = [
             "caption": "",
             "alt": "Web app home: accounts, cards, balances and transactions.",
             "wide": false
-          }
-        ]
-      },
-      {
-        "id": "design-system",
-        "title": "Design system",
-        "blocks": [
-          {
-            "type": "p",
-            "text": "Alongside the flows, I built Yetlo's design system for iOS, Android and web. Shared foundations (colour, typography, spacing and iconography) and a core component library (buttons in every size and state, inputs with validation and errors, account cards, toasts, progress, selection controls and navigation) keep the product consistent on every surface."
-          },
-          {
-            "type": "p",
-            "text": "Consistency did not mean identical. Components follow Apple's Human Interface Guidelines on iOS and Material Design on Android, from navigation patterns and system controls to touch targets and type, so the app feels native on each platform, while the web reuses the same components in desktop layouts. Light and dark themes are part of the foundations, so every screen ships in both."
-          },
-          {
-            "type": "p",
-            "text": "For the team, the system turned design decisions into reusable parts: new flows were assembled from existing components instead of being drawn from scratch, which kept handoff fast and the three platforms in step."
-          },
-          {
-            "type": "image",
-            "src": "/assets/yetlo/design-system.webp",
-            "width": 2400,
-            "height": 1800,
-            "caption": "",
-            "alt": "Yetlo design system components: account cards, text inputs with error states, buttons, icons, toasts, amount fields, progress indicators, toggles, checkboxes and radio buttons",
-            "wide": true
           }
         ]
       },
