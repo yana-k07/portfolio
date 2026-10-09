@@ -38,13 +38,16 @@ type Project = {
   cover?: string
   coverDark?: string
   locked?: boolean
+  /** The product's round logo beside the meta line; the initial stands in without one. */
+  logo?: string
 }
 
 const PROJECTS: Project[] = [
   {
     slug: 'tradezella',
     href: '/projects/tradezella',
-    meta: 'TradeZella · 2025',
+    meta: 'TradeZella, the #1 trading journal · 2025',
+    logo: '/assets/logos/tradezella.png',
     title: 'Redesigning 50+ trading reports',
     fact: '+15% report views · +11% time in reports',
     cover: asset('tradezella-cover-gradient.webp'),
@@ -53,6 +56,7 @@ const PROJECTS: Project[] = [
   {
     slug: 'yetlo',
     meta: 'Yetlo Finance · 2023 to 2024',
+    logo: '/assets/logos/yetlo.png',
     title: 'A money transfer app for Europe, designed from scratch',
     fact: 'Web, iOS and Android',
     cover: asset('yetlo-CQiTYs6b.webp'),
@@ -69,6 +73,7 @@ const PROJECTS: Project[] = [
   {
     slug: 'quorso-design-system',
     meta: 'Quorso · 2026',
+    logo: '/assets/logos/quorso.png',
     title: 'One design system for two interfaces and the older screens',
     fact: 'Design system',
     cover: asset('quorso-design-system-CTbVNutu.webp'),
@@ -77,6 +82,7 @@ const PROJECTS: Project[] = [
   {
     slug: 'quorso-insights',
     meta: 'Quorso · 2026',
+    logo: '/assets/logos/quorso.png',
     title: 'An insights feature',
     fact: 'Available on request',
     locked: true,
@@ -164,7 +170,17 @@ function ProjectCard({ p }: { p: Project }) {
         )}
       </div>
       <div className="flex flex-col p-4">
-        <span className={tileMeta}>{p.meta}</span>
+        <span className={cn(tileMeta, 'flex items-center gap-2')}>
+          <span className="grid h-6 w-6 flex-none place-items-center overflow-hidden rounded-full bg-white text-[12px] font-medium text-neutral-500 ring-1 ring-border">
+            {p.logo ? (
+              // eslint-disable-next-line @next/next/no-img-element -- 96px logo, shown at 24px
+              <img src={p.logo} alt="" width={24} height={24} className="h-full w-full object-cover" />
+            ) : (
+              <span aria-hidden="true">{p.meta.charAt(0)}</span>
+            )}
+          </span>
+          {p.meta}
+        </span>
         <TileTitle href={p.href ?? `/projects/${p.slug}`}>{p.title}</TileTitle>
         {p.fact && <span className="mt-3 font-mono text-[13px]/5 text-muted-foreground/70">{p.fact}</span>}
       </div>

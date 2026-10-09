@@ -48,7 +48,7 @@ export default function Tradezella() {
 
         <PageHeader
           title="Tradezella: redesigning 50+ trading reports"
-          lede="TradeZella is a trading journal and analytics platform. I redesigned its reports so the data reads clearly and feels personal to each trader. Report views grew by 15%."
+          lede="TradeZella is the #1 trading journal and analytics platform. I redesigned its reports so the data reads clearly and feels personal to each trader. Report views grew by 15%."
         >
           <a href="https://tradezella.com" target="_blank" rel="noopener noreferrer" className={cn(outlinePill, 'h-8 px-3 font-medium')}>
             tradezella.com
