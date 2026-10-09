@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { outlinePill } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { EXPERIENCE } from '@/lib/experience'
-import { AVATAR, EMAIL, NAME, RESUME_PDF, navWith } from '@/lib/site'
+import { AVATAR, EMAIL, NAME, RESUME_PDF, SHOW_RESUME, navWith } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 // Experience, newest first: the company, the role and the period, one line on the work.
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 }
 
 export default function Resume() {
+  if (!SHOW_RESUME) notFound()
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Resume')} mailto={EMAIL} />

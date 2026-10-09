@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { sectionHeading } from '@/components/ui/CaseBlocks'
-import { glassPill, glassPillFace, glassPillShadow, outlinePill } from '@/components/ui/button-styles'
+import { glassPill, glassPillFace, glassPillShadow } from '@/components/ui/button-styles'
 import { Reveal } from '@/components/ui/Reveal'
 import { Tile, TileTitle, tileMeta } from '@/components/ui/Tile'
 import { cn } from '@/lib/utils'
@@ -111,16 +111,14 @@ export default function Home() {
               {paragraph}
             </p>
           ))}
-          <div className="mt-6 flex flex-wrap items-center gap-2 lg:mt-8">
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3 lg:mt-8">
             <a href={EMAIL} className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
               <span className="relative">Email me</span>
             </a>
+            {/* The small facts in mono, the site's texture: where and what. */}
+            <p className="font-mono text-[13px]/5 text-muted-foreground/70">Warsaw, Poland · B2B and fintech</p>
           </div>
-          {/* The small facts in mono, the site's texture: where and what. */}
-          <p className="mt-8 font-mono text-[13px]/5 text-muted-foreground/70">
-            Warsaw, Poland · B2B and fintech
-          </p>
         </section>
 
         <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-20 pb-16">
@@ -135,11 +133,6 @@ export default function Home() {
                 <ProjectCard p={p} />
               </Reveal>
             ))}
-            {/* The sixth cell: not a sales card, the facts a hiring manager
-                looks for next, so the grid closes without a hole. */}
-            <Reveal delay={120}>
-              <NowCard />
-            </Reveal>
           </div>
         </section>
       </div>
@@ -174,35 +167,6 @@ function ProjectCard({ p }: { p: Project }) {
         <span className={tileMeta}>{p.meta}</span>
         <TileTitle href={p.href ?? `/projects/${p.slug}`}>{p.title}</TileTitle>
         {p.fact && <span className="mt-3 font-mono text-[13px]/5 text-muted-foreground/70">{p.fact}</span>}
-      </div>
-    </Tile>
-  )
-}
-
-const NOW = [
-  { label: 'Now', value: 'Senior product designer at Quorso, Warsaw' },
-  { label: 'Before', value: 'Railsware, TradeZella, Yetlo Finance, Spaceberry Studio, Layo' },
-  { label: 'Focus', value: 'Complex B2B interfaces: dashboards, onboarding, roles and permissions' },
-  { label: 'Tools', value: 'Figma, React, Tailwind, GA4' },
-]
-
-function NowCard() {
-  return (
-    <Tile className="mb-0 h-full">
-      <div className="flex h-full flex-col p-5">
-        <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-3">
-          {NOW.map((row) => (
-            <div key={row.label} className="contents">
-              <dt className="text-[14px]/5 text-muted-foreground/70">{row.label}</dt>
-              <dd className="text-[14px]/5 text-foreground">{row.value}</dd>
-            </div>
-          ))}
-        </dl>
-        <div className="mt-auto flex flex-wrap gap-2 pt-6">
-          <a href={EMAIL} className={cn(outlinePill, 'h-9')}>
-            Email me
-          </a>
-        </div>
       </div>
     </Tile>
   )

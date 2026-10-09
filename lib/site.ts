@@ -16,9 +16,12 @@ export const RESUME_PDF = '/Yana-Kovalova-Resume.pdf'
 /** TODO: the channel URL. The YouTube button on About appears once this is set. */
 export const YOUTUBE = ''
 
+/** The Resume page is hidden for now: off the nav and 404 at /resume. Set true to bring it back. */
+export const SHOW_RESUME = false
+
 export const NAV = [
   { label: 'Projects', href: '/#projects' },
-  { label: 'Resume', href: RESUME },
+  ...(SHOW_RESUME ? [{ label: 'Resume', href: RESUME }] : []),
   { label: 'About', href: ABOUT },
 ]
 
