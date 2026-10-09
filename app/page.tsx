@@ -65,6 +65,7 @@ const PROJECTS: Project[] = [
   {
     slug: 'organizer',
     meta: 'Organizer · 2023',
+    logo: '/assets/logos/organizer.png',
     title: 'A data and mobilization platform for nonprofits and campaigns',
     fact: 'Phone banking and data import',
     cover: asset('organizer-BslymVfY.webp'),
