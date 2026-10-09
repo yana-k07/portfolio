@@ -65,6 +65,19 @@ export const CASES: Case[] = [
           {
             "type": "p",
             "text": "As the sole designer, I worked end-to-end across every surface — iOS, Android, web app, admin panel, email templates, the marketing site, and dark theme adaptation for all platforms."
+          },
+          {
+            "type": "p",
+            "text": "I joined after development had started: engineering already had the app's skeleton in place, so a ground-up redesign was off the table. The work was to make the flows clearer and more capable within that structure, improving hierarchy, states and edge cases without breaking what was already built."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/home-themes.webp",
+            "width": 2400,
+            "height": 1421,
+            "caption": "The home screen in dark and light themes: total balance, accounts by currency and the latest transactions.",
+            "alt": "Yetlo home screen on two phones, in dark and light themes: total balance, EUR and USD account cards and recent transactions",
+            "wide": true
           }
         ]
       },
@@ -161,6 +174,33 @@ export const CASES: Case[] = [
             "caption": "Web app home: accounts, cards, balances and transactions.",
             "alt": "Web app home: accounts, cards, balances and transactions.",
             "wide": false
+          }
+        ]
+      },
+      {
+        "id": "design-system",
+        "title": "Design system",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Alongside the flows, I built Yetlo's design system for iOS, Android and web. Shared foundations (colour, typography, spacing and iconography) and a core component library (buttons in every size and state, inputs with validation and errors, account cards, toasts, progress, selection controls and navigation) keep the product consistent on every surface."
+          },
+          {
+            "type": "p",
+            "text": "Consistency did not mean identical. Components follow Apple's Human Interface Guidelines on iOS and Material Design on Android, from navigation patterns and system controls to touch targets and type, so the app feels native on each platform, while the web reuses the same components in desktop layouts. Light and dark themes are part of the foundations, so every screen ships in both."
+          },
+          {
+            "type": "p",
+            "text": "For the team, the system turned design decisions into reusable parts: new flows were assembled from existing components instead of being drawn from scratch, which kept handoff fast and the three platforms in step."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/design-system.webp",
+            "width": 2400,
+            "height": 1800,
+            "caption": "Part of the component library: account cards, input states, buttons in three sizes and their states, feature icons, toasts, the amount fields with their error state, progress, toggles, checkboxes and radio buttons.",
+            "alt": "Yetlo design system components: account cards, text inputs with error states, buttons, icons, toasts, amount fields, progress indicators, toggles, checkboxes and radio buttons",
+            "wide": true
           }
         ]
       },
