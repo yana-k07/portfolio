@@ -28,7 +28,7 @@ export const CASES: Case[] = [
   {
     "slug": "yetlo",
     "title": "Yetlo: designing scalable money transfer flows",
-    "lede": "A fintech app for low-commission transfers across European countries, spanning personal and business accounts on iOS, Android, and web.",
+    "lede": "A fintech app for low-commission transfers across European countries, on iOS, Android and web.",
     "meta": [
       {
         "label": "Role",
@@ -40,7 +40,7 @@ export const CASES: Case[] = [
       },
       {
         "label": "Focus",
-        "value": "Money transfers and end-to-end business banking"
+        "value": "Money transfers"
       },
       {
         "label": "Platform",
@@ -70,7 +70,7 @@ export const CASES: Case[] = [
       },
       {
         "id": "send-money",
-        "title": "Task 1: Send money",
+        "title": "Send money",
         "blocks": [
           {
             "type": "h3",
@@ -165,17 +165,64 @@ export const CASES: Case[] = [
         ]
       },
       {
-        "id": "business-registration",
-        "title": "Task 2: Business registration",
+        "id": "impact",
+        "title": "Impact",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "Designing within an inherited codebase meant balancing ambition with constraint on every screen. The through-line was building for reuse — every flow I shipped for personal users was structured to extend cleanly to business accounts, which kept the system coherent as scope grew across multiple transfer methods and platforms. Working as the sole designer across web, mobile, and admin also taught me to make decisions that hold up without a team to catch gaps."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "yetlo-business",
+    "title": "Yetlo Business: company registration and team access",
+    "lede": "The business side of Yetlo: companies register in a few steps, open multi-currency accounts and add employees with roles and permissions.",
+    "meta": [
+      {
+        "label": "Role",
+        "value": "Product designer"
+      },
+      {
+        "label": "Period",
+        "value": "Jun 2023 to Oct 2024"
+      },
+      {
+        "label": "Focus",
+        "value": "Company registration, roles and permissions"
+      },
+      {
+        "label": "Platform",
+        "value": "Web and admin panel"
+      }
+    ],
+    "cover": {
+      "src": "/assets/yetlo/business-dashboard-dark.webp",
+      "width": 1800,
+      "height": 1311,
+      "alt": "Yetlo Business web app in dark theme: the first-run state of a new account"
+    },
+    "chapters": [
+      {
+        "id": "context",
+        "title": "Context",
         "blocks": [
           {
             "type": "p",
             "text": "Yetlo Business is a part of the Yetlo project that specializes in business accounts. Companies can create multi-currency accounts, add employees to an account with specific roles or customize permissions for them."
           },
           {
-            "type": "h3",
-            "text": "Challenge"
-          },
+            "type": "p",
+            "text": "As the sole designer on Yetlo, I designed the business side end to end: registration, the web app and the admin panel."
+          }
+        ]
+      },
+      {
+        "id": "challenge",
+        "title": "Challenge",
+        "blocks": [
           {
             "type": "p",
             "text": "We started with user and company registration. The main task was to make registration quick for customers while still collecting as much information as we needed. It also had to cover cases such as:"
@@ -198,11 +245,13 @@ export const CASES: Case[] = [
             "caption": "The registration and login flow: personal and company steps, email verification, and the checks for existing users and companies. Click to enlarge.",
             "alt": "User flow for registration and login: company info, personal info, email verification, company details, address and business details, with checks for an existing login and an existing company legal ID",
             "wide": true
-          },
-          {
-            "type": "h3",
-            "text": "Approach"
-          },
+          }
+        ]
+      },
+      {
+        "id": "approach",
+        "title": "Approach",
+        "blocks": [
           {
             "type": "p",
             "text": "My responsibilities:"
@@ -218,11 +267,13 @@ export const CASES: Case[] = [
           {
             "type": "draft",
             "text": "Draft: interviews with businesses on how they organise access to financial data, competitor analysis (Wise, Revolut), and work with compliance on business and client verification."
-          },
-          {
-            "type": "h3",
-            "text": "Solution"
-          },
+          }
+        ]
+      },
+      {
+        "id": "solution",
+        "title": "Solution",
+        "blocks": [
           {
             "type": "p",
             "text": "I split registration into distinct steps rather than one long form."
@@ -248,15 +299,6 @@ export const CASES: Case[] = [
             "caption": "Step two: personal details of the person registering.",
             "alt": "Step two: personal details of the person registering.",
             "wide": true
-          },
-          {
-            "type": "image",
-            "src": "/assets/yetlo/business-dashboard-dark.webp",
-            "width": 1800,
-            "height": 1311,
-            "caption": "Business web app in dark theme: the first-run state of a new account.",
-            "alt": "Business web app in dark theme: the first-run state of a new account.",
-            "wide": false
           }
         ]
       },
@@ -265,8 +307,8 @@ export const CASES: Case[] = [
         "title": "Impact",
         "blocks": [
           {
-            "type": "p",
-            "text": "Designing within an inherited codebase meant balancing ambition with constraint on every screen. The through-line was building for reuse — every flow I shipped for personal users was structured to extend cleanly to business accounts, which kept the system coherent as scope grew across multiple transfer methods and platforms. Working as the sole designer across web, mobile, and admin also taught me to make decisions that hold up without a team to catch gaps."
+            "type": "draft",
+            "text": "Draft: what changed for businesses after launch: how many companies registered, how fast, fewer duplicate or abandoned registrations, fewer support requests."
           }
         ]
       }
