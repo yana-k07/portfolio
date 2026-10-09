@@ -198,7 +198,7 @@ export const CASES: Case[] = [
             "src": "/assets/yetlo/design-system.webp",
             "width": 2400,
             "height": 1800,
-            "caption": "Part of the component library: account cards, input states, buttons in three sizes and their states, feature icons, toasts, the amount fields with their error state, progress, toggles, checkboxes and radio buttons.",
+            "caption": "",
             "alt": "Yetlo design system components: account cards, text inputs with error states, buttons, icons, toasts, amount fields, progress indicators, toggles, checkboxes and radio buttons",
             "wide": true
           }
