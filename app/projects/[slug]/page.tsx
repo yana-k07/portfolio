@@ -5,6 +5,7 @@ import { BackLink } from '@/components/ui/BackLink'
 import { Bullets, CaseMeta, SectionHeading } from '@/components/ui/CaseBlocks'
 import { Breakout, DraftNote, Sub } from '@/components/ui/CaseLayout'
 import { PageHeader } from '@/components/ui/PageHeader'
+import { PhoneFrame } from '@/components/ui/PhoneFrame'
 import { ProjectImage } from '@/components/ui/ProjectImage'
 import { TableOfContents } from '@/components/ui/TableOfContents'
 import { outlinePill } from '@/components/ui/button-styles'
@@ -127,5 +128,14 @@ function Block({ b }: { b: CaseBlock }) {
       )
     case 'image':
       return <ProjectImage src={b.src} alt={b.alt} width={b.width} height={b.height} caption={b.caption} />
+    case 'phone-video':
+      return (
+        <figure className="space-y-2">
+          <div className="flex justify-center rounded-xl bg-muted px-6 py-10">
+            <PhoneFrame src={b.poster} alt={b.alt} video={{ src: b.src, poster: b.poster }} sizes="280px" className="w-[280px]" />
+          </div>
+          <figcaption className="text-[14px]/5 text-muted-foreground/70">{b.caption}</figcaption>
+        </figure>
+      )
   }
 }

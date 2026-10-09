@@ -11,6 +11,8 @@ export type CaseBlock =
   | { type: 'h3'; text: string }
   | { type: 'list'; ordered: boolean; items: string[] }
   | { type: 'image'; src: string; width: number; height: number; alt: string; caption: string; wide: boolean }
+  /** A screen recording played inside the phone mockup. */
+  | { type: 'phone-video'; src: string; poster: string; alt: string; caption: string }
 
 export type Case = {
   slug: string
@@ -112,6 +114,13 @@ export const CASES: Case[] = [
           {
             "type": "p",
             "text": "The solution centered on a flexible transfer module handling multiple user types (personal and business) and multiple methods — designed for reusability, scalability, and compliance with the different requirements of each transfer type."
+          },
+          {
+            "type": "phone-video",
+            "src": "/assets/yetlo/sepa-flow.webm",
+            "poster": "/assets/yetlo/sepa-flow-poster.webp",
+            "alt": "A SEPA payment on mobile: recipient details, the amount with its fee, choosing the account, and Hold to confirm",
+            "caption": "A SEPA payment end to end: the recipient's details, the amount with the fee shown up front, switching the account to pay from, then sliding Hold to confirm to send."
           },
           {
             "type": "image",
