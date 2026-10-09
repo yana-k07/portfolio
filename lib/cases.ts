@@ -38,7 +38,7 @@ export const CASES: Case[] = [
       },
       {
         "label": "Focus",
-        "value": "Money transfers and business onboarding"
+        "value": "Money transfers and end-to-end business banking"
       },
       {
         "label": "Platform",
