@@ -18,7 +18,7 @@ export function Tile({ children, className }: { children: ReactNode; className?:
   return (
     <article
       className={cn(
-        'group relative mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-muted-foreground/40',
+        'group relative mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-border bg-card transition-[border-color,box-shadow] duration-300 hover:border-muted-foreground/40 hover:shadow-[0_2px_6px_rgba(0,0,0,0.04),0_12px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_2px_6px_rgba(0,0,0,0.3),0_12px_32px_rgba(0,0,0,0.45)]',
         className
       )}
     >

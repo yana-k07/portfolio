@@ -173,9 +173,9 @@ function ProjectCard({ p }: { p: Project }) {
         ) : (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
-            <img src={p.cover} alt="" width={1200} height={787} loading="lazy" className="h-full w-full object-cover dark:hidden" />
+            <img src={p.cover} alt="" width={1200} height={787} loading="lazy" className="h-full w-full object-cover dark:hidden transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
             {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
-            <img src={p.coverDark} alt="" width={1200} height={787} loading="lazy" className="hidden h-full w-full object-cover dark:block" />
+            <img src={p.coverDark} alt="" width={1200} height={787} loading="lazy" className="hidden h-full w-full object-cover dark:block transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
           </>
         )}
       </div>
