@@ -88,7 +88,6 @@ export default function Tradezella() {
                 before={{ src: A('compare-before-BvzMZiv3.webp'), alt: 'The Reports overview before the redesign: a long table of raw stats', width: 2000, height: 1250 }}
                 after={{ src: A('compare-after-9FT-3rqV.webp'), alt: 'The Reports overview after the redesign: charts with selectable metrics and a summary', width: 1440, height: 900 }}
               />
-              <figcaption className="text-[14px]/5 text-muted-foreground/70">The Reports overview before and after. Drag to compare.</figcaption>
             </figure>
           </Breakout>
 
@@ -131,15 +130,13 @@ export default function Tradezella() {
                 alt="The Overview page before the redesign, with all stats in two long tables of raw numbers"
                 width={2000}
                 height={1063}
-                caption="Before: the Overview page, all stats in two long tables of raw numbers."
-              />
+                />
               <ProjectImage
                 src={A('before-report-BPTNS120.webp')}
                 alt="A single report before the redesign, with two bar charts and a summary table"
                 width={2000}
                 height={1062}
-                caption="Before: a single report (days till expiration), two bar charts and a summary table."
-              />
+                />
             </div>
           </Breakout>
 
@@ -166,8 +163,7 @@ export default function Tradezella() {
               alt="Interview synthesis board: sticky notes grouped into New to trading and Experienced traders, with a takeaway note in each group"
               width={3200}
               height={1240}
-              caption="Interview synthesis, grouped by trader experience. The green notes are what each group meant for the design. Click to read."
-            />
+              />
           </Breakout>
 
           <section className="space-y-4">
@@ -200,8 +196,7 @@ export default function Tradezella() {
               poster={A('metrics-poster-DafL8tlo.webp')}
               width={1280}
               height={488}
-              caption="Configuring a chart: search any metric in a grouped list, then choose how it is drawn and its colour."
-            />
+              />
           </Breakout>
 
           <section className="space-y-4">
@@ -220,8 +215,7 @@ export default function Tradezella() {
               alt="The Day and time report: four highlight cards, a line chart of net P&L and trade count, a bar chart of win rate, and the summary table"
               width={2880}
               height={1888}
-              caption="The Day and time report, built on the shared template: highlight cards, two charts with their own metrics, the summary."
-            />
+              />
           </Breakout>
 
           <section className="space-y-4">
@@ -240,8 +234,7 @@ export default function Tradezella() {
               poster={A('cross-analysis-poster.webp')}
               width={1280}
               height={758}
-              caption="Cross-analysis at the bottom of a report: days against instruments, then switched to the bottom 10 symbols. Green for profit, red for loss."
-            />
+              />
           </Breakout>
 
           <section className="space-y-4">
@@ -257,8 +250,7 @@ export default function Tradezella() {
               poster={A('compare-summary-poster-Cx05ep_g.webp')}
               width={1280}
               height={584}
-              caption="The comparison layer in the Summary: every metric shows its change against another period, tooltips name the period, and Show difference turns the changes on or off."
-            />
+              />
           </Breakout>
 
           <section className="space-y-4">
@@ -279,9 +271,6 @@ export default function Tradezella() {
                   className="w-[280px]"
                 />
               </div>
-              <figcaption className="text-[14px]/5 text-muted-foreground/70">
-                Editing the summary on mobile: the gear opens edit mode with the actions pinned, Add new opens the metric picker.
-              </figcaption>
             </figure>
           </section>
 
@@ -311,16 +300,15 @@ function Sub({ children }: { children: ReactNode }) {
   return <h3 className="pt-2 text-base font-semibold leading-snug text-foreground">{children}</h3>
 }
 
-// A clip at its own ratio: plays while on screen, opens in MediaViewer on click.
-function Clip({ src, poster, width, height, caption }: { src: string; poster: string; width: number; height: number; caption: string }) {
+// A clip at its own ratio: plays while on screen, opens in MediaViewer on click. No caption.
+function Clip({ src, poster, width, height }: { src: string; poster: string; width: number; height: number }) {
   return (
     <figure className="space-y-2">
       <div className="img-outline overflow-hidden rounded-xl bg-muted" style={{ aspectRatio: `${width} / ${height}` }}>
-        <ZoomableMedia zoom={{ type: 'video', src, poster }} label={`Open the clip full screen: ${caption}`} caption={caption}>
+        <ZoomableMedia zoom={{ type: 'video', src, poster }} label="Open the clip full screen">
           <LazyAutoplayVideo src={src} poster={poster} autoplay decorative className="h-full w-full object-cover" />
         </ZoomableMedia>
       </div>
-      <figcaption className="text-[14px]/5 text-muted-foreground/70">{caption}</figcaption>
     </figure>
   )
 }
