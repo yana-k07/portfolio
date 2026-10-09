@@ -59,8 +59,8 @@ const PROJECTS: Project[] = [
     logo: '/assets/logos/yetlo.png',
     title: 'A money transfer app for Europe, designed from scratch',
     fact: 'Money transfers on web, iOS and Android',
-    cover: asset('yetlo-cover-gradient.webp'),
-    coverDark: asset('yetlo-cover-gradient.webp'),
+    cover: asset('yetlo-cover-peach.webp'),
+    coverDark: asset('yetlo-cover-peach.webp'),
   },
   {
     slug: 'yetlo-business',
