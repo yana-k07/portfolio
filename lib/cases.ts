@@ -223,7 +223,7 @@ export const CASES: Case[] = [
     "meta": [
       {
         "label": "Role",
-        "value": "Product designer"
+        "value": "Product designer, solo"
       },
       {
         "label": "Period",
@@ -231,11 +231,11 @@ export const CASES: Case[] = [
       },
       {
         "label": "Focus",
-        "value": "Company registration, roles and permissions"
+        "value": "Company registration, verification and the admin panel"
       },
       {
         "label": "Platform",
-        "value": "Web and admin panel"
+        "value": "Web, admin panel, iOS and Android"
       }
     ],
     "cover": {
@@ -255,7 +255,7 @@ export const CASES: Case[] = [
           },
           {
             "type": "p",
-            "text": "As the sole designer on Yetlo, I designed the business side end to end: registration, the web app and the admin panel."
+            "text": "I designed it largely from scratch, as the only designer: the web platform and the admin panel first, then their adaptation to the iOS and Android apps and to dark mode, along with the transactional emails. Most UI components came from the Yetlo design system, so the work centred on the experience and on new functionality rather than on visuals."
           }
         ]
       },
@@ -305,8 +305,21 @@ export const CASES: Case[] = [
             ]
           },
           {
-            "type": "draft",
-            "text": "Draft: interviews with businesses on how they organise access to financial data, competitor analysis (Wise, Revolut), and work with compliance on business and client verification."
+            "type": "p",
+            "text": "Business accounts carry stricter rules than personal ones, so I worked with the compliance officers in our UK office to pin down how business accounts, client verification and business verification should work before designing them."
+          },
+          {
+            "type": "p",
+            "text": "Along the way I presented the admin panel and the progress on the web platform to the team, so product, engineering and compliance reviewed the same flows as they took shape."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/admin-demo.webp",
+            "width": 1030,
+            "height": 578,
+            "caption": "",
+            "alt": "Yana presenting the Identity Verification screen of the Yetlo admin panel on a video call",
+            "wide": false
           }
         ]
       },
@@ -338,6 +351,19 @@ export const CASES: Case[] = [
             "height": 1100,
             "caption": "",
             "alt": "Step two: personal details of the person registering.",
+            "wide": true
+          },
+          {
+            "type": "p",
+            "text": "In the admin panel, compliance and support see every company in one place: its registration number, country, accounts, verification and account status, and the users behind it, with filters by name, country and registration number."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/admin-companies.webp",
+            "width": 1688,
+            "height": 1192,
+            "caption": "",
+            "alt": "Yetlo admin panel: the Company list with filters, verification and account status, accounts and users per company",
             "wide": true
           }
         ]
