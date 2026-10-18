@@ -387,7 +387,7 @@ export const CASES: Case[] = [
         "blocks": [
           {
             "type": "p",
-            "text": "I also designed the transactional emails: registration confirmation, welcome and password reset, each in a desktop and a mobile layout."
+            "text": "I designed the full set of transactional emails for the business product. Three of them are shown here, registration confirmation, welcome and password reset, each in a desktop and a mobile layout."
           },
           {
             "type": "p",
