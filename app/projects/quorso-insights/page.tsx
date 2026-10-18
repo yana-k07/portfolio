@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { cookies } from 'next/headers'
 import { BackLink } from '@/components/ui/BackLink'
 import { CaseView } from '@/components/ui/CaseView'
-import { PageHeader } from '@/components/ui/PageHeader'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { QUORSO_INSIGHTS } from '@/lib/quorso-insights'
@@ -30,8 +29,9 @@ export default async function QuorsoInsights() {
       ) : (
         <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
           <BackLink href="/#projects">← Projects</BackLink>
-          <PageHeader title="Quorso: insights" lede="Survey insights for district managers. Password protected." />
-          <Gate />
+          <div className="mt-8">
+            <Gate />
+          </div>
         </div>
       )}
       <SiteFooter />

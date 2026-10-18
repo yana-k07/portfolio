@@ -76,6 +76,20 @@
     @apply bg-background text-foreground;
     overflow-x: clip;
   }
+  /* Every page is one <main id="main">: bar, content, footer. A column that
+     fills the screen, with the footer pushed to the bottom on short pages.
+     Direct children keep the full width they had as blocks (auto margins in a
+     flex column would otherwise shrink them to their content). */
+  #main {
+    display: flex;
+    flex-direction: column;
+  }
+  #main > * {
+    width: 100%;
+  }
+  #main > footer {
+    margin-top: auto;
+  }
   /* Hash targets and focused elements clear the sticky bar (60px) and the
      fixed foot blur (100px); smooth only for those who allow motion. */
   html {
