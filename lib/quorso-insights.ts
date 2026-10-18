@@ -191,7 +191,25 @@ export const QUORSO_INSIGHTS: Case = {
     {
       id: 'solution',
       title: 'Solution',
-      blocks: [{ type: 'draft', text: 'Draft: the Insights screens: how each answer type is shown, how changed surveys are handled, and the export.' }],
+      blocks: [
+        {
+          type: 'p',
+          text: 'The final table is one template for any survey. Every question gets a single Answers bar: options keep their defined order, shaded from light to dark purple by position, and each segment is as wide as its share of responses. Yes and No keep their meaning in green and red. Text, number, date and image answers show a count that opens the responses behind it.',
+        },
+        {
+          type: 'p',
+          text: 'Clicking an answer shows who gave it and where. Clicking a question opens it by region, district or store, so locations are compared one question at a time instead of in one wide table. Long answer lists fold into the top five and "+N more", and questions without responses say so.',
+        },
+        { type: 'p', text: 'The prototype below is live: hover a bar, click an answer or a question.' },
+        { type: 'prototype', src: '/projects/quorso-insights/demo', device: 'desktop', title: 'Insights prototype, desktop' },
+        { type: 'h3', text: 'Mobile' },
+        {
+          type: 'p',
+          text: 'On a phone the table turns into a list of cards, one per question, with the same bar underneath. Section names stay pinned while you scroll, responses open as a bottom sheet, and a one-time hint explains that the bar can be tapped.',
+        },
+        { type: 'prototype', src: '/projects/quorso-insights/demo', device: 'mobile', title: 'Insights prototype, mobile' },
+        { type: 'draft', text: 'Draft: the export.' },
+      ],
     },
     {
       id: 'impact',

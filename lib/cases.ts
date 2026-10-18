@@ -13,6 +13,8 @@ export type CaseBlock =
   | { type: 'image'; src: string; width: number; height: number; alt: string; caption: string; wide: boolean }
   /** A screen recording played inside the phone mockup. */
   | { type: 'phone-video'; src: string; poster: string; alt: string; caption: string }
+  /** A live, clickable prototype in a frame. */
+  | { type: 'prototype'; src: string; device: 'desktop' | 'mobile'; title: string }
   /** Two images side by side (stacked on phones), each opening full screen on its own. */
   | { type: 'image-pair'; images: CaseImage[] }
   /** A small comparison table; `highlight` marks the column that is ours. */

@@ -5,6 +5,7 @@ import { Breakout, DraftNote, Sub } from '@/components/ui/CaseLayout'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { PhoneFrame } from '@/components/ui/PhoneFrame'
 import { ProjectImage } from '@/components/ui/ProjectImage'
+import { PrototypeEmbed } from '@/components/ui/PrototypeEmbed'
 import { TableOfContents } from '@/components/ui/TableOfContents'
 import { outlinePill } from '@/components/ui/button-styles'
 import type { Case, CaseBlock } from '@/lib/cases'
@@ -113,6 +114,8 @@ function Block({ b }: { b: CaseBlock }) {
       )
     case 'compare':
       return <Compare b={b} />
+    case 'prototype':
+      return <PrototypeEmbed src={b.src} device={b.device} title={b.title} />
     case 'image-pair':
       return (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
