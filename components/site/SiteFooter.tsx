@@ -1,5 +1,5 @@
 import { Link } from '@/components/ui/Link'
-import { EMAIL, LINKEDIN, NAME } from '@/lib/site'
+import { EMAIL, EMAIL_ADDRESS, LINKEDIN, NAME } from '@/lib/site'
 
 // Her footer: one quiet line, the copyright left, Email and LinkedIn right.
 export function SiteFooter() {
@@ -11,12 +11,14 @@ export function SiteFooter() {
         </p>
         <div className="flex items-center gap-4 text-[13px]/4">
           <Link href={EMAIL} variant="muted">
-            Email
+            {EMAIL_ADDRESS}
           </Link>
-          <Link href={LINKEDIN} variant="muted" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-            <span className="sr-only"> (opens in a new tab)</span>
-          </Link>
+          {LINKEDIN && (
+            <Link href={LINKEDIN} variant="muted" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+              <span className="sr-only"> (opens in a new tab)</span>
+            </Link>
+          )}
         </div>
       </div>
     </footer>

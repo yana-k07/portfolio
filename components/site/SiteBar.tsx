@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import NextLink from 'next/link'
 import { glassPill, glassPillFace, glassPillShadow } from '@/components/ui/button-styles'
 import { cn } from '@/lib/utils'
+import { EMAIL_ADDRESS } from '@/lib/site'
 import { ThemeToggle } from './ThemeToggle'
 
 // The sticky bar: the name as the wordmark (the avatar on phones), three nav
@@ -78,7 +79,8 @@ export function SiteBar({
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <a href={mailto} className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
-            <span className="relative">Email</span>
+            <span className="relative md:hidden">Email</span>
+            <span className="relative hidden md:inline">{EMAIL_ADDRESS}</span>
           </a>
           <ThemeToggle />
         </div>
