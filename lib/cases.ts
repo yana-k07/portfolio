@@ -27,7 +27,7 @@ export type Case = {
 export const CASES: Case[] = [
   {
     "slug": "yetlo",
-    "title": "Yetlo: designing scalable money transfer flows",
+    "title": "Yetlo: a money transfer app designed end to end",
     "lede": "A fintech app for low-commission transfers across European countries, on iOS, Android and web.",
     "meta": [
       {
@@ -40,7 +40,7 @@ export const CASES: Case[] = [
       },
       {
         "label": "Focus",
-        "value": "Money transfers"
+        "value": "The whole app, from design system to transfers"
       },
       {
         "label": "Platform",
