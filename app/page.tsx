@@ -28,7 +28,7 @@ const COPY = {
 
 type Project = {
   slug: string
-  /** The product and, where she states it, the year. */
+  /** The product, shown beside its logo. */
   meta: string
   /** The case page; defaults to /projects/<slug>. */
   href?: string
@@ -46,7 +46,7 @@ const PROJECTS: Project[] = [
   {
     slug: 'tradezella',
     href: '/projects/tradezella',
-    meta: 'TradeZella, the #1 trading journal · 2025',
+    meta: 'TradeZella, the #1 trading journal',
     logo: '/assets/logos/tradezella.png',
     title: 'Redesigning 50+ trading reports',
     fact: '+15% report views · +11% time in reports',
@@ -55,7 +55,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'yetlo',
-    meta: 'Yetlo Finance · 2023 to 2024',
+    meta: 'Yetlo Finance',
     logo: '/assets/logos/yetlo.png',
     title: 'A money transfer app designed end to end',
     fact: 'Money transfers on web, iOS and Android',
@@ -64,7 +64,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'yetlo-business',
-    meta: 'Yetlo Business · 2023 to 2024',
+    meta: 'Yetlo Business',
     logo: '/assets/logos/yetlo.png',
     title: 'Company registration and team access for business accounts',
     fact: 'Registration, roles and permissions',
@@ -73,7 +73,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'organizer',
-    meta: 'Organizer · 2023',
+    meta: 'Organizer',
     logo: '/assets/logos/organizer.png',
     title: 'A data and mobilization platform for nonprofits and campaigns',
     fact: 'Phone banking and data import',
@@ -82,7 +82,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'quorso-design-system',
-    meta: 'Quorso · 2026',
+    meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
     title: 'One design system for two interfaces and the older screens',
     fact: 'Design system',
@@ -91,7 +91,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'quorso-insights',
-    meta: 'Quorso · 2026',
+    meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
     title: 'An insights feature',
     fact: 'Available on request',
