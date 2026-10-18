@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils'
 // Who she is and her links, three facts, how she works, life
 // outside work with a grid of her photos. The content lives in lib/about.ts.
 export const metadata: Metadata = {
-  title: 'About, Yana Kovalova',
+  title: 'About me, Yana Kovalova',
   description: 'How Yana Kovalova works, and what she does outside work.',
 }
 
@@ -32,7 +32,7 @@ export default function About() {
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('About')} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
-        <PageHeader title="About" />
+        <PageHeader title="About me" />
 
         <div className="mb-10 max-w-2xl">
           <div className="space-y-4 text-sm text-foreground">
@@ -90,6 +90,21 @@ export default function About() {
           </section>
 
           <section className="space-y-4">
+            <SectionHeading>Experience</SectionHeading>
+            <ol className="divide-y divide-border border-y border-border">
+              {A.experience.map((e) => (
+                <li key={e.company} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
+                  <span className="text-[14px]/5 text-foreground">
+                    {e.company}
+                    <span className="text-muted-foreground/70"> · {e.role}</span>
+                  </span>
+                  <span className="shrink-0 font-mono text-[13px]/5 text-muted-foreground/70">{e.period}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="space-y-4">
             <SectionHeading>Outside work</SectionHeading>
             <p>{A.outside.text}</p>
             <div className="grid grid-cols-3 gap-2 pt-2 sm:gap-3">
@@ -105,6 +120,13 @@ export default function About() {
                 />
               ))}
             </div>
+          </section>
+
+          <section className="space-y-4">
+            <SectionHeading>How I got here</SectionHeading>
+            {A.story.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
           </section>
         </div>
       </div>
