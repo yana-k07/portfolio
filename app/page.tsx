@@ -94,7 +94,9 @@ const PROJECTS: Project[] = [
     meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
     title: 'An insights feature',
-    fact: 'Available on request',
+    fact: 'Survey insights and data export',
+    cover: asset('quorso-insights-cover.webp'),
+    coverDark: asset('quorso-insights-cover.webp'),
     locked: true,
   },
 ]
@@ -164,19 +166,16 @@ export default function Home() {
 function ProjectCard({ p }: { p: Project }) {
   return (
     <Tile className="mb-0 h-full">
-      <div className="aspect-[1200/787] w-full overflow-hidden bg-muted">
-        {p.locked ? (
-          <div className="flex h-full w-full items-center justify-center gap-2 text-[14px]/5 text-muted-foreground/70">
-            <LockIcon className="h-4 w-4" />
+      <div className="relative aspect-[1200/787] w-full overflow-hidden bg-muted">
+        {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
+        <img src={p.cover} alt="" width={1200} height={787} loading="lazy" className="h-full w-full object-cover dark:hidden transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
+        {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
+        <img src={p.coverDark} alt="" width={1200} height={787} loading="lazy" className="hidden h-full w-full object-cover dark:block transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
+        {p.locked && (
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-[13px]/5 font-medium text-neutral-900 shadow-[0_1px_3px_rgba(0,0,0,0.12)] backdrop-blur">
+            <LockIcon className="h-3.5 w-3.5" />
             Password protected
-          </div>
-        ) : (
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
-            <img src={p.cover} alt="" width={1200} height={787} loading="lazy" className="h-full w-full object-cover dark:hidden transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
-            {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
-            <img src={p.coverDark} alt="" width={1200} height={787} loading="lazy" className="hidden h-full w-full object-cover dark:block transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
-          </>
+          </span>
         )}
       </div>
       <div className="flex flex-col p-4">
