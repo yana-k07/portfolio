@@ -80,14 +80,13 @@ export default function About() {
             ))}
           </dl>
 
+          <LazyAutoplayVideo src={A.video.src} poster={A.video.poster} autoplay decorative className="img-outline aspect-video w-full rounded-xl object-cover" />
+
           <section className="space-y-4">
             <SectionHeading>How I work</SectionHeading>
             {A.work.map((p) => (
               <p key={p}>{p}</p>
             ))}
-            <div className="pt-2">
-              <LazyAutoplayVideo src={A.video.src} poster={A.video.poster} autoplay decorative className="img-outline aspect-video w-full rounded-xl object-cover" />
-            </div>
           </section>
 
           <section className="space-y-4">

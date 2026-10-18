@@ -8,13 +8,13 @@ export const AVATAR = asset('avatar-DL9M3YyB.jpg')
 export const EMAIL_ADDRESS = 'yana.kovalyova2409@gmail.com'
 export const EMAIL = `mailto:${EMAIL_ADDRESS}`
 /** TODO: the profile URL. The LinkedIn links (footer, About) appear once this is set. */
-export const LINKEDIN = ''
+export const LINKEDIN = 'https://www.linkedin.com/in/yana-kovalova-99984922b/'
 export const RESUME = '/resume'
 export const ABOUT = '/about'
 /** TODO: put the PDF in public/ under this name. */
 export const RESUME_PDF = '/Yana-Kovalova-Resume.pdf'
 /** TODO: the channel URL. The YouTube button on About appears once this is set. */
-export const YOUTUBE = ''
+export const YOUTUBE = 'https://www.youtube.com/@yana-kovalova'
 /** TODO: the profile URL, if she wants it on About. */
 export const INSTAGRAM = ''
 
