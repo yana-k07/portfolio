@@ -11,10 +11,10 @@ import { AVATAR, INSTAGRAM, LINKEDIN, NAME, YOUTUBE, navWith } from '@/lib/site'
 import { TOOL_LOGOS } from '@/lib/tool-logos'
 import { cn } from '@/lib/utils'
 
-// Who she is and her links, three facts, how she works, life
-// outside work with a grid of her photos. The content lives in lib/about.ts.
+// Who she is and her links, the office clip, how she works (three facts first),
+// experience, then a bit more about her with a grid of her photos. The content lives in lib/about.ts.
 export const metadata: Metadata = {
-  title: 'About, Yana Kovalova',
+  title: 'About me, Yana Kovalova',
   description: 'How Yana Kovalova works, and what she does outside work.',
 }
 
@@ -32,7 +32,7 @@ export default function About() {
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('About')} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
-        <PageHeader title="About" />
+        <PageHeader title="About me" />
 
         <div className="mb-10 max-w-2xl">
           <div className="space-y-4 text-sm text-foreground">
@@ -53,45 +53,64 @@ export default function About() {
           </div>
         </div>
 
-        <div className="space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>p]:max-w-2xl">
-          <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {facts.map((f) => (
-              <div key={f.label} className="rounded-xl border border-border bg-card p-5">
-                <dt className="text-[14px]/5 text-muted-foreground/70">{f.label}</dt>
-                <dd className="mt-1.5 text-[14px]/5 text-foreground">
-                  {f.tools ? (
-                    <span className="flex flex-wrap items-center gap-3">
-                      {f.tools.map((id) => {
-                        const t = TOOL_LOGOS[id]
-                        if (!t) return null
-                        return (
-                          <svg key={id} viewBox="0 0 24 24" role="img" aria-label={t.title} className="h-5 w-5 fill-current text-foreground/80">
-                            <title>{t.title}</title>
-                            <path d={t.path} />
-                          </svg>
-                        )
-                      })}
-                    </span>
-                  ) : (
-                    f.value
-                  )}
-                </dd>
-              </div>
-            ))}
-          </dl>
+        <LazyAutoplayVideo src={A.video.src} poster={A.video.poster} autoplay decorative className="img-outline mb-10 aspect-video w-full rounded-xl object-cover" />
 
-          <LazyAutoplayVideo src={A.video.src} poster={A.video.poster} autoplay decorative className="img-outline aspect-video w-full rounded-xl object-cover" />
-
+        <div className="space-y-10 text-xs leading-relaxed text-muted-foreground [&_section>p]:max-w-2xl">
           <section className="space-y-4">
             <SectionHeading>How I work</SectionHeading>
+            <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {facts.map((f) => (
+                <div key={f.label} className="rounded-xl border border-border bg-card p-5">
+                  <dt className="text-[14px]/5 text-muted-foreground/70">{f.label}</dt>
+                  <dd className="mt-1.5 text-[14px]/5 text-foreground">
+                    {f.tools ? (
+                      <span className="flex flex-wrap items-center gap-3">
+                        {f.tools.map((id) => {
+                          const t = TOOL_LOGOS[id]
+                          if (!t) return null
+                          return (
+                            <svg key={id} viewBox="0 0 24 24" role="img" aria-label={t.title} className="h-5 w-5 fill-current text-foreground/80">
+                              <title>{t.title}</title>
+                              <path d={t.path} />
+                            </svg>
+                          )
+                        })}
+                      </span>
+                    ) : (
+                      f.value
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
             {A.work.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </section>
 
           <section className="space-y-4">
-            <SectionHeading>Outside work</SectionHeading>
-            <p>{A.outside.text}</p>
+            <SectionHeading>Experience</SectionHeading>
+            <ol className="divide-y divide-border border-y border-border">
+              {A.experience.map((e) => (
+                <li key={e.company} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                  <span className="flex items-center gap-3 text-[14px]/5 text-foreground">
+                    <Image src={e.logo} alt="" width={28} height={28} className="h-7 w-7 flex-none rounded-md object-cover ring-1 ring-border" />
+                    <span>
+                      {e.company}
+                      <span className="text-muted-foreground/70"> · {e.role}</span>
+                    </span>
+                  </span>
+                  <span className="shrink-0 pl-10 font-mono text-[13px]/5 text-muted-foreground/70 sm:pl-0">{e.period}</span>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section className="space-y-4">
+            <SectionHeading>A bit more about me</SectionHeading>
+            {A.more.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
             <div className="grid grid-cols-3 gap-2 pt-2 sm:gap-3">
               {A.photos.map((ph) => (
                 <Image
