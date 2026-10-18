@@ -1,15 +1,13 @@
 'use client'
 
 import { useActionState } from 'react'
-import { CopyEmailButton } from '@/components/ui/CopyEmailButton'
-import { glassPill, glassPillFace, glassPillShadow, outlinePill } from '@/components/ui/button-styles'
+import { glassPill, glassPillFace, glassPillShadow } from '@/components/ui/button-styles'
 import { cn } from '@/lib/utils'
 import { unlock } from './actions'
 
-// The lock screen: the password field first, and a way to ask for it.
-export function Gate({ email, emailAddress }: { email: string; emailAddress: string }) {
+// The lock screen: one password field.
+export function Gate() {
   const [state, action, pending] = useActionState(unlock, { error: false })
-  const subject = encodeURIComponent('Access to the Quorso insights case')
   return (
     <section className="rounded-xl border border-border bg-card p-6">
       <LockIcon className="h-5 w-5 text-muted-foreground/70" />
@@ -45,15 +43,6 @@ export function Gate({ email, emailAddress }: { email: string; emailAddress: str
         </p>
       )}
 
-      <div className="mt-6 border-t border-border pt-5">
-        <p className="text-[14px]/5 text-muted-foreground">No password yet? Send me a message and I will share access.</p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <a href={`${email}?subject=${subject}`} target="_blank" rel="noreferrer" className={cn(outlinePill, 'h-9')}>
-            Request access
-          </a>
-          <CopyEmailButton email={emailAddress} />
-        </div>
-      </div>
     </section>
   )
 }

@@ -6,7 +6,7 @@ import { PageHeader } from '@/components/ui/PageHeader'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { QUORSO_INSIGHTS } from '@/lib/quorso-insights'
-import { AVATAR, EMAIL, EMAIL_ADDRESS, NAME, navWith } from '@/lib/site'
+import { AVATAR, EMAIL, NAME, navWith } from '@/lib/site'
 import { ACCESS_COOKIE, hasAccess } from './access'
 import { Gate } from './Gate'
 
@@ -31,7 +31,7 @@ export default async function QuorsoInsights() {
         <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
           <BackLink href="/#projects">← Projects</BackLink>
           <PageHeader title="Quorso: insights" lede="Survey insights for district managers. Password protected." />
-          <Gate email={EMAIL} emailAddress={EMAIL_ADDRESS} />
+          <Gate />
         </div>
       )}
       <SiteFooter />
