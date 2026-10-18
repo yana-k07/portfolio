@@ -50,8 +50,8 @@ const PROJECTS: Project[] = [
     logo: '/assets/logos/tradezella.png',
     title: 'Redesigning 50+ trading reports',
     fact: '+15% report views · +11% time in reports',
-    cover: asset('tradezella-cover-dashboard.webp'),
-    coverDark: asset('tradezella-cover-dashboard.webp'),
+    cover: asset('tradezella-cover-logo.webp'),
+    coverDark: asset('tradezella-cover-logo.webp'),
   },
   {
     slug: 'yetlo',
