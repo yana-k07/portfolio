@@ -355,6 +355,19 @@ export const CASES: Case[] = [
           },
           {
             "type": "p",
+            "text": "Registration ends with an email check. A modal tells the person where the email went, points to the spam folder and lets them resend it after a short countdown; the link in the email confirms the address and opens a welcome screen that leads straight into the product."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/email-confirmation-flow.webp",
+            "width": 2400,
+            "height": 1095,
+            "caption": "",
+            "alt": "Email confirmation flow: the confirmation modal on the registration page, the confirmation email, and the Thank you for registration welcome screen",
+            "wide": true
+          },
+          {
+            "type": "p",
             "text": "In the admin panel, compliance and support see every company in one place: its registration number, country, accounts, verification and account status, and the users behind it, with filters by name, country and registration number."
           },
           {
@@ -364,6 +377,29 @@ export const CASES: Case[] = [
             "height": 1192,
             "caption": "",
             "alt": "Yetlo admin panel: the Company list with filters, verification and account status, accounts and users per company",
+            "wide": true
+          }
+        ]
+      },
+      {
+        "id": "emails",
+        "title": "Emails",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "I also designed the transactional emails: registration confirmation, welcome and password reset, each in a desktop and a mobile layout."
+          },
+          {
+            "type": "p",
+            "text": "They share one structure: the logo, an icon for the message, a short headline, a single primary action, a plain link as a fallback, and a support footer. Names, addresses and links are variables, so engineering builds one template and every new email follows it. The password reset email adds basic security tips, since it is the one most likely to be triggered by someone else."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/emails.webp",
+            "width": 2400,
+            "height": 1573,
+            "caption": "",
+            "alt": "Yetlo Business transactional emails in desktop and mobile layouts: registration confirmation, welcome and password reset",
             "wide": true
           }
         ]
