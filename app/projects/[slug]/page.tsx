@@ -137,5 +137,56 @@ function Block({ b }: { b: CaseBlock }) {
           {b.caption && <figcaption className="text-[14px]/5 text-muted-foreground/70">{b.caption}</figcaption>}
         </figure>
       )
+    case 'compare':
+      return <Compare b={b} />
   }
+}
+
+// A small comparison table in the reading column: features down the side, one
+// column per product, ours tinted. Scrolls sideways on narrow screens.
+function Compare({ b }: { b: Extract<CaseBlock, { type: 'compare' }> }) {
+  return (
+    <figure className="space-y-2">
+      <div className="overflow-x-auto rounded-xl border border-border">
+        <table className="w-full min-w-[560px] border-collapse text-left text-[14px]/5">
+          <thead>
+            <tr className="border-b border-border">
+              <th className="p-3 font-normal text-muted-foreground/70" />
+              {b.columns.map((c, i) => (
+                <th
+                  key={c}
+                  scope="col"
+                  className={cn('p-3 font-medium text-foreground', i === b.highlight && 'bg-[color-mix(in_oklab,#ff7b00_9%,transparent)]')}
+                >
+                  {c}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {b.rows.map((r) => (
+              <tr key={r.label} className="border-b border-border last:border-b-0">
+                <th scope="row" className="p-3 font-normal text-muted-foreground">
+                  {r.label}
+                </th>
+                {r.values.map((v, i) => (
+                  <td
+                    key={i}
+                    className={cn(
+                      'p-3',
+                      v === 'No' ? 'text-muted-foreground/50' : 'text-foreground',
+                      i === b.highlight && 'bg-[color-mix(in_oklab,#ff7b00_9%,transparent)] font-medium'
+                    )}
+                  >
+                    {v}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {b.note && <figcaption className="text-[14px]/5 text-muted-foreground/70">{b.note}</figcaption>}
+    </figure>
+  )
 }

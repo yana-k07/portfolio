@@ -13,6 +13,8 @@ export type CaseBlock =
   | { type: 'image'; src: string; width: number; height: number; alt: string; caption: string; wide: boolean }
   /** A screen recording played inside the phone mockup. */
   | { type: 'phone-video'; src: string; poster: string; alt: string; caption: string }
+  /** A small comparison table; `highlight` marks the column that is ours. */
+  | { type: 'compare'; columns: string[]; rows: { label: string; values: string[] }[]; highlight?: number; note?: string }
 
 export type Case = {
   slug: string
@@ -306,7 +308,60 @@ export const CASES: Case[] = [
           },
           {
             "type": "p",
-            "text": "I started with a competitor review of business banking products: how they handle company sign-up, verification and team roles, and where they add friction. It gave us a baseline for what businesses already expect and showed where Yetlo could be simpler."
+            "text": "I started with a competitor review of Wise Business, Revolut Business and Qonto: how each handles company sign-up, verification and, above all, team access. Three patterns stood out:"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "All three keep a single account owner with powers no one else has, and treat everyone else as a team member with narrower access.",
+              "Ready-made roles make setup fast, but businesses outgrow them: Revolut adds custom roles, Wise sets permissions person by person, and Qonto opens up only its Manager role.",
+              "Flexibility costs clarity: the more access is tuned per person, the harder it becomes to see who can do what."
+            ]
+          },
+          {
+            "type": "compare",
+            "columns": [
+              "Wise Business",
+              "Revolut Business",
+              "Qonto",
+              "Yetlo Business"
+            ],
+            "highlight": 3,
+            "rows": [
+              {
+                "label": "Single account owner",
+                "values": [
+                  "Yes",
+                  "Yes",
+                  "Yes",
+                  "Yes"
+                ]
+              },
+              {
+                "label": "Ready-made roles",
+                "values": [
+                  "Permission groups",
+                  "5 roles",
+                  "5 roles",
+                  "5 roles"
+                ]
+              },
+              {
+                "label": "Custom access",
+                "values": [
+                  "Per person",
+                  "Custom roles",
+                  "Manager role only",
+                  "Custom roles"
+                ]
+              }
+            ],
+            "note": "Competitors as described in their help centres."
+          },
+          {
+            "type": "p",
+            "text": "For Yetlo Business that meant five default roles named after the steps a payment goes through, custom roles for the exceptions, and a comparison table so an admin can see every permission at once."
           },
           {
             "type": "p",
