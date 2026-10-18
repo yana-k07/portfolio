@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { SectionHeading } from '@/components/ui/CaseBlocks'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { outlinePill } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { ABOUT_CONTENT as A } from '@/lib/about'
-import { AVATAR, EMAIL, NAME, YOUTUBE, navWith } from '@/lib/site'
+import { AVATAR, EMAIL, INSTAGRAM, LINKEDIN, NAME, YOUTUBE, navWith } from '@/lib/site'
 import { TOOL_LOGOS } from '@/lib/tool-logos'
 import { cn } from '@/lib/utils'
 
-// Three facts, how she works, life outside work. The content lives in lib/about.ts.
+// Who she is with a portrait and her links, three facts, how she works, life
+// outside work with a grid of her photos. The content lives in lib/about.ts.
 export const metadata: Metadata = {
   title: 'About, Yana Kovalova',
   description: 'How Yana Kovalova works, and what she does outside work.',
@@ -19,12 +21,45 @@ type Fact = { label: string; value?: string; tools?: string[] }
 
 export default function About() {
   const facts = A.facts as Fact[]
+  const links = [
+    { label: 'LinkedIn', href: LINKEDIN },
+    { label: 'YouTube', href: YOUTUBE },
+    { label: 'Instagram', href: INSTAGRAM },
+  ].filter((l) => l.href)
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('About')} mailto={EMAIL} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <PageHeader title="About" />
+
+        <div className="mb-10 grid grid-cols-1 items-start gap-6 sm:grid-cols-[1fr_200px] sm:gap-10">
+          <Image
+            src={A.portrait.src}
+            alt={A.portrait.alt}
+            width={1200}
+            height={1600}
+            priority
+            sizes="(max-width: 640px) 160px, 200px"
+            className="img-outline w-40 rounded-xl sm:order-2 sm:w-full"
+          />
+          <div className="space-y-4 text-sm text-foreground sm:order-1">
+            {A.intro.map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+            {links.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-2">
+                {links.map((l) => (
+                  <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className={cn(outlinePill, 'h-9')}>
+                    {l.label}
+                    <span aria-hidden="true">↗</span>
+                    <span className="sr-only"> (opens in a new tab)</span>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
 
         <div className="space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>p]:max-w-2xl">
           <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -63,13 +98,19 @@ export default function About() {
           <section className="space-y-4">
             <SectionHeading>Outside work</SectionHeading>
             <p>{A.outside.text}</p>
-            {YOUTUBE && (
-              <a href={YOUTUBE} target="_blank" rel="noopener noreferrer" className={cn(outlinePill, 'h-9')}>
-                {A.outside.linkLabel}
-                <span aria-hidden="true">↗</span>
-                <span className="sr-only"> (opens in a new tab)</span>
-              </a>
-            )}
+            <div className="grid grid-cols-3 gap-2 pt-2 sm:gap-3">
+              {A.photos.map((ph) => (
+                <Image
+                  key={ph.src}
+                  src={ph.src}
+                  alt={ph.alt}
+                  width={1200}
+                  height={1600}
+                  sizes="(max-width: 640px) 33vw, 240px"
+                  className="img-outline aspect-[3/4] w-full rounded-lg object-cover sm:rounded-xl"
+                />
+              ))}
+            </div>
           </section>
         </div>
       </div>

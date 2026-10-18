@@ -13,10 +13,12 @@ export function SiteFooter() {
           <Link href={EMAIL} variant="muted">
             Email
           </Link>
-          <Link href={LINKEDIN} variant="muted" target="_blank" rel="noopener noreferrer">
-            LinkedIn
-            <span className="sr-only"> (opens in a new tab)</span>
-          </Link>
+          {LINKEDIN && (
+            <Link href={LINKEDIN} variant="muted" target="_blank" rel="noopener noreferrer">
+              LinkedIn
+              <span className="sr-only"> (opens in a new tab)</span>
+            </Link>
+          )}
         </div>
       </div>
     </footer>
