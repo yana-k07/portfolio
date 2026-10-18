@@ -1,61 +1,40 @@
 import type { Metadata } from 'next'
+import { cookies } from 'next/headers'
 import { BackLink } from '@/components/ui/BackLink'
-import { CopyEmailButton } from '@/components/ui/CopyEmailButton'
+import { CaseView } from '@/components/ui/CaseView'
 import { PageHeader } from '@/components/ui/PageHeader'
-import { glassPill, glassPillFace, glassPillShadow } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
+import { QUORSO_INSIGHTS } from '@/lib/quorso-insights'
 import { AVATAR, EMAIL, EMAIL_ADDRESS, NAME, navWith } from '@/lib/site'
-import { cn } from '@/lib/utils'
+import { ACCESS_COOKIE, hasAccess } from './access'
+import { Gate } from './Gate'
 
-// The case shared on request: what it is, and two ways to ask for it.
+// The password-protected case. Rendered on the server per request: without the
+// access cookie the content is never sent, only the lock screen.
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: 'Quorso: insights',
-  description: 'An insights feature for Quorso. Available on request.',
+  description: 'An insights feature for Quorso. Password protected.',
+  robots: { index: false, follow: false },
 }
 
-export default function QuorsoInsights() {
-  const subject = encodeURIComponent('Access to the Quorso insights case')
+export default async function QuorsoInsights() {
+  const open = hasAccess((await cookies()).get(ACCESS_COOKIE)?.value)
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Projects')} mailto={EMAIL} />
-
-      <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
-        <BackLink href="/#projects">← Projects</BackLink>
-        <PageHeader title="Quorso: insights" lede="An insights feature. Available on request." />
-
-        <section className="rounded-xl border border-border bg-card p-6">
-          <LockIcon className="h-5 w-5 text-muted-foreground/70" />
-          <h2 className="mt-4 text-base font-semibold leading-snug text-foreground">This case is password protected</h2>
-          <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted-foreground">
-            Send me a message and I will share access and walk you through the work.
-          </p>
-          <div className="mt-5 flex flex-wrap gap-2">
-            <a
-              href={`${EMAIL}?subject=${subject}`}
-              target="_blank"
-              rel="noreferrer"
-              className={cn(glassPill, 'h-9 px-4')}
-              style={{ background: glassPillFace }}
-            >
-              <span aria-hidden="true" className="absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
-              <span className="relative">Request access</span>
-            </a>
-            <CopyEmailButton email={EMAIL_ADDRESS} />
-          </div>
-        </section>
-      </div>
-
+      {open ? (
+        <CaseView c={QUORSO_INSIGHTS} />
+      ) : (
+        <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
+          <BackLink href="/#projects">← Projects</BackLink>
+          <PageHeader title="Quorso: insights" lede="Survey insights for district managers. Password protected." />
+          <Gate email={EMAIL} emailAddress={EMAIL_ADDRESS} />
+        </div>
+      )}
       <SiteFooter />
     </main>
-  )
-}
-
-function LockIcon(props: React.ComponentProps<'svg'>) {
-  return (
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
-      <rect x="3" y="7" width="10" height="7" rx="2" />
-      <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" />
-    </svg>
   )
 }
