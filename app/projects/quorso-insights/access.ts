@@ -19,6 +19,11 @@ export function accessToken() {
   return sha(`quorso-insights:${secret()}`).toString('hex')
 }
 
+/** Preview deployments sit behind Vercel's own login, so the case opens there
+ *  without a password while it is being written. Production always asks. */
+const isPreview = () => process.env.VERCEL_ENV === 'preview'
+
 export function hasAccess(cookie: string | undefined) {
+  if (isPreview()) return true
   return Boolean(secret()) && cookie === accessToken()
 }
