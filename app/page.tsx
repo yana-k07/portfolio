@@ -77,8 +77,8 @@ const PROJECTS: Project[] = [
     logo: '/assets/logos/organizer.png',
     title: 'A data and mobilization platform for nonprofits and campaigns',
     fact: 'Phone banking and data import',
-    cover: asset('organizer-BslymVfY.webp'),
-    coverDark: asset('organizer-dark-C81BNo2v.webp'),
+    cover: asset('organizer-cover.webp'),
+    coverDark: asset('organizer-cover.webp'),
   },
   {
     slug: 'quorso-design-system',
