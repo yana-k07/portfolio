@@ -57,10 +57,10 @@ const PROJECTS: Project[] = [
     slug: 'yetlo',
     meta: 'Yetlo Finance · 2023 to 2024',
     logo: '/assets/logos/yetlo.png',
-    title: 'A money transfer app for Europe, designed from scratch',
+    title: 'A money transfer app designed end to end',
     fact: 'Money transfers on web, iOS and Android',
-    cover: asset('yetlo-cover-peach.webp'),
-    coverDark: asset('yetlo-cover-peach.webp'),
+    cover: asset('yetlo-cover-apricot.webp'),
+    coverDark: asset('yetlo-cover-apricot.webp'),
   },
   {
     slug: 'yetlo-business',
