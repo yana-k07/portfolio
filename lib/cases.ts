@@ -356,8 +356,7 @@ export const CASES: Case[] = [
                   "Custom roles"
                 ]
               }
-            ],
-            "note": "Competitors as described in their help centres."
+            ]
           },
           {
             "type": "p",
@@ -592,7 +591,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-before.webp",
             "width": 2000,
             "height": 1013,
-            "caption": "Before: the rough session page that already existed on the platform.",
+            "caption": "",
             "alt": "Before: the rough session page that already existed on the platform.",
             "wide": true
           },
@@ -609,7 +608,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-journey.webp",
             "width": 1498,
             "height": 1108,
-            "caption": "The volunteer’s journey through a phone bank session.",
+            "caption": "",
             "alt": "The volunteer’s journey through a phone bank session.",
             "wide": false
           },
@@ -630,7 +629,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-options.webp",
             "width": 2000,
             "height": 1026,
-            "caption": "Two layout options for the session page, each with the states of a call.",
+            "caption": "",
             "alt": "Two layout options for the session page, each with the states of a call.",
             "wide": true
           },
@@ -658,7 +657,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-final.webp",
             "width": 1456,
             "height": 1036,
-            "caption": "The session page layout chosen for testing.",
+            "caption": "",
             "alt": "The session page layout chosen for testing.",
             "wide": false
           }
@@ -681,7 +680,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-mapping.webp",
             "width": 2000,
             "height": 970,
-            "caption": "The mapping step of the import, where columns become attributes.",
+            "caption": "",
             "alt": "The mapping step of the import, where columns become attributes.",
             "wide": true
           },
@@ -708,7 +707,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-options.webp",
             "width": 1726,
             "height": 1030,
-            "caption": "The four options with their pros and cons.",
+            "caption": "",
             "alt": "The four options with their pros and cons.",
             "wide": true
           },
@@ -742,7 +741,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-hint.webp",
             "width": 1092,
             "height": 504,
-            "caption": "Choosing a data type: the hint about the limit, and the Inspect step.",
+            "caption": "",
             "alt": "Choosing a data type: the hint about the limit, and the Inspect step.",
             "wide": false
           },
@@ -751,7 +750,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-error.webp",
             "width": 1242,
             "height": 684,
-            "caption": "When a column has more than 50 unique values, the error explains how to continue.",
+            "caption": "",
             "alt": "When a column has more than 50 unique values, the error explains how to continue.",
             "wide": false
           },
@@ -760,7 +759,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-preview.webp",
             "width": 1440,
             "height": 1024,
-            "caption": "The import preview lists the attributes that will be created.",
+            "caption": "",
             "alt": "The import preview lists the attributes that will be created.",
             "wide": false
           }
