@@ -306,6 +306,10 @@ export const CASES: Case[] = [
           },
           {
             "type": "p",
+            "text": "I started with a competitor review of business banking products: how they handle company sign-up, verification and team roles, and where they add friction. It gave us a baseline for what businesses already expect and showed where Yetlo could be simpler."
+          },
+          {
+            "type": "p",
             "text": "Business accounts carry stricter rules than personal ones, so I worked with the compliance officers in our UK office to pin down how business accounts, client verification and business verification should work before designing them."
           },
           {
