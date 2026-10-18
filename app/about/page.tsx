@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { SectionHeading } from '@/components/ui/CaseBlocks'
+import { LazyAutoplayVideo } from '@/components/ui/LazyAutoplayVideo'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { outlinePill } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
@@ -10,7 +11,7 @@ import { AVATAR, EMAIL, INSTAGRAM, LINKEDIN, NAME, YOUTUBE, navWith } from '@/li
 import { TOOL_LOGOS } from '@/lib/tool-logos'
 import { cn } from '@/lib/utils'
 
-// Who she is with a portrait and her links, three facts, how she works, life
+// Who she is and her links, three facts, how she works, life
 // outside work with a grid of her photos. The content lives in lib/about.ts.
 export const metadata: Metadata = {
   title: 'About, Yana Kovalova',
@@ -33,17 +34,8 @@ export default function About() {
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <PageHeader title="About" />
 
-        <div className="mb-10 grid grid-cols-1 items-start gap-6 sm:grid-cols-[1fr_200px] sm:gap-10">
-          <Image
-            src={A.portrait.src}
-            alt={A.portrait.alt}
-            width={1200}
-            height={1600}
-            priority
-            sizes="(max-width: 640px) 160px, 200px"
-            className="img-outline w-40 rounded-xl sm:order-2 sm:w-full"
-          />
-          <div className="space-y-4 text-sm text-foreground sm:order-1">
+        <div className="mb-10 max-w-2xl">
+          <div className="space-y-4 text-sm text-foreground">
             {A.intro.map((p) => (
               <p key={p}>{p}</p>
             ))}
@@ -93,6 +85,9 @@ export default function About() {
             {A.work.map((p) => (
               <p key={p}>{p}</p>
             ))}
+            <div className="pt-2">
+              <LazyAutoplayVideo src={A.video.src} poster={A.video.poster} autoplay decorative className="img-outline aspect-video w-full rounded-xl object-cover" />
+            </div>
           </section>
 
           <section className="space-y-4">
