@@ -21,11 +21,11 @@ export const QUORSO_INSIGHTS: Case = {
       blocks: [
         {
           type: 'p',
-          text: 'Clients build their own surveys in Quorso and send them to their sites. The people who act on the answers, district managers, had no way to see them in the product.',
+          text: 'Clients build their own surveys in Quorso and send them to their sites. Surveys had become one of the biggest drivers of engagement, both in pilots and in full rollouts.',
         },
         {
           type: 'p',
-          text: 'Until then, the answers travelled the long way round: a client asked us for the responses, we exported them to CSV, and they rebuilt their reports in Excel or Power BI. Every new question meant another request and another export.',
+          text: 'Seeing the answers was another matter. Past responses sat in the completed column of Mission Control until they were archived, one survey at a time. Anything more meant a request: we exported the responses to CSV, and the client\'s BI team rebuilt reports in Excel or Power BI. None of that was visible in Quorso.',
         },
         {
           type: 'image',
@@ -42,6 +42,29 @@ export const QUORSO_INSIGHTS: Case = {
       id: 'problem',
       title: 'Problem',
       blocks: [
+        { type: 'p', text: 'Survey answers held two kinds of value that clients could not reach inside the product.' },
+        { type: 'h3', text: 'Trends across sites' },
+        {
+          type: 'p',
+          text: 'Surveys collect input straight from the front line. Added up, they show multi-site managers which operational issues keep coming back. AI-extracted themes covered part of this, but managers still needed to see the trends store by store.',
+        },
+        { type: 'h3', text: 'Compliance and ad hoc requests' },
+        {
+          type: 'p',
+          text: 'Central operations teams kept receiving requests for survey data from HR, legal and asset protection, for disciplinary cases, compliance checks and investigations. The exports existed, but those teams often could not get to them, and the frustration landed on central ops.',
+        },
+        { type: 'h3', text: 'Why it mattered' },
+        {
+          type: 'list',
+          ordered: false,
+          items: [
+            'Quorso is meant to be the one tool operators work in, yet survey results sent them to a BI tool or an emailed spreadsheet.',
+            'Without a native way to get answers out, Quorso was gaining a reputation as a product that is hard to get data out of.',
+            'The responses Quorso already gathers could become insights clients get nowhere else, and give senior users a reason to stay in the product.',
+            'To be seen as a best-in-class survey tool, this had to work in the app.',
+          ],
+        },
+        { type: 'h3', text: 'The design challenge' },
         { type: 'p', text: 'Insights had to work for any survey a client could build, and no two clients build them the same way.' },
         {
           type: 'list',
@@ -72,7 +95,11 @@ export const QUORSO_INSIGHTS: Case = {
           alt: 'A recreated client report in Power BI, with made-up data: survey questions by section, the count of each answer from Poor to Excellent and Yes or No, shaded as a heatmap, with filters for business unit, district, region and site',
           wide: true,
         },
-        { type: 'draft', text: 'Draft: what we learned from the client reports and survey configurations, and the decisions it led to.' },
+        {
+          type: 'p',
+          text: 'This report covered one client and one survey. Other clients configured theirs differently, with other sections, answer types and scales, so a report built around one survey would not carry over to the next. What we needed was a single template that works for every configuration.',
+        },
+        { type: 'draft', text: 'Draft: what else we learned from the client reports and survey configurations, and the decisions it led to.' },
       ],
     },
     {
