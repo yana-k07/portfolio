@@ -409,8 +409,16 @@ export const CASES: Case[] = [
         "title": "Impact",
         "blocks": [
           {
-            "type": "draft",
-            "text": "Draft: what changed for businesses after launch: how many companies registered, how fast, fewer duplicate or abandoned registrations, fewer support requests."
+            "type": "p",
+            "text": "Yetlo Business was designed end to end on the same design system as the personal app, across web, iOS and Android, so the business side needed no visual language of its own and new screens moved quickly from design into development."
+          },
+          {
+            "type": "p",
+            "text": "Registration was built to check for an existing company and user at the very first step, so that duplicate and half-finished sign-ups would never reach the compliance team."
+          },
+          {
+            "type": "p",
+            "text": "And because compliance was involved before verification was designed, the officers approved the flows without rework."
           }
         ]
       }
