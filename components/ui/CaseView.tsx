@@ -115,7 +115,7 @@ function Block({ b }: { b: CaseBlock }) {
     case 'compare':
       return <Compare b={b} />
     case 'prototype':
-      return <PrototypeEmbed src={b.src} device={b.device} title={b.title} />
+      return <PrototypeEmbed src={b.src} video={b.video} poster={b.poster} title={b.title} />
     case 'image-pair':
       return (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
