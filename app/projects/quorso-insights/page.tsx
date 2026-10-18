@@ -5,7 +5,7 @@ import { CaseView } from '@/components/ui/CaseView'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { QUORSO_INSIGHTS } from '@/lib/quorso-insights'
-import { AVATAR, EMAIL, NAME, navWith } from '@/lib/site'
+import { AVATAR, NAME, navWith } from '@/lib/site'
 import { ACCESS_COOKIE, hasAccess } from './access'
 import { Gate } from './Gate'
 
@@ -23,7 +23,7 @@ export default async function QuorsoInsights() {
   const open = hasAccess((await cookies()).get(ACCESS_COOKIE)?.value)
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
-      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Projects')} mailto={EMAIL} />
+      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Projects')} />
       {open ? (
         <CaseView c={QUORSO_INSIGHTS} />
       ) : (

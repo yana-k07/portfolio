@@ -12,7 +12,7 @@ import { outlinePill } from '@/components/ui/button-styles'
 import { cn } from '@/lib/utils'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
-import { AVATAR, EMAIL, NAME, NAV, asset as A } from '@/lib/site'
+import { AVATAR, NAME, NAV, asset as A } from '@/lib/site'
 import { CompareSlider } from './CompareSlider'
 
 // The Tradezella case: the text in the reading column (768px, prose capped at
@@ -41,7 +41,7 @@ const RESULTS = [
 export default function Tradezella() {
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
-      <SiteBar name={NAME} avatar={AVATAR} nav={NAV} mailto={EMAIL} />
+      <SiteBar name={NAME} avatar={AVATAR} nav={NAV} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <BackLink href="/#projects">← Projects</BackLink>

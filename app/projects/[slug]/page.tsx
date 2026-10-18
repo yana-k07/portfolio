@@ -4,7 +4,7 @@ import { CaseView } from '@/components/ui/CaseView'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { CASES, findCase } from '@/lib/cases'
-import { AVATAR, EMAIL, NAME, navWith } from '@/lib/site'
+import { AVATAR, NAME, navWith } from '@/lib/site'
 
 // The cases ported from the first version (Yetlo, Organizer, the Quorso design
 // system), in the same layout as the Tradezella case: text in the reading
@@ -27,7 +27,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
-      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Projects')} mailto={EMAIL} />
+      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Projects')} />
       <CaseView c={c} />
       <SiteFooter />
     </main>

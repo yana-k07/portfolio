@@ -7,7 +7,7 @@ import { outlinePill } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { ABOUT_CONTENT as A } from '@/lib/about'
-import { AVATAR, EMAIL, INSTAGRAM, LINKEDIN, NAME, YOUTUBE, navWith } from '@/lib/site'
+import { AVATAR, INSTAGRAM, LINKEDIN, NAME, YOUTUBE, navWith } from '@/lib/site'
 import { TOOL_LOGOS } from '@/lib/tool-logos'
 import { cn } from '@/lib/utils'
 
@@ -29,7 +29,7 @@ export default function About() {
   ].filter((l) => l.href)
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
-      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('About')} mailto={EMAIL} />
+      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('About')} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <PageHeader title="About" />
