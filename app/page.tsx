@@ -68,8 +68,8 @@ const PROJECTS: Project[] = [
     logo: '/assets/logos/yetlo.png',
     title: 'Company registration and team access for business accounts',
     fact: 'Registration, roles and permissions',
-    cover: asset('yetlo-business.webp'),
-    coverDark: asset('yetlo-business-dark.webp'),
+    cover: asset('yetlo-business-cover.webp'),
+    coverDark: asset('yetlo-business-cover.webp'),
   },
   {
     slug: 'organizer',
