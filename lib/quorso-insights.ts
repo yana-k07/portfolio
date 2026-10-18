@@ -12,7 +12,7 @@ export const QUORSO_INSIGHTS: Case = {
     { label: 'Role', value: 'Senior product designer' },
     { label: 'Period', value: '2026' },
     { label: 'Focus', value: 'Survey insights and data export' },
-    { label: 'Platform', value: 'Web' },
+    { label: 'Platform', value: 'Web, desktop and mobile' },
   ],
   chapters: [
     {
