@@ -255,9 +255,14 @@ export const QUORSO_INSIGHTS: Case = {
       ],
     },
     {
-      id: 'impact',
-      title: 'Impact',
-      blocks: [{ type: 'draft', text: 'Draft: what changed for district managers and for the team that used to run the exports.' }],
+      id: 'next',
+      title: 'What’s next',
+      blocks: [
+        {
+          type: 'p',
+          text: 'The feature is in development now. Once it ships, I will be watching how many survey data requests still reach central ops, how often district managers open insights instead of asking for a report, and which export people choose, summarized or raw.',
+        },
+      ],
     },
   ],
 }
