@@ -200,6 +200,33 @@ export const QUORSO_INSIGHTS: Case = {
           type: 'p',
           text: 'Clicking an answer shows who gave it and where. Clicking a question opens it by region, district or store, so locations are compared one question at a time instead of in one wide table. Long answer lists fold into the top five and "+N more", and questions without responses say so.',
         },
+        { type: 'h3', text: 'Edge cases' },
+        {
+          type: 'p',
+          text: 'One template has to hold up for any survey a client builds, so I specified the cases engineering would otherwise have to guess: follow-up and conditional questions, archived questions that still have answers, hover states, and how wide each column can grow. Every answer with responses keeps at least 32px so its label stays readable, and answers nobody chose shrink to a fixed 16px but stay in the bar, so the scale is always complete.',
+        },
+        {
+          type: 'image',
+          src: '/assets/quorso-insights/spec-states.webp',
+          width: 2400,
+          height: 1600,
+          caption: '',
+          alt: 'Spec for question types (follow-up, conditional), archived questions with an archive date tooltip, hover states and column widths',
+          wide: true,
+        },
+        {
+          type: 'p',
+          text: 'Colour follows rules too. Answers marked Positive or Negative keep green and red; Special, Amber and Neutral cover the rest. Everything else is shaded from the client’s secondary brand colour by its position in the scale, with the first answer always at 15% and the last at 90%, so the same answer looks the same whatever the counts. The spec also covers equal counts and options with zero responses.',
+        },
+        {
+          type: 'image',
+          src: '/assets/quorso-insights/spec-colour.webp',
+          width: 2400,
+          height: 1600,
+          caption: '',
+          alt: 'Colour spec: semantic colours for positive and negative answers, shading by position in the scale, and bars with equal or zero responses',
+          wide: true,
+        },
         { type: 'h3', text: 'Mobile' },
         {
           type: 'p',
