@@ -127,6 +127,68 @@ export const QUORSO_INSIGHTS: Case = {
       ],
     },
     {
+      id: 'testing',
+      title: 'Testing',
+      blocks: [
+        {
+          type: 'p',
+          text: 'I tested the first concept as a working prototype I built with Claude, so participants clicked through realistic data instead of static screens. It had two views: By question, with a column for every answer option and a green heatmap, and By location, comparing stores across the questions you pick.',
+        },
+        {
+          type: 'image-pair',
+          images: [
+            {
+              src: '/assets/quorso-insights/prototype-by-question.webp',
+              width: 2400,
+              height: 1600,
+              alt: 'First prototype, By question view: survey questions by section with a column per answer option and a green heatmap',
+            },
+            {
+              src: '/assets/quorso-insights/prototype-by-location.webp',
+              width: 2400,
+              height: 1600,
+              alt: 'First prototype, By location view: stores in rows and the answers to selected questions in columns',
+            },
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Five participants from client teams went through tasks on reading the heatmap, comparing locations and switching between surveys.',
+        },
+        {
+          type: 'image',
+          src: '/assets/quorso-insights/usability-testing.webp',
+          width: 2400,
+          height: 2017,
+          caption: '',
+          alt: 'Usability testing results: tasks in rows, five participants in columns, green where a task went smoothly and yellow where people struggled',
+          wide: true,
+        },
+        { type: 'p', text: 'What we saw:' },
+        {
+          type: 'list',
+          ordered: false,
+          items: [
+            'Everyone read the numbers and the colours correctly, but when most answers were Excellent, real problems did not stand out.',
+            'Changing the date range and switching surveys worked for everyone.',
+            'The By question and By location toggle, and the remove button that only appeared on hover, were easy to miss.',
+            'Filtering by answer type felt technical; people wanted to filter by question or section instead.',
+            'By location became hard to read as soon as more questions were added.',
+          ],
+        },
+        { type: 'h3', text: 'What changed after testing' },
+        {
+          type: 'list',
+          ordered: false,
+          items: [
+            'One Answer column instead of a column for every answer option. Depending on the question type it shows a total, for text, date and number answers, or a breakdown of the options, for single and multi select. The table stays readable for any survey configuration, and engineering builds one column instead of a layout per answer type.',
+            'The heatmap stayed, but moved from green to purple, so colour reads as how often an answer was given rather than whether it is good. It also respects the colours clients assign to answers when they build a survey.',
+            'We dropped the By location view. A survey can have dozens of questions, and comparing stores across all of them in one wide table was not readable.',
+          ],
+        },
+      ],
+    },
+    {
       id: 'solution',
       title: 'Solution',
       blocks: [{ type: 'draft', text: 'Draft: the Insights screens: how each answer type is shown, how changed surveys are handled, and the export.' }],
