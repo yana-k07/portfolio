@@ -382,6 +382,51 @@ export const CASES: Case[] = [
         ]
       },
       {
+        "id": "team-management",
+        "title": "Team management",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "A company rarely has one person handling its money, so a business account needs a team. Admins invite people and see where each of them stands at a glance: active, invited with an expired link, suspended by an admin, blocked by the system or not yet verified. Former members move to an archive instead of disappearing, so the record of who had access stays visible."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/team-users.webp",
+            "width": 1730,
+            "height": 1580,
+            "caption": "",
+            "alt": "Team management, Users tab: team members with their roles and statuses, an Add user button and an archive of deleted users",
+            "wide": true
+          },
+          {
+            "type": "p",
+            "text": "Access is set by role. Five default roles, from Viewer to Admin, follow how payments move through a company: one person prepares a payment, another makes it, a third approves it. Each role says in one line what it allows and how many people hold it."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/team-roles.webp",
+            "width": 1592,
+            "height": 1126,
+            "caption": "",
+            "alt": "Team management, Roles tab: five default roles with a one-line description and user count, and a custom role",
+            "wide": true
+          },
+          {
+            "type": "p",
+            "text": "A comparison table puts every permission side by side, so an admin can pick the right role without opening each one. When none fits, they create a custom role by switching individual permissions on and off, and can later edit or delete it."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/team-compare-create.webp",
+            "width": 2252,
+            "height": 802,
+            "caption": "",
+            "alt": "Compare roles table with permissions per role, and the Create role panel with a toggle for each permission",
+            "wide": true
+          }
+        ]
+      },
+      {
         "id": "emails",
         "title": "Emails",
         "blocks": [
