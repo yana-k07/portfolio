@@ -99,7 +99,31 @@ export const QUORSO_INSIGHTS: Case = {
           type: 'p',
           text: 'This report covered one client and one survey. Other clients configured theirs differently, with other sections, answer types and scales, so a report built around one survey would not carry over to the next. What we needed was a single template that works for every configuration.',
         },
-        { type: 'draft', text: 'Draft: what else we learned from the client reports and survey configurations, and the decisions it led to.' },
+        {
+          type: 'p',
+          text: 'We then talked to our clients about what they wanted from the answers. A few things came up again and again:',
+        },
+        {
+          type: 'list',
+          ordered: false,
+          items: [
+            'Access to the underlying response data was an absolute must.',
+            'Questions with predefined answer sets, often the same across sections and questions, were of most interest.',
+            'Percentages of responses mattered more than summaries of free text.',
+            'Not every answer should be rolled up, so they needed to choose which ones are.',
+            'They wanted to know whether stores are on track, aggregated up the location hierarchy.',
+            'For surveys with follow-ups, they wanted the follow-up completion rate for the latest or current survey.',
+          ],
+        },
+        {
+          type: 'image',
+          src: '/assets/quorso-insights/client-notes.webp',
+          width: 1624,
+          height: 1166,
+          caption: '',
+          alt: 'Notes from client conversations on sticky notes: what to roll up, store progress up the location hierarchy, percentages over free-text summaries, predefined answer sets, follow-up completion, and access to the raw data',
+          wide: true,
+        },
       ],
     },
     {
