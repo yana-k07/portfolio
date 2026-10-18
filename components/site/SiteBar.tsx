@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import NextLink from 'next/link'
 import { glassPill, glassPillFace, glassPillShadow } from '@/components/ui/button-styles'
 import { cn } from '@/lib/utils'
-import { EMAIL_ADDRESS } from '@/lib/site'
+import { CopyEmail } from '@/components/ui/CopyEmail'
 import { ThemeToggle } from './ThemeToggle'
 
 // The sticky bar: the name as the wordmark (the avatar on phones), three nav
@@ -20,14 +20,12 @@ export function SiteBar({
   name,
   avatar,
   nav,
-  mailto,
 }: {
   name: string
   /** The face stands in for the wordmark on phones, where three pills, the
    *  email pill and the switch leave no room for a two-word name. */
   avatar: string
   nav: { label: string; href: string; active?: boolean }[]
-  mailto: string
 }) {
   const [frosted, setFrosted] = useState(false)
   const frostRef = useRef(false)
@@ -77,11 +75,9 @@ export function SiteBar({
         </div>
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-          <a href={mailto} className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
+          <CopyEmail label="Email" className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
-            <span className="relative md:hidden">Email</span>
-            <span className="relative hidden md:inline">{EMAIL_ADDRESS}</span>
-          </a>
+          </CopyEmail>
           <ThemeToggle />
         </div>
       </nav>

@@ -4,7 +4,7 @@ import { outlinePill } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { EXPERIENCE } from '@/lib/experience'
-import { AVATAR, EMAIL, NAME, RESUME_PDF, SHOW_RESUME, navWith } from '@/lib/site'
+import { AVATAR, NAME, RESUME_PDF, SHOW_RESUME, navWith } from '@/lib/site'
 import { cn } from '@/lib/utils'
 
 // Experience, newest first: the company, the role and the period, one line on the work.
@@ -17,7 +17,7 @@ export default function Resume() {
   if (!SHOW_RESUME) notFound()
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
-      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Resume')} mailto={EMAIL} />
+      <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Resume')} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <h1 className="sr-only">Resume</h1>
