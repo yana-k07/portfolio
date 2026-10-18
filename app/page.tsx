@@ -28,7 +28,7 @@ const COPY = {
 
 type Project = {
   slug: string
-  /** The product and, where she states it, the year. */
+  /** The product, shown beside its logo. */
   meta: string
   /** The case page; defaults to /projects/<slug>. */
   href?: string
@@ -46,43 +46,34 @@ const PROJECTS: Project[] = [
   {
     slug: 'tradezella',
     href: '/projects/tradezella',
-    meta: 'TradeZella, the #1 trading journal · 2025',
+    meta: 'TradeZella, the #1 trading journal',
     logo: '/assets/logos/tradezella.png',
     title: 'Redesigning 50+ trading reports',
     fact: '+15% report views · +11% time in reports',
-    cover: asset('tradezella-cover-dashboard.webp'),
-    coverDark: asset('tradezella-cover-dashboard.webp'),
+    cover: asset('tradezella-cover-logo.webp'),
+    coverDark: asset('tradezella-cover-logo.webp'),
   },
   {
     slug: 'yetlo',
-    meta: 'Yetlo Finance · 2023 to 2024',
+    meta: 'Yetlo Finance',
     logo: '/assets/logos/yetlo.png',
-    title: 'A money transfer app for Europe, designed from scratch',
+    title: 'A money transfer app designed end to end',
     fact: 'Money transfers on web, iOS and Android',
-    cover: asset('yetlo-cover-peach.webp'),
-    coverDark: asset('yetlo-cover-peach.webp'),
+    cover: asset('yetlo-cover-apricot.webp'),
+    coverDark: asset('yetlo-cover-apricot.webp'),
   },
   {
     slug: 'yetlo-business',
-    meta: 'Yetlo Business · 2023 to 2024',
+    meta: 'Yetlo Business',
     logo: '/assets/logos/yetlo.png',
     title: 'Company registration and team access for business accounts',
     fact: 'Registration, roles and permissions',
-    cover: asset('yetlo-business.webp'),
-    coverDark: asset('yetlo-business-dark.webp'),
-  },
-  {
-    slug: 'organizer',
-    meta: 'Organizer · 2023',
-    logo: '/assets/logos/organizer.png',
-    title: 'A data and mobilization platform for nonprofits and campaigns',
-    fact: 'Phone banking and data import',
-    cover: asset('organizer-BslymVfY.webp'),
-    coverDark: asset('organizer-dark-C81BNo2v.webp'),
+    cover: asset('yetlo-business-cover.webp'),
+    coverDark: asset('yetlo-business-cover.webp'),
   },
   {
     slug: 'quorso-design-system',
-    meta: 'Quorso · 2026',
+    meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
     title: 'One design system for two interfaces and the older screens',
     fact: 'Design system',
@@ -91,11 +82,22 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'quorso-insights',
-    meta: 'Quorso · 2026',
+    meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
     title: 'An insights feature',
-    fact: 'Available on request',
+    fact: 'Survey insights and data export',
+    cover: asset('quorso-insights-cover.webp'),
+    coverDark: asset('quorso-insights-cover.webp'),
     locked: true,
+  },
+  {
+    slug: 'organizer',
+    meta: 'Organizer',
+    logo: '/assets/logos/organizer.png',
+    title: 'A data and mobilization platform for nonprofits and campaigns',
+    fact: 'Phone banking and data import',
+    cover: asset('organizer-cover.webp'),
+    coverDark: asset('organizer-cover.webp'),
   },
 ]
 
@@ -164,19 +166,16 @@ export default function Home() {
 function ProjectCard({ p }: { p: Project }) {
   return (
     <Tile className="mb-0 h-full">
-      <div className="aspect-[1200/787] w-full overflow-hidden bg-muted">
-        {p.locked ? (
-          <div className="flex h-full w-full items-center justify-center gap-2 text-[14px]/5 text-muted-foreground/70">
-            <LockIcon className="h-4 w-4" />
+      <div className="relative aspect-[1200/787] w-full overflow-hidden bg-muted">
+        {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
+        <img src={p.cover} alt="" width={1200} height={787} loading="lazy" className="h-full w-full object-cover dark:hidden transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
+        {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
+        <img src={p.coverDark} alt="" width={1200} height={787} loading="lazy" className="hidden h-full w-full object-cover dark:block transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
+        {p.locked && (
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-[13px]/5 font-medium text-neutral-900 shadow-[0_1px_3px_rgba(0,0,0,0.12)] backdrop-blur">
+            <LockIcon className="h-3.5 w-3.5" />
             Password protected
-          </div>
-        ) : (
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
-            <img src={p.cover} alt="" width={1200} height={787} loading="lazy" className="h-full w-full object-cover dark:hidden transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
-            {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
-            <img src={p.coverDark} alt="" width={1200} height={787} loading="lazy" className="hidden h-full w-full object-cover dark:block transition-transform duration-500 ease-snap motion-safe:group-hover:scale-[1.04]" />
-          </>
+          </span>
         )}
       </div>
       <div className="flex flex-col p-4">

@@ -13,6 +13,12 @@ export type CaseBlock =
   | { type: 'image'; src: string; width: number; height: number; alt: string; caption: string; wide: boolean }
   /** A screen recording played inside the phone mockup. */
   | { type: 'phone-video'; src: string; poster: string; alt: string; caption: string }
+  /** A walkthrough clip that opens the live prototype full screen (desktop and mobile views). */
+  | { type: 'prototype'; src: string; video: string; poster: string; title: string }
+  /** Two images side by side (stacked on phones), each opening full screen on its own. */
+  | { type: 'image-pair'; images: CaseImage[] }
+  /** A small comparison table; `highlight` marks the column that is ours. */
+  | { type: 'compare'; columns: string[]; rows: { label: string; values: string[] }[]; highlight?: number; note?: string }
 
 export type Case = {
   slug: string
@@ -27,7 +33,7 @@ export type Case = {
 export const CASES: Case[] = [
   {
     "slug": "yetlo",
-    "title": "Yetlo: designing scalable money transfer flows",
+    "title": "Yetlo: a money transfer app designed end to end",
     "lede": "A fintech app for low-commission transfers across European countries, on iOS, Android and web.",
     "meta": [
       {
@@ -40,7 +46,7 @@ export const CASES: Case[] = [
       },
       {
         "label": "Focus",
-        "value": "Money transfers"
+        "value": "The whole app, from design system to transfers"
       },
       {
         "label": "Platform",
@@ -223,7 +229,7 @@ export const CASES: Case[] = [
     "meta": [
       {
         "label": "Role",
-        "value": "Product designer"
+        "value": "Product designer, solo"
       },
       {
         "label": "Period",
@@ -231,11 +237,11 @@ export const CASES: Case[] = [
       },
       {
         "label": "Focus",
-        "value": "Company registration, roles and permissions"
+        "value": "Company registration, verification and the admin panel"
       },
       {
         "label": "Platform",
-        "value": "Web and admin panel"
+        "value": "Web, admin panel, iOS and Android"
       }
     ],
     "cover": {
@@ -255,7 +261,7 @@ export const CASES: Case[] = [
           },
           {
             "type": "p",
-            "text": "As the sole designer on Yetlo, I designed the business side end to end: registration, the web app and the admin panel."
+            "text": "I designed it largely from scratch, as the only designer: the web platform and the admin panel first, then their adaptation to the iOS and Android apps and to dark mode, along with the transactional emails. Most UI components came from the Yetlo design system, so the work centred on the experience and on new functionality rather than on visuals."
           }
         ]
       },
@@ -305,8 +311,77 @@ export const CASES: Case[] = [
             ]
           },
           {
-            "type": "draft",
-            "text": "Draft: interviews with businesses on how they organise access to financial data, competitor analysis (Wise, Revolut), and work with compliance on business and client verification."
+            "type": "p",
+            "text": "I started with a competitor review of Wise Business, Revolut Business and Qonto: how each handles company sign-up, verification and, above all, team access. Three patterns stood out:"
+          },
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              "All three keep a single account owner with powers no one else has, and treat everyone else as a team member with narrower access.",
+              "Ready-made roles make setup fast, but businesses outgrow them: Revolut adds custom roles, Wise sets permissions person by person, and Qonto opens up only its Manager role.",
+              "Flexibility costs clarity: the more access is tuned per person, the harder it becomes to see who can do what."
+            ]
+          },
+          {
+            "type": "compare",
+            "columns": [
+              "Wise Business",
+              "Revolut Business",
+              "Qonto",
+              "Yetlo Business"
+            ],
+            "highlight": 3,
+            "rows": [
+              {
+                "label": "Single account owner",
+                "values": [
+                  "Yes",
+                  "Yes",
+                  "Yes",
+                  "Yes"
+                ]
+              },
+              {
+                "label": "Ready-made roles",
+                "values": [
+                  "Permission groups",
+                  "5 roles",
+                  "5 roles",
+                  "5 roles"
+                ]
+              },
+              {
+                "label": "Custom access",
+                "values": [
+                  "Per person",
+                  "Custom roles",
+                  "Manager role only",
+                  "Custom roles"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "p",
+            "text": "For Yetlo Business that meant five default roles named after the steps a payment goes through, custom roles for the exceptions, and a comparison table so an admin can see every permission at once."
+          },
+          {
+            "type": "p",
+            "text": "Business accounts carry stricter rules than personal ones, so I worked with the compliance officers in our UK office to pin down how business accounts, client verification and business verification should work before designing them."
+          },
+          {
+            "type": "p",
+            "text": "Along the way I presented the admin panel and the progress on the web platform to the team, so product, engineering and compliance reviewed the same flows as they took shape."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/admin-demo.webp",
+            "width": 1030,
+            "height": 578,
+            "caption": "",
+            "alt": "Yana presenting the Identity Verification screen of the Yetlo admin panel on a video call",
+            "wide": false
           }
         ]
       },
@@ -339,6 +414,100 @@ export const CASES: Case[] = [
             "caption": "",
             "alt": "Step two: personal details of the person registering.",
             "wide": true
+          },
+          {
+            "type": "p",
+            "text": "Registration ends with an email check. A modal tells the person where the email went, points to the spam folder and lets them resend it after a short countdown; the link in the email confirms the address and opens a welcome screen that leads straight into the product."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/email-confirmation-flow.webp",
+            "width": 2400,
+            "height": 1095,
+            "caption": "",
+            "alt": "Email confirmation flow: the confirmation modal on the registration page, the confirmation email, and the Thank you for registration welcome screen",
+            "wide": true
+          },
+          {
+            "type": "p",
+            "text": "In the admin panel, compliance and support see every company in one place: its registration number, country, accounts, verification and account status, and the users behind it, with filters by name, country and registration number."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/admin-companies.webp",
+            "width": 1688,
+            "height": 1192,
+            "caption": "",
+            "alt": "Yetlo admin panel: the Company list with filters, verification and account status, accounts and users per company",
+            "wide": true
+          }
+        ]
+      },
+      {
+        "id": "team-management",
+        "title": "Team management",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "A company rarely has one person handling its money, so a business account needs a team. Admins invite people and see where each of them stands at a glance: active, invited with an expired link, suspended by an admin, blocked by the system or not yet verified. Former members move to an archive instead of disappearing, so the record of who had access stays visible."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/team-users-v2.webp",
+            "width": 2400,
+            "height": 1573,
+            "caption": "",
+            "alt": "Team management, Users tab: team members with their roles and statuses, an Add user button and an archive of deleted users",
+            "wide": true
+          },
+          {
+            "type": "p",
+            "text": "Access is set by role. Five default roles, from Viewer to Admin, follow how payments move through a company: one person prepares a payment, another makes it, a third approves it. Each role says in one line what it allows and how many people hold it."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/team-roles-v2.webp",
+            "width": 2400,
+            "height": 1573,
+            "caption": "",
+            "alt": "Team management, Roles tab: five default roles with a one-line description and user count, and a custom role",
+            "wide": true
+          },
+          {
+            "type": "p",
+            "text": "A comparison table puts every permission side by side, so an admin can pick the right role without opening each one. When none fits, they create a custom role by switching individual permissions on and off, and can later edit or delete it."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/team-compare-create-v2.webp",
+            "width": 2400,
+            "height": 1573,
+            "caption": "",
+            "alt": "Compare roles table with permissions per role, and the Create role panel with a toggle for each permission",
+            "wide": true
+          }
+        ]
+      },
+      {
+        "id": "emails",
+        "title": "Emails",
+        "blocks": [
+          {
+            "type": "p",
+            "text": "I designed the full set of transactional emails for the business product. Three of them are shown here, registration confirmation, welcome and password reset, each in a desktop and a mobile layout."
+          },
+          {
+            "type": "p",
+            "text": "They share one structure: the logo, an icon for the message, a short headline, a single primary action, a plain link as a fallback, and a support footer. Names, addresses and links are variables, so engineering builds one template and every new email follows it. The password reset email adds basic security tips, since it is the one most likely to be triggered by someone else."
+          },
+          {
+            "type": "image",
+            "src": "/assets/yetlo/emails.webp",
+            "width": 2400,
+            "height": 1573,
+            "caption": "",
+            "alt": "Yetlo Business transactional emails in desktop and mobile layouts: registration confirmation, welcome and password reset",
+            "wide": true
           }
         ]
       },
@@ -347,8 +516,16 @@ export const CASES: Case[] = [
         "title": "Impact",
         "blocks": [
           {
-            "type": "draft",
-            "text": "Draft: what changed for businesses after launch: how many companies registered, how fast, fewer duplicate or abandoned registrations, fewer support requests."
+            "type": "p",
+            "text": "Yetlo Business was designed end to end on the same design system as the personal app, across web, iOS and Android, so the business side needed no visual language of its own and new screens moved quickly from design into development."
+          },
+          {
+            "type": "p",
+            "text": "Registration was built to check for an existing company and user at the very first step, so that duplicate and half-finished sign-ups would never reach the compliance team."
+          },
+          {
+            "type": "p",
+            "text": "And because compliance was involved before verification was designed, the officers approved the flows without rework."
           }
         ]
       }
@@ -418,7 +595,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-before.webp",
             "width": 2000,
             "height": 1013,
-            "caption": "Before: the rough session page that already existed on the platform.",
+            "caption": "",
             "alt": "Before: the rough session page that already existed on the platform.",
             "wide": true
           },
@@ -435,7 +612,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-journey.webp",
             "width": 1498,
             "height": 1108,
-            "caption": "The volunteer’s journey through a phone bank session.",
+            "caption": "",
             "alt": "The volunteer’s journey through a phone bank session.",
             "wide": false
           },
@@ -456,7 +633,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-options.webp",
             "width": 2000,
             "height": 1026,
-            "caption": "Two layout options for the session page, each with the states of a call.",
+            "caption": "",
             "alt": "Two layout options for the session page, each with the states of a call.",
             "wide": true
           },
@@ -484,7 +661,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/phone-final.webp",
             "width": 1456,
             "height": 1036,
-            "caption": "The session page layout chosen for testing.",
+            "caption": "",
             "alt": "The session page layout chosen for testing.",
             "wide": false
           }
@@ -507,7 +684,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-mapping.webp",
             "width": 2000,
             "height": 970,
-            "caption": "The mapping step of the import, where columns become attributes.",
+            "caption": "",
             "alt": "The mapping step of the import, where columns become attributes.",
             "wide": true
           },
@@ -534,7 +711,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-options.webp",
             "width": 1726,
             "height": 1030,
-            "caption": "The four options with their pros and cons.",
+            "caption": "",
             "alt": "The four options with their pros and cons.",
             "wide": true
           },
@@ -568,7 +745,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-hint.webp",
             "width": 1092,
             "height": 504,
-            "caption": "Choosing a data type: the hint about the limit, and the Inspect step.",
+            "caption": "",
             "alt": "Choosing a data type: the hint about the limit, and the Inspect step.",
             "wide": false
           },
@@ -577,7 +754,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-error.webp",
             "width": 1242,
             "height": 684,
-            "caption": "When a column has more than 50 unique values, the error explains how to continue.",
+            "caption": "",
             "alt": "When a column has more than 50 unique values, the error explains how to continue.",
             "wide": false
           },
@@ -586,7 +763,7 @@ export const CASES: Case[] = [
             "src": "/assets/organizer/ca-preview.webp",
             "width": 1440,
             "height": 1024,
-            "caption": "The import preview lists the attributes that will be created.",
+            "caption": "",
             "alt": "The import preview lists the attributes that will be created.",
             "wide": false
           }
