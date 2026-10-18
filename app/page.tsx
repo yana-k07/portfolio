@@ -72,15 +72,6 @@ const PROJECTS: Project[] = [
     coverDark: asset('yetlo-business-cover.webp'),
   },
   {
-    slug: 'organizer',
-    meta: 'Organizer',
-    logo: '/assets/logos/organizer.png',
-    title: 'A data and mobilization platform for nonprofits and campaigns',
-    fact: 'Phone banking and data import',
-    cover: asset('organizer-cover.webp'),
-    coverDark: asset('organizer-cover.webp'),
-  },
-  {
     slug: 'quorso-design-system',
     meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
@@ -98,6 +89,15 @@ const PROJECTS: Project[] = [
     cover: asset('quorso-insights-cover.webp'),
     coverDark: asset('quorso-insights-cover.webp'),
     locked: true,
+  },
+  {
+    slug: 'organizer',
+    meta: 'Organizer',
+    logo: '/assets/logos/organizer.png',
+    title: 'A data and mobilization platform for nonprofits and campaigns',
+    fact: 'Phone banking and data import',
+    cover: asset('organizer-cover.webp'),
+    coverDark: asset('organizer-cover.webp'),
   },
 ]
 
