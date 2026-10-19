@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   description: 'How Yana Kovalova works, and what she does outside work.',
 }
 
+// A slightly different tilt for each print, so the rows feel laid by hand.
+const TILTS = [-3, 2, -1.5, 2.5, -2, 1.5]
+
 type Fact = { label: string; value?: string; tools?: string[] }
 
 export default function About() {
@@ -111,17 +114,22 @@ export default function About() {
             {A.more.map((p) => (
               <p key={p}>{p}</p>
             ))}
-            <div className="grid grid-cols-3 gap-2 pt-2 sm:gap-3">
-              {A.photos.map((ph) => (
-                <Image
+            <div className="grid grid-cols-3 gap-x-1 gap-y-3 px-1 pb-2 pt-4 sm:gap-x-0 sm:gap-y-5 sm:px-2">
+              {A.photos.map((ph, i) => (
+                <div
                   key={ph.src}
-                  src={ph.src}
-                  alt={ph.alt}
-                  width={1200}
-                  height={1600}
-                  sizes="(max-width: 640px) 33vw, 240px"
-                  className="img-outline aspect-[3/4] w-full rounded-lg object-cover sm:rounded-xl"
-                />
+                  style={{ ['--tilt' as string]: `${TILTS[i % TILTS.length]}deg` }}
+                  className="relative rounded-lg bg-white p-1 shadow-[0_2px_6px_rgba(0,0,0,0.10),0_12px_28px_rgba(0,0,0,0.12)] ring-1 ring-black/5 [transform:rotate(var(--tilt))] motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-snap hover:z-10 motion-safe:hover:[transform:rotate(0deg)_scale(1.06)] sm:rounded-xl sm:p-2"
+                >
+                  <Image
+                    src={ph.src}
+                    alt={ph.alt}
+                    width={1200}
+                    height={1600}
+                    sizes="(max-width: 640px) 33vw, 240px"
+                    className="aspect-[4/5] w-full rounded-md object-cover sm:rounded-lg"
+                  />
+                </div>
               ))}
             </div>
           </section>
