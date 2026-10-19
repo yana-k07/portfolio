@@ -8,7 +8,7 @@ import { SiteFooter } from '@/components/site/SiteFooter'
 import { AVATAR, NAME, NAV, asset } from '@/lib/site'
 
 // The home page: the claim, a short paragraph and the small facts, then the
-// projects two to a row, in the same 896px column as every other page. One type scale, sentence-case labels, mono for the small facts.
+// projects two to a row in the wide zone (1152px). One type scale, sentence-case labels, mono for the small facts.
 export const metadata: Metadata = {
   title: 'Yana Kovalova, product designer',
   description:
@@ -104,10 +104,10 @@ export default function Home() {
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={HOME_NAV} />
 
-      {/* The site column (896px), the same on every page: the intro, then the
-          projects two to a row (one on phones). */}
-      <div className="mx-auto w-full max-w-4xl px-6">
-        <section aria-labelledby="hero-heading" className="pb-12 pt-10 md:pb-16 md:pt-14">
+      {/* The wide zone (1152px) for the whole page: the text stays at ~70ch,
+          the project covers take the width, two to a row. */}
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+        <section aria-labelledby="hero-heading" className="pb-14 pt-12 md:pb-20 md:pt-20">
           {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
           <img
             src={AVATAR}
