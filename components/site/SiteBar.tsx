@@ -46,7 +46,7 @@ export function SiteBar({
 
   return (
     <header className={cn('site-header sticky top-0 z-40 border-b border-transparent', frosted && 'site-header-scrolled')}>
-      <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-6xl items-center justify-between gap-2 px-4 sm:px-6">
+      <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-3xl items-center justify-between gap-2 px-6">
         <div className="flex min-w-0 items-center gap-2 sm:gap-4">
           <NextLink href="/" className="hidden whitespace-nowrap text-[16px] font-medium tracking-tight text-foreground md:block">
             {name}
