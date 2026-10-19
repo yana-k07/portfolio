@@ -6,8 +6,7 @@ import { Tile, TileTitle, tileMeta } from '@/components/ui/Tile'
 import { cn } from '@/lib/utils'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
-import { AVATAR, NAME, NAV, asset } from '@/lib/site'
-import { CopyEmail } from '@/components/ui/CopyEmail'
+import { AVATAR, EMAIL, NAME, NAV, asset } from '@/lib/site'
 
 // The home page: the claim and two short paragraphs, one action pair, then
 // the projects at the wide zone (1152px) so the covers show the work at a
@@ -131,9 +130,10 @@ export default function Home() {
             </p>
           ))}
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3 lg:mt-8">
-            <CopyEmail label="Email me" className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
+            <a href={EMAIL} className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
-            </CopyEmail>
+              <span className="relative">Email me</span>
+            </a>
             {/* The small facts in mono, the site's texture: where and what. */}
             <p className="font-mono text-[13px]/5 text-muted-foreground/70">Warsaw, Poland · B2B and fintech</p>
           </div>

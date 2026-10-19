@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import NextLink from 'next/link'
 import { glassPill, glassPillFace, glassPillShadow } from '@/components/ui/button-styles'
 import { cn } from '@/lib/utils'
-import { CopyEmail } from '@/components/ui/CopyEmail'
+import { EMAIL } from '@/lib/site'
 import { ThemeToggle } from './ThemeToggle'
 
 // The sticky bar: the name as the wordmark (the avatar on phones) on the left;
@@ -75,9 +75,10 @@ export function SiteBar({
               </a>
             ))}
           </div>
-          <CopyEmail label="Email" className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
+          <a href={EMAIL} className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
-          </CopyEmail>
+            <span className="relative">Email</span>
+          </a>
           <ThemeToggle />
         </div>
       </nav>
