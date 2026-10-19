@@ -20,7 +20,7 @@ const HOME_NAV = NAV
 const COPY = {
   headline: 'Product designer building complex systems into simple, intuitive experiences.',
   intro: [
-    'Dashboards, reports, roles and permissions: the screens people spend their working day in. I take them from research to a working prototype in React, so engineers build from something close to the real product.',
+    'I care about visual craft and the small details that make a product feel right. These days I also write code: with AI I explore ideas, build and ship features, and get from a first idea to a working product much faster.',
   ],
 }
 
