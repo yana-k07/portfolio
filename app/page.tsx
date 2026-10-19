@@ -8,7 +8,7 @@ import { SiteFooter } from '@/components/site/SiteFooter'
 import { AVATAR, NAME, NAV, asset } from '@/lib/site'
 
 // The home page: the claim, a short paragraph and the small facts, then the
-// projects one under another in the same 768px column as About. One type scale, sentence-case labels, mono for the small facts.
+// projects two to a row, in the same 896px column as every other page. One type scale, sentence-case labels, mono for the small facts.
 export const metadata: Metadata = {
   title: 'Yana Kovalova, product designer',
   description:
@@ -104,9 +104,9 @@ export default function Home() {
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={HOME_NAV} />
 
-      {/* The reading column (768px), the same as About: the intro and then the
-          projects one under another, each cover at the column's width. */}
-      <div className="mx-auto w-full max-w-3xl px-6">
+      {/* The site column (896px), the same on every page: the intro, then the
+          projects two to a row (one on phones). */}
+      <div className="mx-auto w-full max-w-4xl px-6">
         <section aria-labelledby="hero-heading" className="pb-12 pt-10 md:pb-16 md:pt-14">
           {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
           <img
@@ -138,7 +138,7 @@ export default function Home() {
               Projects
             </h2>
           </Reveal>
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {PROJECTS.map((p, i) => (
               <Reveal key={p.slug} delay={Math.min(i, 3) * 40}>
                 <ProjectCard p={p} />

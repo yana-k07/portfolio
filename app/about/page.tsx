@@ -31,7 +31,7 @@ export default function About() {
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('About')} />
 
-      <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
+      <div className="mx-auto max-w-4xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <PageHeader title="About me" />
 
         <div className="mb-10 max-w-2xl">
