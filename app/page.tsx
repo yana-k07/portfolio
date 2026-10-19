@@ -122,7 +122,7 @@ export default function Home() {
         />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-background" />
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-32 pt-16 sm:px-6 md:pb-40 md:pt-24">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-32 pt-28 sm:px-6 md:pb-40 md:pt-40">
           <h1
             id="hero-heading"
             className="max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-[32px] xl:text-4xl"
