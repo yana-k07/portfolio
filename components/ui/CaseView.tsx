@@ -18,7 +18,7 @@ const WIDE = '(max-width: 1200px) 100vw, 1152px'
 
 export function CaseView({ c }: { c: Case }) {
   return (
-    <div className="mx-auto max-w-4xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
+    <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
       <BackLink href="/#projects">← Projects</BackLink>
 
       <PageHeader title={c.title} lede={c.lede}>
@@ -31,7 +31,7 @@ export function CaseView({ c }: { c: Case }) {
         )}
       </PageHeader>
 
-      <article className="case-body space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
+      <article className="space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
         <CaseMeta items={c.meta} />
 
         {c.cover && (

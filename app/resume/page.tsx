@@ -19,7 +19,7 @@ export default function Resume() {
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={navWith('Resume')} />
 
-      <div className="mx-auto max-w-4xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
+      <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <h1 className="sr-only">Resume</h1>
         <div className="mb-8 md:mb-10">
           <a href={RESUME_PDF} target="_blank" rel="noreferrer" className={cn(outlinePill, 'h-9')}>

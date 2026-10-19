@@ -15,7 +15,7 @@ import { SiteFooter } from '@/components/site/SiteFooter'
 import { AVATAR, NAME, NAV, asset as A } from '@/lib/site'
 import { CompareSlider } from './CompareSlider'
 
-// The Tradezella case: the text in the reading column (896px, prose capped at
+// The Tradezella case: the text in the reading column (768px, prose capped at
 // ~70ch), the before/after, the two-up and the clips at the wide zone
 // (1152px). Every image and clip opens in the full-screen viewer, the phone
 // capture scrolls inside the device, the company's audience figures sit in
@@ -43,7 +43,7 @@ export default function Tradezella() {
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={NAV} />
 
-      <div className="mx-auto max-w-4xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
+      <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <BackLink href="/#projects">← Projects</BackLink>
 
         <PageHeader
@@ -57,7 +57,7 @@ export default function Tradezella() {
           </a>
         </PageHeader>
 
-        <article className="case-body space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
+        <article className="space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
           <CaseMeta
             items={[
               { label: 'Role', value: 'Senior product designer, solo' },
@@ -68,7 +68,7 @@ export default function Tradezella() {
           />
 
           {/* Her results first, as the site's headline numbers. */}
-          <section className="case-full space-y-3">
+          <section className="space-y-3">
             <h2 className="sr-only">Results</h2>
             <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {RESULTS.map((r) => (
