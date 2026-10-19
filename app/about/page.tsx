@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { SectionHeading } from '@/components/ui/CaseBlocks'
-import { LazyAutoplayVideo } from '@/components/ui/LazyAutoplayVideo'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { outlinePill } from '@/components/ui/button-styles'
 import { SiteBar } from '@/components/site/SiteBar'
@@ -11,7 +10,7 @@ import { AVATAR, INSTAGRAM, LINKEDIN, NAME, YOUTUBE, navWith } from '@/lib/site'
 import { TOOL_LOGOS } from '@/lib/tool-logos'
 import { cn } from '@/lib/utils'
 
-// Who she is and her links, the office clip, how she works (three facts first),
+// Who she is and her links, how she works (three facts first),
 // experience, then a bit more about her with a grid of her photos. The content lives in lib/about.ts.
 export const metadata: Metadata = {
   title: 'About me, Yana Kovalova',
@@ -52,8 +51,6 @@ export default function About() {
             )}
           </div>
         </div>
-
-        <LazyAutoplayVideo src={A.video.src} poster={A.video.poster} autoplay decorative className="img-outline mb-10 aspect-video w-full rounded-xl object-cover" />
 
         <div className="space-y-10 text-xs leading-relaxed text-muted-foreground [&_section>p]:max-w-2xl">
           <section className="space-y-4">

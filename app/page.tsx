@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { sectionHeading } from '@/components/ui/CaseBlocks'
+import { LazyAutoplayVideo } from '@/components/ui/LazyAutoplayVideo'
 import { Reveal } from '@/components/ui/Reveal'
 import { Tile, TileTitle, tileMeta } from '@/components/ui/Tile'
 import { cn } from '@/lib/utils'
@@ -107,29 +108,40 @@ export default function Home() {
       {/* The wide zone (1152px) for the whole page: the text stays at ~70ch,
           the project covers take the width, two to a row. */}
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <section aria-labelledby="hero-heading" className="pb-14 pt-12 md:pb-20 md:pt-20">
-          {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
-          <img
-            src={AVATAR}
-            alt="Yana Kovalova"
-            width={56}
-            height={56}
-            className="img-outline h-14 w-14 rounded-full object-cover"
+        <section aria-labelledby="hero-heading" className="grid grid-cols-1 items-center gap-10 pb-14 pt-12 md:pb-20 md:pt-20 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-12">
+          <div>
+            {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
+            <img
+              src={AVATAR}
+              alt="Yana Kovalova"
+              width={56}
+              height={56}
+              className="img-outline h-14 w-14 rounded-full object-cover"
+            />
+            <h1
+              id="hero-heading"
+              className="mt-6 max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[32px] xl:text-4xl"
+            >
+              {COPY.headline}
+            </h1>
+            {COPY.intro.map((paragraph) => (
+              <p key={paragraph} className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg md:leading-7">
+                {paragraph}
+              </p>
+            ))}
+            {/* The small facts in mono, the site's texture: where and what. Email
+                lives in the bar, once. */}
+            <p className="mt-5 font-mono text-[13px]/5 text-muted-foreground/70">Warsaw, Poland · B2B and fintech</p>
+          </div>
+          {/* Her at work, the clip from About: beside the intro on wide screens,
+              under it on phones. */}
+          <LazyAutoplayVideo
+            src={asset('about/office.webm')}
+            poster={asset('about/office-poster.webp')}
+            autoplay
+            decorative
+            className="img-outline aspect-video w-full rounded-xl object-cover"
           />
-          <h1
-            id="hero-heading"
-            className="mt-6 max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[32px] xl:text-4xl"
-          >
-            {COPY.headline}
-          </h1>
-          {COPY.intro.map((paragraph) => (
-            <p key={paragraph} className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg md:leading-7">
-              {paragraph}
-            </p>
-          ))}
-          {/* The small facts in mono, the site's texture: where and what. Email
-              lives in the bar, once. */}
-          <p className="mt-5 font-mono text-[13px]/5 text-muted-foreground/70">Warsaw, Poland · B2B and fintech</p>
         </section>
 
         <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-20 pb-16">
