@@ -124,16 +124,15 @@ export default function About() {
             ))}
             <div className="grid grid-cols-3 gap-2 pt-2 sm:gap-3">
               {A.photos.map((ph) => (
-                <div key={ph.src} className="rounded-lg border border-border bg-card p-1 sm:rounded-xl sm:p-1.5">
-                  <Image
-                    src={ph.src}
-                    alt={ph.alt}
-                    width={1200}
-                    height={1600}
-                    sizes="(max-width: 640px) 33vw, 240px"
-                    className="aspect-[3/4] w-full rounded-md object-cover sm:rounded-lg"
-                  />
-                </div>
+                <Image
+                  key={ph.src}
+                  src={ph.src}
+                  alt={ph.alt}
+                  width={1200}
+                  height={1600}
+                  sizes="(max-width: 640px) 33vw, 240px"
+                  className="aspect-[3/4] w-full rounded-lg object-cover sm:rounded-xl"
+                />
               ))}
             </div>
           </section>
