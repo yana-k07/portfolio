@@ -31,7 +31,7 @@ export function CaseView({ c }: { c: Case }) {
         )}
       </PageHeader>
 
-      <article className="space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
+      <article className="case-body space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
         <CaseMeta items={c.meta} />
 
         {c.cover && (

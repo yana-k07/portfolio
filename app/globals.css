@@ -246,3 +246,28 @@
     display: none;
   }
 }
+
+/* Case pages: from tablet up, each chapter is two columns, its heading on the
+   left and the text on the right. Sections that continue a chapter after a
+   wide image carry no heading, so their text lands in the right column too.
+   Images, clips and the meta row sit outside the sections at full width;
+   .case-full keeps a section (TradeZella's results) full width too. */
+@media (min-width: 768px) {
+  .case-body > section:not(.case-full) {
+    display: grid;
+    grid-template-columns: 11rem minmax(0, 1fr);
+    column-gap: 2.5rem;
+    row-gap: 1rem;
+    align-items: start;
+  }
+  .case-body > section:not(.case-full) > * {
+    grid-column: 2;
+    /* the row gap spaces them; space-y's margins would double it */
+    margin-block: 0 !important;
+    max-width: none !important;
+  }
+  .case-body > section:not(.case-full) > h2 {
+    grid-column: 1;
+    padding-top: 0;
+  }
+}

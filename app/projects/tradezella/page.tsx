@@ -57,7 +57,7 @@ export default function Tradezella() {
           </a>
         </PageHeader>
 
-        <article className="space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
+        <article className="case-body space-y-8 text-xs leading-relaxed text-muted-foreground [&_section>ol]:max-w-2xl [&_section>p]:max-w-2xl [&_section>ul]:max-w-2xl">
           <CaseMeta
             items={[
               { label: 'Role', value: 'Senior product designer, solo' },
@@ -68,7 +68,7 @@ export default function Tradezella() {
           />
 
           {/* Her results first, as the site's headline numbers. */}
-          <section className="space-y-3">
+          <section className="case-full space-y-3">
             <h2 className="sr-only">Results</h2>
             <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
               {RESULTS.map((r) => (
