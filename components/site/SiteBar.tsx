@@ -7,24 +7,23 @@ import { cn } from '@/lib/utils'
 import { EMAIL } from '@/lib/site'
 import { ThemeToggle } from './ThemeToggle'
 
-// The sticky bar: the name as the wordmark (the avatar on phones) on the left;
+// The sticky bar: the name as the wordmark on the left (on phones too, so the
+// face is not shown twice on the home page);
 // the page links, the email pill and the theme switch on the right. Transparent at the top, frosted
 // once the page has moved (.site-header-scrolled in globals.css).
 const FROST_ON = 28
 const FROST_OFF = 12
 
 const pill =
-  'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-3.5 text-[13px]/4 font-medium transition-[background-color,color,scale] ease-snap active:scale-[0.97]'
+  'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-2.5 text-[13px]/4 font-medium min-[380px]:px-3.5 transition-[background-color,color,scale] ease-snap active:scale-[0.97]'
 
 export function SiteBar({
   name,
-  avatar,
   nav,
 }: {
   name: string
-  /** The face stands in for the wordmark on phones, where three pills, the
-   *  email pill and the switch leave no room for a two-word name. */
-  avatar: string
+  /** Kept for the callers; the bar shows the name on every screen. */
+  avatar?: string
   nav: { label: string; href: string; active?: boolean }[]
 }) {
   const [frosted, setFrosted] = useState(false)
@@ -46,18 +45,14 @@ export function SiteBar({
 
   return (
     <header className={cn('site-header sticky top-0 z-40 border-b border-transparent', frosted && 'site-header-scrolled')}>
-      <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-3xl items-center justify-between gap-2 px-6">
+      <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-3xl items-center justify-between gap-3 px-6">
         <div className="flex min-w-0 items-center gap-2 sm:gap-4">
-          <NextLink href="/" className="hidden whitespace-nowrap text-[16px] font-medium tracking-tight text-foreground md:block">
+          <NextLink href="/" className="whitespace-nowrap text-[15px] font-medium tracking-tight text-foreground sm:text-[16px]">
             {name}
-          </NextLink>
-          <NextLink href="/" aria-label={`${name}, home`} className="block shrink-0 md:hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element -- her file, from her deployment */}
-            <img src={avatar} alt="" width={32} height={32} className="h-7 w-7 rounded-full object-cover shadow-sm sm:h-8 sm:w-8" />
           </NextLink>
         </div>
 
-        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <div className="flex shrink-0 items-center gap-1 min-[380px]:gap-1.5 sm:gap-2">
           <div className="flex items-center gap-0.5 sm:gap-1">
             {nav.map((item) => (
               <a
