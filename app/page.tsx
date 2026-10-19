@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'Product designer for complex B2B interfaces: dashboards, reports, onboarding, roles and permissions. Fintech and trading analytics.',
 }
 
-const HOME_NAV = NAV.map((item) => ({ ...item, active: item.label === 'Projects' }))
+const HOME_NAV = NAV
 
 const COPY = {
   headline: 'Product designer for the screens people work in all day.',

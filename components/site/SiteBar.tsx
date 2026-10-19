@@ -7,8 +7,8 @@ import { cn } from '@/lib/utils'
 import { CopyEmail } from '@/components/ui/CopyEmail'
 import { ThemeToggle } from './ThemeToggle'
 
-// The sticky bar: the name as the wordmark (the avatar on phones), three nav
-// pills, the email pill and the theme switch. Transparent at the top, frosted
+// The sticky bar: the name as the wordmark (the avatar on phones) on the left;
+// the page links, the email pill and the theme switch on the right. Transparent at the top, frosted
 // once the page has moved (.site-header-scrolled in globals.css).
 const FROST_ON = 28
 const FROST_OFF = 12
@@ -55,7 +55,10 @@ export function SiteBar({
             {/* eslint-disable-next-line @next/next/no-img-element -- her file, from her deployment */}
             <img src={avatar} alt="" width={32} height={32} className="h-7 w-7 rounded-full object-cover shadow-sm sm:h-8 sm:w-8" />
           </NextLink>
-          <div className="scrollbar-hide flex min-w-0 items-center gap-0.5 overflow-x-auto sm:gap-1">
+        </div>
+
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-0.5 sm:gap-1">
             {nav.map((item) => (
               <a
                 key={item.href}
@@ -72,9 +75,6 @@ export function SiteBar({
               </a>
             ))}
           </div>
-        </div>
-
-        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
           <CopyEmail label="Email" className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
           </CopyEmail>

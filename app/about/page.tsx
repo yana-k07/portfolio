@@ -90,7 +90,7 @@ export default function About() {
 
           <section className="space-y-4">
             <SectionHeading>Experience</SectionHeading>
-            <ol className="divide-y divide-border border-y border-border">
+            <ol className="divide-y divide-border border-b border-border">
               {A.experience.map((e) => (
                 <li key={e.company} className="flex items-center gap-3 py-3.5">
                   {/* One tile for every logo: square app icons fill it, logos with
