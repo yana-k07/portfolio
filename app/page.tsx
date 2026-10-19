@@ -123,17 +123,9 @@ export default function Home() {
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-background" />
 
         <div className="mx-auto w-full max-w-6xl px-4 pb-32 pt-16 sm:px-6 md:pb-40 md:pt-24">
-          {/* eslint-disable-next-line @next/next/no-img-element -- her photo */}
-          <img
-            src={AVATAR}
-            alt="Yana Kovalova"
-            width={56}
-            height={56}
-            className="h-14 w-14 rounded-full object-cover ring-2 ring-white/30"
-          />
           <h1
             id="hero-heading"
-            className="mt-6 max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-[32px] xl:text-4xl"
+            className="max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-[32px] xl:text-4xl"
           >
             {COPY.headline}
           </h1>
