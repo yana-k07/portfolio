@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 const HOME_NAV = NAV
 
 const COPY = {
-  headline: 'Product designer building complex systems into simple, intuitive experiences.',
+  headline: 'Product Designer building clarity into complex systems.',
   intro: [
-    'For me a product has to work well and look right, down to the small visual details. I use AI to build and ship features myself, so ideas turn into real products faster.',
+    'I design intuitive experiences for B2B SaaS, data-heavy products, and analytical tools. From complex dashboards to scalable design systems, I turn intricate workflows into clear, cohesive interfaces — using AI to explore ideas and validate solutions faster.',
   ],
 }
 
