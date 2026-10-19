@@ -8,9 +8,8 @@ import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
 import { AVATAR, EMAIL, NAME, NAV, asset } from '@/lib/site'
 
-// The home page: the claim and two short paragraphs, one action pair, then
-// the projects at the wide zone (1152px) so the covers show the work at a
-// readable size. One type scale, sentence-case labels, mono for the small facts.
+// The home page: the claim and a short paragraph, one action pair, then the
+// projects one under another in the same 768px column as About. One type scale, sentence-case labels, mono for the small facts.
 export const metadata: Metadata = {
   title: 'Yana Kovalova, product designer',
   description:
@@ -106,10 +105,10 @@ export default function Home() {
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={HOME_NAV} />
 
-      {/* The wide zone (1152px) for the whole page: the text stays at ~70ch,
-          the project covers take the width. */}
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <section aria-labelledby="hero-heading" className="pb-14 pt-12 md:pb-20 md:pt-20">
+      {/* The reading column (768px), the same as About: the intro and then the
+          projects one under another, each cover at the column's width. */}
+      <div className="mx-auto w-full max-w-3xl px-6">
+        <section aria-labelledby="hero-heading" className="pb-12 pt-10 md:pb-16 md:pt-14">
           {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
           <img
             src={AVATAR}
@@ -145,7 +144,7 @@ export default function Home() {
               Projects
             </h2>
           </Reveal>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6">
             {PROJECTS.map((p, i) => (
               <Reveal key={p.slug} delay={Math.min(i, 3) * 40}>
                 <ProjectCard p={p} />
