@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 const HOME_NAV = NAV
 
 const COPY = {
-  headline: 'Product designer for the screens people work in all day.',
+  headline: 'Product designer building complex systems into simple, intuitive experiences.',
   intro: [
-    'Dashboards, reports, onboarding, roles and permissions. I take a product from research to a working prototype in React, so engineers get something close to the real thing, not a picture of it.',
+    'Dashboards, reports, roles and permissions: the screens people spend their working day in. I take them from research to a working prototype in React, so engineers build from something close to the real product.',
   ],
 }
 
