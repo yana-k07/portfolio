@@ -21,7 +21,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    // data-scroll-behavior tells Next.js the page scrolls smoothly (globals.css),
+    // so it switches that off while changing pages: a new page opens at the top
+    // instead of gliding up from where the last one was left.
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="font-sans antialiased">
         <ThemeProvider>
           {/* Keyboard users skip the bar; both pages' <main> carry id="main". */}
