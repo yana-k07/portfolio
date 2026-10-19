@@ -26,14 +26,15 @@ export const ABOUT_CONTENT = {
     'I’m a people person. Whenever there’s an office, I’m usually in it, because five minutes at someone’s desk often settles what a long thread can’t.',
     'Away from the screen I travel, run and take photos. In 2026 I ran my first half marathon. Lately I’ve started filming my trips too, and my YouTube channel is where those vlogs live.',
   ],
-  // Two rows of three, shown as tilted prints. Dropped for now (files kept in
-  // public/assets/about): times-square, london-arch, medal.
   photos: [
     { src: '/assets/about/valencia.webp', alt: 'The City of Arts and Sciences in Valencia under a blue sky' },
     { src: '/assets/about/tower-bridge.webp', alt: 'Tower Bridge over the Thames in the evening light' },
     { src: '/assets/about/seven-sisters.webp', alt: 'The white cliffs of the Seven Sisters over the sea' },
     { src: '/assets/about/half-marathon.webp', alt: 'Yana with a finisher medal in front of the Istanbul Half Marathon wall' },
-    { src: '/assets/about/portrait-brooklyn.webp', alt: 'Yana sitting on the railing of the Brooklyn Bridge, the Manhattan skyline behind her' },
+    { src: '/assets/about/times-square.webp', alt: 'Times Square in New York, screens and skyscrapers' },
     { src: '/assets/about/palma-run.webp', alt: 'Yana in running gear resting on the grass by the cathedral in Palma de Mallorca' },
+    { src: '/assets/about/portrait-brooklyn.webp', alt: 'Yana sitting on the railing of the Brooklyn Bridge, the Manhattan skyline behind her' },
+    { src: '/assets/about/london-arch.webp', alt: 'The Gherkin seen through a stone archway in London' },
+    { src: '/assets/about/medal.webp', alt: 'A Midnattsloppet race medal held up after the run' },
   ],
 }
