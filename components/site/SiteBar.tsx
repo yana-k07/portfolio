@@ -14,7 +14,7 @@ const FROST_ON = 28
 const FROST_OFF = 12
 
 const pill =
-  'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-1.5 text-[12px]/4 font-medium transition-[background-color,color,scale] ease-snap active:scale-[0.97] sm:px-3.5 sm:text-[13px]/4'
+  'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-3.5 text-[13px]/4 font-medium transition-[background-color,color,scale] ease-snap active:scale-[0.97]'
 
 export function SiteBar({
   name,
