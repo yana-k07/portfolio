@@ -90,17 +90,28 @@ export default function About() {
 
           <section className="space-y-4">
             <SectionHeading>Experience</SectionHeading>
-            <ol className="divide-y divide-border border-y border-border">
+            <ol className="divide-y divide-border border-b border-border">
               {A.experience.map((e) => (
-                <li key={e.company} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                  <span className="flex items-center gap-3 text-[14px]/5 text-foreground">
-                    <Image src={e.logo} alt="" width={28} height={28} className="h-7 w-7 flex-none rounded-md object-cover ring-1 ring-border" />
-                    <span>
+                <li key={e.company} className="flex items-center gap-3 py-3.5">
+                  {/* One tile for every logo: square app icons fill it, logos with
+                      their own shape (circles, a framed mark, a mascot) sit inside
+                      with room around them. */}
+                  <span className="grid h-10 w-10 flex-none place-items-center overflow-hidden rounded-[10px] bg-white ring-1 ring-black/10 dark:ring-white/10">
+                    <Image
+                      src={e.logo}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className={'inset' in e && e.inset ? 'h-7 w-7 object-contain' : 'h-full w-full object-cover'}
+                    />
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+                    <span className="text-[14px]/5 text-foreground">
                       {e.company}
                       <span className="text-muted-foreground/70"> · {e.role}</span>
                     </span>
+                    <span className="shrink-0 font-mono text-[13px]/5 text-muted-foreground/70">{e.period}</span>
                   </span>
-                  <span className="shrink-0 pl-10 font-mono text-[13px]/5 text-muted-foreground/70 sm:pl-0">{e.period}</span>
                 </li>
               ))}
             </ol>
@@ -113,15 +124,16 @@ export default function About() {
             ))}
             <div className="grid grid-cols-3 gap-2 pt-2 sm:gap-3">
               {A.photos.map((ph) => (
-                <Image
-                  key={ph.src}
-                  src={ph.src}
-                  alt={ph.alt}
-                  width={1200}
-                  height={1600}
-                  sizes="(max-width: 640px) 33vw, 240px"
-                  className="img-outline aspect-[3/4] w-full rounded-lg object-cover sm:rounded-xl"
-                />
+                <div key={ph.src} className="rounded-lg border border-border bg-card p-1 sm:rounded-xl sm:p-1.5">
+                  <Image
+                    src={ph.src}
+                    alt={ph.alt}
+                    width={1200}
+                    height={1600}
+                    sizes="(max-width: 640px) 33vw, 240px"
+                    className="aspect-[3/4] w-full rounded-md object-cover sm:rounded-lg"
+                  />
+                </div>
               ))}
             </div>
           </section>

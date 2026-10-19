@@ -4,17 +4,17 @@ import { useEffect, useRef, useState } from 'react'
 import NextLink from 'next/link'
 import { glassPill, glassPillFace, glassPillShadow } from '@/components/ui/button-styles'
 import { cn } from '@/lib/utils'
-import { CopyEmail } from '@/components/ui/CopyEmail'
+import { EMAIL } from '@/lib/site'
 import { ThemeToggle } from './ThemeToggle'
 
-// The sticky bar: the name as the wordmark (the avatar on phones), three nav
-// pills, the email pill and the theme switch. Transparent at the top, frosted
+// The sticky bar: the name as the wordmark (the avatar on phones) on the left;
+// the page links, the email pill and the theme switch on the right. Transparent at the top, frosted
 // once the page has moved (.site-header-scrolled in globals.css).
 const FROST_ON = 28
 const FROST_OFF = 12
 
 const pill =
-  'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-1.5 text-[12px]/4 font-medium transition-[background-color,color,scale] ease-snap active:scale-[0.97] sm:px-3.5 sm:text-[13px]/4'
+  'inline-flex h-9 shrink-0 items-center justify-center whitespace-nowrap rounded-full px-3.5 text-[13px]/4 font-medium transition-[background-color,color,scale] ease-snap active:scale-[0.97]'
 
 export function SiteBar({
   name,
@@ -46,7 +46,7 @@ export function SiteBar({
 
   return (
     <header className={cn('site-header sticky top-0 z-40 border-b border-transparent', frosted && 'site-header-scrolled')}>
-      <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-6xl items-center justify-between gap-2 px-4 sm:px-6">
+      <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-3xl items-center justify-between gap-2 px-6">
         <div className="flex min-w-0 items-center gap-2 sm:gap-4">
           <NextLink href="/" className="hidden whitespace-nowrap text-[16px] font-medium tracking-tight text-foreground md:block">
             {name}
@@ -55,7 +55,10 @@ export function SiteBar({
             {/* eslint-disable-next-line @next/next/no-img-element -- her file, from her deployment */}
             <img src={avatar} alt="" width={32} height={32} className="h-7 w-7 rounded-full object-cover shadow-sm sm:h-8 sm:w-8" />
           </NextLink>
-          <div className="scrollbar-hide flex min-w-0 items-center gap-0.5 overflow-x-auto sm:gap-1">
+        </div>
+
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+          <div className="flex items-center gap-0.5 sm:gap-1">
             {nav.map((item) => (
               <a
                 key={item.href}
@@ -72,12 +75,10 @@ export function SiteBar({
               </a>
             ))}
           </div>
-        </div>
-
-        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
-          <CopyEmail label="Email" className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
+          <a href={EMAIL} className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
-          </CopyEmail>
+            <span className="relative">Email</span>
+          </a>
           <ThemeToggle />
         </div>
       </nav>

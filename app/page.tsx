@@ -6,19 +6,17 @@ import { Tile, TileTitle, tileMeta } from '@/components/ui/Tile'
 import { cn } from '@/lib/utils'
 import { SiteBar } from '@/components/site/SiteBar'
 import { SiteFooter } from '@/components/site/SiteFooter'
-import { AVATAR, NAME, NAV, asset } from '@/lib/site'
-import { CopyEmail } from '@/components/ui/CopyEmail'
+import { AVATAR, EMAIL, NAME, NAV, asset } from '@/lib/site'
 
-// The home page: the claim and two short paragraphs, one action pair, then
-// the projects at the wide zone (1152px) so the covers show the work at a
-// readable size. One type scale, sentence-case labels, mono for the small facts.
+// The home page: the claim and a short paragraph, one action pair, then the
+// projects one under another in the same 768px column as About. One type scale, sentence-case labels, mono for the small facts.
 export const metadata: Metadata = {
   title: 'Yana Kovalova, product designer',
   description:
     'Product designer for complex B2B interfaces: dashboards, reports, onboarding, roles and permissions. Fintech and trading analytics.',
 }
 
-const HOME_NAV = NAV.map((item) => ({ ...item, active: item.label === 'Projects' }))
+const HOME_NAV = NAV
 
 const COPY = {
   headline: 'Product designer for the screens people work in all day.',
@@ -107,10 +105,10 @@ export default function Home() {
     <main id="main" className="min-h-screen bg-background text-foreground">
       <SiteBar name={NAME} avatar={AVATAR} nav={HOME_NAV} />
 
-      {/* The wide zone (1152px) for the whole page: the text stays at ~70ch,
-          the project covers take the width. */}
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
-        <section aria-labelledby="hero-heading" className="pb-14 pt-12 md:pb-20 md:pt-20">
+      {/* The reading column (768px), the same as About: the intro and then the
+          projects one under another, each cover at the column's width. */}
+      <div className="mx-auto w-full max-w-3xl px-6">
+        <section aria-labelledby="hero-heading" className="pb-12 pt-10 md:pb-16 md:pt-14">
           {/* eslint-disable-next-line @next/next/no-img-element -- light and dark covers swap by class */}
           <img
             src={AVATAR}
@@ -131,9 +129,10 @@ export default function Home() {
             </p>
           ))}
           <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3 lg:mt-8">
-            <CopyEmail label="Email me" className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
+            <a href={EMAIL} className={cn(glassPill, 'h-9 px-4')} style={{ background: glassPillFace }}>
               <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
-            </CopyEmail>
+              <span className="relative">Email me</span>
+            </a>
             {/* The small facts in mono, the site's texture: where and what. */}
             <p className="font-mono text-[13px]/5 text-muted-foreground/70">Warsaw, Poland · B2B and fintech</p>
           </div>
@@ -145,7 +144,7 @@ export default function Home() {
               Projects
             </h2>
           </Reveal>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6">
             {PROJECTS.map((p, i) => (
               <Reveal key={p.slug} delay={Math.min(i, 3) * 40}>
                 <ProjectCard p={p} />

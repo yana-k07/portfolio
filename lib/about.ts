@@ -15,10 +15,10 @@ export const ABOUT_CONTENT = {
   ],
   experience: [
     { company: 'Quorso', logo: '/assets/logos/quorso.png', role: 'Senior Product Designer', period: 'Mar 2026 – now' },
-    { company: 'Railsware', logo: '/assets/logos/railsware.png', role: 'Senior Product Designer', period: 'Oct 2024 – Mar 2026' },
-    { company: 'TradeZella', logo: '/assets/logos/tradezella.png', role: 'Senior Product Designer', period: 'Oct 2024 – Oct 2025' },
-    { company: 'Yetlo Finance', logo: '/assets/logos/yetlo.png', role: 'Product Designer', period: 'Jun 2023 – Oct 2024' },
-    { company: 'Spaceberry Studio', logo: '/assets/logos/spaceberry.png', role: 'UX/UI Designer', period: 'Dec 2021 – May 2023' },
+    { company: 'Railsware', logo: '/assets/logos/railsware.png', inset: true, role: 'Senior Product Designer', period: 'Oct 2024 – Mar 2026' },
+    { company: 'TradeZella', logo: '/assets/logos/tradezella.png', inset: true, role: 'Senior Product Designer', period: 'Oct 2024 – Oct 2025' },
+    { company: 'Yetlo Finance', logo: '/assets/logos/yetlo.png', inset: true, role: 'Product Designer', period: 'Jun 2023 – Oct 2024' },
+    { company: 'Spaceberry Studio', logo: '/assets/logos/spaceberry.png', inset: true, role: 'UX/UI Designer', period: 'Dec 2021 – May 2023' },
     { company: 'Layo', logo: '/assets/logos/layo.png', role: 'UX/UI Designer', period: 'Jan 2021 – Dec 2021' },
   ],
   more: [

@@ -21,8 +21,9 @@ export const INSTAGRAM = ''
 /** The Resume page is hidden for now: off the nav and 404 at /resume. Set true to bring it back. */
 export const SHOW_RESUME = false
 
+/** The bar's links, shown on the right next to Email. The home page is the
+ *  projects page, so the name is the way back to it. */
 export const NAV = [
-  { label: 'Projects', href: '/#projects' },
   ...(SHOW_RESUME ? [{ label: 'Resume', href: RESUME }] : []),
   { label: 'About', href: ABOUT },
 ]
