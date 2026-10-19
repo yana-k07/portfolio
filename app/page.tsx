@@ -20,7 +20,7 @@ const HOME_NAV = NAV
 const COPY = {
   headline: 'Product designer building complex systems into simple, intuitive experiences.',
   intro: [
-    'I care about visual craft and the small details that make a product feel right. These days I also write code: with AI I explore ideas, build and ship features, and get from a first idea to a working product much faster.',
+    'For me a product has to work well and look right, down to the small visual details. I use AI to build and ship features myself, so ideas turn into real products faster.',
   ],
 }
 
