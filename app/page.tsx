@@ -103,11 +103,11 @@ const PROJECTS: Project[] = [
 export default function Home() {
   return (
     <main id="main" className="min-h-screen bg-background text-foreground">
-      <SiteBar name={NAME} avatar={AVATAR} nav={HOME_NAV} />
+      <SiteBar name={NAME} avatar={AVATAR} nav={HOME_NAV} overlay />
 
-      {/* The hero over her office clip, full width: a dark veil keeps the text
+      {/* The hero over her office clip, full width and under the bar: a dark veil keeps the text
           readable, and the bottom blurs and fades into the page. */}
-      <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden">
+      <section aria-labelledby="hero-heading" className="relative isolate -mt-[60px] overflow-hidden">
         <LazyAutoplayVideo
           src={asset('about/office.webm')}
           poster={asset('about/office-poster.webp')}
@@ -116,13 +116,15 @@ export default function Home() {
           className="absolute inset-0 -z-30 h-full w-full object-cover object-[60%_50%]"
         />
         <div aria-hidden="true" className="absolute inset-0 -z-20 bg-gradient-to-r from-black/75 via-black/55 to-black/30" />
+        {/* The bar sits on the clip: a soft shade at the top keeps its text readable. */}
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 -z-20 h-40 bg-gradient-to-b from-black/45 to-transparent" />
         <div
           aria-hidden="true"
           className="absolute inset-x-0 bottom-0 -z-10 h-48 backdrop-blur-md [mask-image:linear-gradient(to_bottom,transparent,black_70%)]"
         />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-background" />
 
-        <div className="mx-auto w-full max-w-6xl px-4 pb-32 pt-28 sm:px-6 md:pb-40 md:pt-40">
+        <div className="mx-auto w-full max-w-6xl px-4 pb-32 pt-[172px] sm:px-6 md:pb-40 md:pt-[220px]">
           <h1
             id="hero-heading"
             className="max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-[32px] xl:text-4xl"

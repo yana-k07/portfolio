@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 
 // One-tap light/dark switch: sun and moon swap with a quarter turn. Reads the
 // resolved theme so the icon tells the truth after hydration.
-export function ThemeToggle() {
+export function ThemeToggle({ className }: { className?: string } = {}) {
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
@@ -21,7 +21,10 @@ export function ThemeToggle() {
       type="button"
       onClick={() => setTheme(dark ? 'light' : 'dark')}
       aria-label={dark ? 'Switch to the light theme' : 'Switch to the dark theme'}
-      className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-muted text-foreground/60 transition-[background-color,color,scale] ease-snap hover:bg-foreground/[0.06] hover:text-foreground active:scale-[0.97] dark:hover:bg-foreground/[0.12]"
+      className={cn(
+        'inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-muted text-foreground/60 transition-[background-color,color,scale] ease-snap hover:bg-foreground/[0.06] hover:text-foreground active:scale-[0.97] dark:hover:bg-foreground/[0.12]',
+        className
+      )}
     >
       <span className="relative flex size-4 items-center justify-center">
         <HugeiconsIcon

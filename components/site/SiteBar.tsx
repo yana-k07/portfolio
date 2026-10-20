@@ -20,11 +20,15 @@ const pill =
 export function SiteBar({
   name,
   nav,
+  overlay = false,
 }: {
   name: string
   /** Kept for the callers; the bar shows the name on every screen. */
   avatar?: string
   nav: { label: string; href: string; active?: boolean }[]
+  /** The bar sits over a dark hero (the home page): light text until the page
+   *  scrolls and the bar frosts over the regular background. */
+  overlay?: boolean
 }) {
   const [frosted, setFrosted] = useState(false)
   const frostRef = useRef(false)
@@ -43,11 +47,13 @@ export function SiteBar({
     return () => window.removeEventListener('scroll', update)
   }, [])
 
+  const light = overlay && !frosted
+
   return (
     <header className={cn('site-header sticky top-0 z-40 border-b border-transparent', frosted && 'site-header-scrolled')}>
       <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <div className="flex min-w-0 items-center gap-2 sm:gap-4">
-          <NextLink href="/" className="whitespace-nowrap text-[15px] font-medium tracking-tight text-foreground sm:text-[16px]">
+          <NextLink href="/" className={cn('whitespace-nowrap text-[15px] font-medium tracking-tight transition-colors sm:text-[16px]', light ? 'text-white' : 'text-foreground')}>
             {name}
           </NextLink>
         </div>
@@ -61,9 +67,11 @@ export function SiteBar({
                 aria-current={item.active ? 'page' : undefined}
                 className={cn(
                   pill,
-                  item.active
-                    ? 'bg-foreground/[0.06] text-foreground dark:bg-foreground/10'
-                    : 'text-foreground/60 hover:bg-foreground/[0.06] hover:text-foreground dark:hover:bg-foreground/10'
+                  light
+                    ? 'text-white/80 hover:bg-white/15 hover:text-white'
+                    : item.active
+                      ? 'bg-foreground/[0.06] text-foreground dark:bg-foreground/10'
+                      : 'text-foreground/60 hover:bg-foreground/[0.06] hover:text-foreground dark:hover:bg-foreground/10'
                 )}
               >
                 {item.label}
@@ -74,7 +82,7 @@ export function SiteBar({
             <span aria-hidden="true" className="pointer-events-none absolute inset-0 rounded-full" style={{ boxShadow: glassPillShadow }} />
             <span className="relative">Email</span>
           </a>
-          <ThemeToggle />
+          <ThemeToggle className={light ? 'bg-white/15 text-white/85 hover:bg-white/25 hover:text-white dark:hover:bg-white/25' : undefined} />
         </div>
       </nav>
     </header>
