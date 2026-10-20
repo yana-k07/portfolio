@@ -4,7 +4,7 @@ export const ASSETS = '/assets' // images and clips live in public/assets/
 export const asset = (file: string) => `${ASSETS}/${file}`
 
 export const NAME = 'Yana Kovalova'
-export const AVATAR = asset('avatar-DL9M3YyB.jpg')
+export const AVATAR = asset('avatar-portrait.jpg')
 export const EMAIL_ADDRESS = 'yana.kovalyova2409@gmail.com'
 export const EMAIL = `mailto:${EMAIL_ADDRESS}`
 /** TODO: the profile URL. The LinkedIn links (footer, About) appear once this is set. */
