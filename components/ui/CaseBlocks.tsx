@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 /* Shared building blocks for case-study pages. Keep these presentational and
    data-free: pass content in via props. */
 
-/** The 18px section head: case sections and the Projects head on the home page. */
+/** The 18px section head: case sections and the Products head on the home page. */
 export const sectionHeading = 'text-lg font-semibold leading-snug tracking-tight text-foreground'
 
 export function SectionHeading({ children, className }: { children: ReactNode; className?: string }) {
