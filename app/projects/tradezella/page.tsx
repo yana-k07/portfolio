@@ -44,7 +44,7 @@ export default function Tradezella() {
       <SiteBar name={NAME} avatar={AVATAR} nav={NAV} />
 
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
-        <BackLink href="/#projects">← Projects</BackLink>
+        <BackLink href="/#projects">← Products</BackLink>
 
         <PageHeader
           title="Tradezella: redesigning 50+ trading reports"

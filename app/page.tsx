@@ -158,7 +158,7 @@ export default function Home() {
         <section id="projects" aria-labelledby="projects-heading" className="scroll-mt-20 pb-16">
           <Reveal>
             <h2 id="projects-heading" className={cn(sectionHeading, 'mb-4')}>
-              Projects
+              Products
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

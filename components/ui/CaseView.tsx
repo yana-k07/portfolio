@@ -19,7 +19,7 @@ const WIDE = '(max-width: 1200px) 100vw, 1152px'
 export function CaseView({ c }: { c: Case }) {
   return (
     <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
-      <BackLink href="/#projects">← Projects</BackLink>
+      <BackLink href="/#projects">← Products</BackLink>
 
       <PageHeader title={c.title} lede={c.lede}>
         {c.link && (
