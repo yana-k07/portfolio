@@ -33,7 +33,7 @@ export default function About() {
       <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
         <PageHeader title="About me" />
 
-        <div className="mb-10 max-w-2xl">
+        <div className="mb-10">
           <div className="space-y-4 text-sm text-foreground">
             {A.intro.map((p) => (
               <p key={p}>{p}</p>
@@ -52,7 +52,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="space-y-10 text-xs leading-relaxed text-muted-foreground [&_section>p]:max-w-2xl">
+        <div className="space-y-10 text-xs leading-relaxed text-muted-foreground">
           <section className="space-y-4">
             <SectionHeading>How I work</SectionHeading>
             <dl className="grid grid-cols-1 gap-4 sm:grid-cols-3">
