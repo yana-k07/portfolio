@@ -50,7 +50,9 @@ export function SiteBar({
   const light = overlay && !frosted
 
   return (
-    <header className={cn('site-header sticky top-0 z-40 border-b border-transparent', frosted && 'site-header-scrolled')}>
+    <header
+      className={cn('site-header sticky top-0 z-40 border-b border-transparent pt-[env(safe-area-inset-top)]', frosted && 'site-header-scrolled')}
+    >
       <nav aria-label="Main" className="mx-auto flex h-[60px] w-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
         <div className="flex min-w-0 items-center gap-2 sm:gap-4">
           <NextLink href="/" className={cn('whitespace-nowrap text-[15px] font-medium tracking-tight transition-colors sm:text-[16px]', light ? 'text-white' : 'text-foreground')}>
