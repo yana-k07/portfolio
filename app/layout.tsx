@@ -13,6 +13,9 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
+  // The page runs under the phone's status bar, so the bar's frosted backdrop
+  // (SiteBar pads itself by the safe area) covers it instead of bare content.
+  viewportFit: 'cover',
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#fbfbfb' },
     { media: '(prefers-color-scheme: dark)', color: '#0c0a08' },
