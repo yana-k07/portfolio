@@ -19,7 +19,8 @@ export const metadata: Metadata = {
 const HOME_NAV = NAV
 
 const COPY = {
-  headline: 'Product Designer building clarity into complex systems.',
+  // Two lines: the role, then what she does.
+  headline: ['Product Designer', 'Building clarity into complex systems.'],
   intro: [
     'I design intuitive experiences for B2B SaaS, data-heavy products, and analytical tools. From complex dashboards to scalable design systems, I turn intricate workflows into clear, cohesive interfaces — using AI to explore ideas and validate solutions faster.',
   ],
@@ -135,9 +136,13 @@ export default function Home() {
         <div className="mx-auto w-full max-w-6xl px-4 pb-32 pt-[172px] sm:px-6 md:pb-40 md:pt-[220px]">
           <h1
             id="hero-heading"
-            className="max-w-2xl text-balance text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-[32px] xl:text-4xl"
+            className="max-w-3xl text-balance text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl lg:text-[32px] xl:text-4xl"
           >
-            {COPY.headline}
+            {COPY.headline.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h1>
           {COPY.intro.map((paragraph) => (
             <p key={paragraph} className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/85 md:text-lg md:leading-7">
