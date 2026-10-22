@@ -28,7 +28,7 @@ export default async function QuorsoInsights() {
         <CaseView c={QUORSO_INSIGHTS} />
       ) : (
         <div className="mx-auto max-w-3xl px-6 pb-16 pt-10 md:pb-20 md:pt-14">
-          <BackLink href="/#projects">← Products</BackLink>
+          <BackLink href="/#projects">← Cases</BackLink>
           <div className="mt-8">
             <Gate />
           </div>
