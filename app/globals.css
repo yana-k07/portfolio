@@ -176,6 +176,18 @@
   border-color: color-mix(in oklab, var(--foreground) 8%, transparent);
   box-shadow: 0 1px 0 0 color-mix(in oklab, var(--foreground) 2%, transparent);
 }
+/* Phones: Safari (iOS 26) shows the page through its top toolbar unless a
+   sticky bar at the top has a solid colour, which it then extends up there.
+   So on small screens the scrolled bar is opaque and the toolbar matches it. */
+@media (max-width: 767px) {
+  .site-header-scrolled,
+  .dark .site-header-scrolled,
+  .site-header-scrolled.dark {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background-color: var(--background);
+  }
+}
 @media (prefers-reduced-transparency: reduce) {
   .site-header-scrolled {
     -webkit-backdrop-filter: none;
