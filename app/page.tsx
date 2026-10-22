@@ -115,7 +115,7 @@ export default function Home() {
 
       {/* The hero over her office clip, full width and under the bar: a dark veil keeps the text
           readable, and the bottom blurs and fades into the page. */}
-      <section aria-labelledby="hero-heading" className="relative isolate -mt-[60px] overflow-hidden">
+      <section aria-labelledby="hero-heading" className="relative isolate -mt-[calc(60px+env(safe-area-inset-top))] overflow-hidden">
         <LazyAutoplayVideo
           src={asset('about/office.webm')}
           poster={asset('about/office-poster.webp')}
