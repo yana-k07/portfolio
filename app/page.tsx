@@ -36,6 +36,8 @@ type Project = {
   cover?: string
   coverDark?: string
   locked?: boolean
+  /** Unfinished: left off the production home page, still listed on preview deployments. */
+  draft?: boolean
   /** The product's round logo beside the meta line; the initial stands in without one. */
   logo?: string
 }
@@ -71,6 +73,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'quorso-design-system',
+    draft: true,
     meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
     title: 'One design system for two interfaces and the older screens',
@@ -80,6 +83,7 @@ const PROJECTS: Project[] = [
   },
   {
     slug: 'quorso-insights',
+    draft: true,
     meta: 'Quorso',
     logo: '/assets/logos/quorso.png',
     title: 'An insights feature',
@@ -98,6 +102,10 @@ const PROJECTS: Project[] = [
     coverDark: asset('organizer-cover.webp'),
   },
 ]
+
+// Draft cases stay off the live site until they are finished; preview builds
+// and local development still show them.
+const VISIBLE_PROJECTS = PROJECTS.filter((p) => !p.draft || process.env.VERCEL_ENV !== 'production')
 
 export default function Home() {
   return (
@@ -139,7 +147,7 @@ export default function Home() {
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {PROJECTS.map((p, i) => (
+            {VISIBLE_PROJECTS.map((p, i) => (
               <Reveal key={p.slug} delay={Math.min(i, 3) * 40}>
                 <ProjectCard p={p} />
               </Reveal>
